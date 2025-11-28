@@ -123,7 +123,7 @@ export default function MarketingPage() {
               <div className="relative w-full max-w-sm">
                 <div className="hidden md:block rounded-[2rem] bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-indigo-500/20 p-6 sm:p-8">
                   <p className="text-xs font-medium uppercase tracking-wide text-indigo-600 mb-2">
-                    Website as a Service
+                    Lumina
                   </p>
                   <p className="text-lg font-semibold text-slate-900 mb-1">
                     Seu site sempre atualizado
@@ -300,7 +300,7 @@ export default function MarketingPage() {
               </Card>
             </motion.div>
 
-            {/* Card Modelo WebJ */}
+            {/* Card Modelo Lumina */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -312,13 +312,13 @@ export default function MarketingPage() {
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
                     <CheckCircle2 className="h-6 w-6 text-green-600" />
-                    <CardTitle className="text-2xl tracking-tight">O Jeito WebJ</CardTitle>
+                    <CardTitle className="text-2xl tracking-tight">O Jeito Lumina</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-700">Zero entrada, apenas R$ 100/mês</p>
+                    <p className="text-slate-700">Zero entrada, apenas R$ 99,90/mês</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
@@ -620,7 +620,7 @@ export default function MarketingPage() {
                 <CardHeader className="text-center pb-4">
                   <CardTitle className="text-2xl md:text-3xl mb-4 text-slate-900 tracking-tight">ESSENCIAL</CardTitle>
                   <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 79,90</span>
+                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 99,90</span>
                     <span className="text-lg text-slate-600">/mês</span>
                   </div>
                   <p className="text-sm text-slate-600 mt-4 md:mt-2">Para quem quer apenas uma página simples</p>
@@ -685,7 +685,7 @@ export default function MarketingPage() {
                 <CardHeader className="text-center pb-4 pt-6">
                   <CardTitle className="text-2xl md:text-3xl mb-4 text-slate-900 tracking-tight">PROFISSIONAL</CardTitle>
                   <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 100,00</span>
+                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 139,90</span>
                     <span className="text-lg text-slate-600">/mês</span>
                   </div>
                   <p className="text-sm text-slate-600 mt-4 md:mt-2">Para quem quer crescer</p>

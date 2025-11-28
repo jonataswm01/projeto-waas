@@ -12,7 +12,7 @@ export function DemoBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-sm text-center sm:text-left">
-            Este é um site de demonstração criado pela <span className="font-semibold">WebJ</span>.
+            Este é um site de demonstração criado pela <span className="font-semibold">Lumina</span>.
           </p>
           <div className="flex items-center gap-3">
             <Link href="/">
@@ -22,7 +22,7 @@ export function DemoBar() {
                 className="bg-transparent border-white/20 text-white hover:bg-white/10"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Voltar ao Portfólio
+                Voltar ao Site
               </Button>
             </Link>
             <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
