@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
 export function Footer() {
@@ -14,12 +13,21 @@ export function Footer() {
           <p className="text-lg text-slate-300 max-w-2xl">
             Você tem duas escolhas: Continuar invisível ou dominar sua região por R$ 3,30 ao dia.
           </p>
-          <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-base px-8 py-6">
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Falar com Consultor no WhatsApp
-            </Button>
-          </Link>
+          <motion.a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ 
+              x: 4,
+              opacity: 0.9
+            }}
+            whileTap={{ x: 0 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            className="inline-flex items-center justify-center text-base px-8 py-6 font-medium bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
+          >
+            <MessageCircle className="mr-2 h-5 w-5" />
+            Falar com Consultor no WhatsApp
+          </motion.a>
           <div className="pt-8 border-t border-slate-800 w-full">
             <p className="text-sm text-slate-400">
               © {new Date().getFullYear()} WebJ. Todos os direitos reservados.

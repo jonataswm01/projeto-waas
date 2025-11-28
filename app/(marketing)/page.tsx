@@ -2,70 +2,802 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { 
+  ArrowRight, 
+  Instagram, 
+  UserX, 
+  TrendingDown, 
+  CheckCircle2, 
+  XCircle, 
+  Zap, 
+  Smartphone, 
+  ShieldCheck, 
+  MessageCircle,
+  Check,
+  Star
+} from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function MarketingPage() {
   const whatsappLink = "https://wa.me/5516997330113?text=Olá, quero saber mais sobre a assinatura de sites.";
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-pink-50 overflow-hidden pt-20">
+      {/* Aurora Orbs */}
+      <div className="pointer-events-none absolute -top-40 -left-32 h-80 w-80 rounded-full bg-indigo-300/40 blur-3xl" />
+      <div className="pointer-events-none absolute top-40 -right-40 h-96 w-96 rounded-full bg-sky-300/40 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-[-6rem] left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-pink-300/40 blur-3xl" />
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-50 pt-16">
-        {/* Grid Pattern Background */}
-        <div 
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgb(148 163 184 / 0.1) 1px, transparent 1px),
-                             linear-gradient(to bottom, rgb(148 163 184 / 0.1) 1px, transparent 1px)`,
-            backgroundSize: '32px 32px',
-          }}
-        />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-tight"
-            >
-              Enquanto você lê isso, seu concorrente acabou de fechar uma venda pelo Google.
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg sm:text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed"
-            >
-              Sua empresa é invisível? Pare de depender do Instagram. Tenha um Site Profissional no ar em 7 dias.
-            </motion.p>
-
-            {/* CTA Button */}
+      <section className="relative flex items-center justify-center pt-8 pb-16 sm:pb-24 md:pt-16">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6 }}
+              className="text-center md:text-left"
             >
-              <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <Button 
-                  size="lg" 
-                  className="text-base sm:text-lg px-8 sm:px-12 py-6 sm:py-7 font-semibold group"
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="flex justify-center md:justify-start mb-6"
+              >
+                <Badge className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-1.5 text-sm font-semibold rounded-full shadow-md shadow-blue-500/30">
+                  PARE DE PERDER VENDAS HOJE
+                </Badge>
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.25] px-2 sm:px-0"
+              >
+                Enquanto você lê isso, seu concorrente acabou de fechar uma venda pelo{" "}
+                <span className="bg-gradient-to-r from-indigo-500 via-sky-500 to-pink-500 bg-clip-text text-transparent">
+                  Google.
+                </span>
+              </motion.h1>
+
+              {/* Subheadline */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-lg sm:text-xl md:text-2xl text-slate-700 mb-6 max-w-3xl mx-auto md:mx-0 leading-relaxed"
+              >
+                Sua empresa é invisível? O Instagram não é o suficiente. Tenha um Site Profissional, Otimizado e Seguro no ar em 7 dias. Sem investir milhares de reais.
+              </motion.p>
+
+              {/* Micro-copy */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="text-sm text-slate-500 mb-10"
+              >
+                Assinatura mensal. Cancele quando quiser.
+              </motion.p>
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="flex justify-center md:justify-start"
+              >
+                <motion.a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow:
+                      "0 20px 40px -15px rgba(37, 99, 235, 0.6), 0 10px 20px -10px rgba(129, 140, 248, 0.5)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                  className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors group"
                 >
                   QUERO PARAR DE PERDER DINHEIRO
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+                </motion.a>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Hero Visual - Aurora Glass Cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="hidden md:flex relative h-[320px] sm:h-[360px] md:h-[400px] items-center justify-center"
+            >
+              <div className="relative w-full max-w-sm">
+                <div className="hidden md:block rounded-[2rem] bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-indigo-500/20 p-6 sm:p-8">
+                  <p className="text-xs font-medium uppercase tracking-wide text-indigo-600 mb-2">
+                    Website as a Service
+                  </p>
+                  <p className="text-lg font-semibold text-slate-900 mb-1">
+                    Seu site sempre atualizado
+                  </p>
+                  <p className="text-sm text-slate-700">
+                    Tecnologia de ponta sem investimento inicial, pensada para gerar vendas reais.
+                  </p>
+                </div>
+
+                <motion.div
+                  className="hidden md:block absolute -top-20 -right-16 w-36 sm:w-40 rounded-[1.5rem] bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-sky-500/20 p-4"
+                  animate={{ y: [-6, 6, -6] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <p className="text-xs font-medium text-slate-500 mb-1">Resultado médio</p>
+                  <p className="text-lg font-semibold text-slate-900">+30% vendas</p>
+                  <p className="text-[11px] text-slate-600">em 90 dias com presença profissional.</p>
+                </motion.div>
+
+                <motion.div
+                  className="hidden md:block absolute -bottom-28 -left-16 w-44 sm:w-52 rounded-[1.75rem] bg-indigo-600/90 backdrop-blur-xl border border-white/40 shadow-xl shadow-indigo-500/40 p-4 text-white"
+                  animate={{ y: [10, -6, 10] }}
+                  transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <p className="text-xs font-medium mb-1">Site blindado & rápido</p>
+                  <p className="text-sm text-indigo-100">
+                    Hospedado em infraestrutura moderna, com SSL e monitoramento contínuo.
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção O Diagnóstico */}
+      <section className="relative py-20 md:py-24 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
+          >
+            3 Sinais de que sua empresa está com os dias contados no digital:
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {/* Card 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Card className="h-full rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+                <CardHeader>
+                  <div className="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center mb-4">
+                    <Instagram className="h-6 w-6 text-red-600" />
+                  </div>
+                  <CardTitle className="tracking-tight">O Instagram não é seu.</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base text-slate-600">
+                    Você construiu seu negócio em um terreno alugado. Se sua conta cair amanhã, sua empresa deixa de existir. Um site é sua <strong>Propriedade Digital</strong>.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="h-full rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+                <CardHeader>
+                  <div className="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center mb-4">
+                    <UserX className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <CardTitle className="tracking-tight">Sem site = Amador.</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base text-slate-600">
+                    Antes de comprar, o cliente te pesquisa no Google. Se ele não te acha, mas encontra o concorrente com um site profissional... adivinhe quem leva o dinheiro?
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Card className="h-full rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+                <CardHeader>
+                  <div className="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center mb-4">
+                    <TrendingDown className="h-6 w-6 text-red-600" />
+                  </div>
+                  <CardTitle className="tracking-tight">Dinheiro na Mesa.</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base text-slate-600">
+                    Existem pessoas procurando seu serviço <strong>agora</strong> na sua cidade. Sem SEO (Otimização), você é invisível para esse lucro.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção A Solução */}
+      <section className="relative py-20 md:py-24 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-6 md:mb-8"
+          >
+            Ter um site de elite custava R$ 3.000,00. Até agora.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg text-slate-600 text-center mb-12 md:mb-16 max-w-3xl mx-auto"
+          >
+            Nós quebramos o modelo das agências tradicionais. Não vendemos 'código', vendemos sua máquina de vendas pronta.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* Card Modelo Velho */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="h-full rounded-[2rem] bg-slate-900/80 backdrop-blur-md border border-white/10 shadow-xl shadow-slate-900/40">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <XCircle className="h-6 w-6 text-red-400" />
+                    <CardTitle className="text-gray-100 text-2xl tracking-tight">O Velho Jeito (Agências)</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <XCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-gray-200">Paga caro na entrada (R$ 3.000+)</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <XCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-gray-200">Site fica lento em 6 meses</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <XCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-gray-200">Suporte cobra por hora</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <XCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-gray-200">Tecnologia desatualizada</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Card Modelo WebJ */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <Card className="h-full rounded-[2rem] bg-white/70 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/20">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <CheckCircle2 className="h-6 w-6 text-green-600" />
+                    <CardTitle className="text-2xl tracking-tight">O Jeito WebJ</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-700">Zero entrada, apenas R$ 100/mês</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-700">Tecnologia sempre atualizada (Next.js)</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-700">Suporte incluso na mensalidade</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-700">Site rápido e otimizado para sempre</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção A Vitrine */}
+      <section className="relative py-20 md:py-24 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-4 md:mb-6"
+          >
+            Não acredite em promessas. Veja resultados.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg text-slate-700 text-center mb-12 md:mb-16"
+          >
+            Estruturas validadas para converter visitantes em clientes no WhatsApp.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* Demo 1: Odontologia */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="group relative overflow-hidden rounded-[2rem] cursor-pointer bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10"
+            >
+              <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&q=80"
+                  alt="Clínica Odontológica Moderna"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-center justify-center">
+                  <Link href="/sites/implantes-premium">
+                    <Button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-blue-600 hover:bg-slate-100">
+                      VER DEMO AO VIVO
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              <div className="p-6 rounded-b-[2rem]">
+                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Odontologia</h3>
+                <p className="text-slate-700">Focado em agendamento de consultas.</p>
+              </div>
+            </motion.div>
+
+            {/* Demo 2: Energia Solar */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="group relative overflow-hidden rounded-[2rem] cursor-pointer bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10"
+            >
+              <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80"
+                  alt="Painéis Solares"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-center justify-center">
+                  <Link href="/sites/solar-tech">
+                    <Button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-blue-600 hover:bg-slate-100">
+                      VER DEMO AO VIVO
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              <div className="p-6 rounded-b-[2rem]">
+                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Energia Solar</h3>
+                <p className="text-slate-700">Focado em explicar economia e gerar orçamentos.</p>
+              </div>
+            </motion.div>
+
+            {/* Demo 3: Advocacia */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="group relative overflow-hidden rounded-[2rem] cursor-pointer bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10"
+            >
+              <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80"
+                  alt="Escritório de Advocacia Moderno"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-center justify-center">
+                  <Link href="/sites/advocacia-civil">
+                    <Button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-blue-600 hover:bg-slate-100">
+                      VER DEMO AO VIVO
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              <div className="p-6 rounded-b-[2rem]">
+                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Advocacia</h3>
+                <p className="text-slate-700">Focado em autoridade e sobriedade jurídica.</p>
+              </div>
+            </motion.div>
+
+            {/* Demo 4: Arquitetura */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="group relative overflow-hidden rounded-[2rem] cursor-pointer bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10"
+            >
+              <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
+                  alt="Casa Moderna de Concreto"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-center justify-center">
+                  <Link href="/sites/studio-arquitetura">
+                    <Button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-blue-600 hover:bg-slate-100">
+                      VER DEMO AO VIVO
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              <div className="p-6 rounded-b-[2rem]">
+                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Arquitetura</h3>
+                <p className="text-slate-700">Galeria visual para valorizar seu portfólio.</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Recursos Técnicos */}
+      <section className="relative py-20 md:py-24 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
+          >
+            Tecnologia de Big Tech. Preço de Pequena Empresa.
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* Velocidade */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+                <CardContent className="p-6 flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-lg bg-blue-100 flex items-center justify-center">
+                      <Zap className="h-8 w-8 text-blue-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Velocidade</h3>
+                    <p className="text-lg text-slate-600">
+                      Tecnologia Next.js. Carrega instantaneamente. O Google ama sites rápidos e coloca eles no topo.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Mobile First */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+                <CardContent className="p-6 flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-lg bg-green-100 flex items-center justify-center">
+                      <Smartphone className="h-8 w-8 text-green-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Mobile First</h3>
+                    <p className="text-lg text-slate-600">
+                      Perfeito em qualquer celular. Onde 90% dos seus clientes estão.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Segurança */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Card className="rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+                <CardContent className="p-6 flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-lg bg-purple-100 flex items-center justify-center">
+                      <ShieldCheck className="h-8 w-8 text-purple-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Blindado</h3>
+                    <p className="text-lg text-slate-600">
+                      Segurança SSL e Proteção contra ataques inclusos. Seu site nunca sai do ar.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Suporte */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Card className="rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+                <CardContent className="p-6 flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-lg bg-orange-100 flex items-center justify-center">
+                      <MessageCircle className="h-8 w-8 text-orange-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Suporte Humanizado</h3>
+                    <p className="text-lg text-slate-600">
+                      Precisa mudar uma foto ou texto? Chame no WhatsApp. Nós resolvemos.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção A Oferta */}
+      <section className="relative py-20 md:py-24 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
+          >
+            Quanto vale dobrar sua visibilidade na região?
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* Plano Essencial */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="order-2 md:order-1"
+            >
+              <Card className="h-full flex flex-col bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-indigo-500/10 rounded-[2rem]">
+                <CardHeader className="text-center pb-4">
+                  <CardTitle className="text-2xl md:text-3xl mb-4 text-slate-900 tracking-tight">ESSENCIAL</CardTitle>
+                  <div className="flex items-baseline justify-center gap-2">
+                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 79,90</span>
+                    <span className="text-lg text-slate-600">/mês</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Para quem quer apenas uma página simples</p>
+                  <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-slate-100 text-slate-700 border-slate-300 hover:text-slate-900 hover:bg-slate-200 transition-colors cursor-default">
+                    Sem fidelidade. Sem multas.
+                  </Badge>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col pt-0">
+                  <div className="flex-1 space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Landing Page (Página Única)</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Hospedagem Inclusa</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Botão WhatsApp</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Suporte Básico (E-mail)</p>
+                    </div>
+                  </div>
+                  <div className="pt-6">
+                    <motion.a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ 
+                        scale: 1.02,
+                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className="block w-full h-12 md:h-14 text-base md:text-lg font-semibold bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
+                    >
+                      ESCOLHER ESSENCIAL
+                    </motion.a>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Plano Profissional - Destaque */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative order-1 md:order-2"
+            >
+              <Card className="h-full flex flex-col bg-white/70 backdrop-blur-xl border-2 border-blue-400 shadow-2xl shadow-blue-500/20 rounded-[2rem] scale-105 md:scale-100">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                  <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 shadow-lg px-4 py-1 flex items-center gap-1.5">
+                    <Star className="h-4 w-4 fill-white" />
+                    MAIS POPULAR
+                  </Badge>
+                </div>
+                <CardHeader className="text-center pb-4 pt-6">
+                  <CardTitle className="text-2xl md:text-3xl mb-4 text-slate-900 tracking-tight">PROFISSIONAL</CardTitle>
+                  <div className="flex items-baseline justify-center gap-2">
+                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 100,00</span>
+                    <span className="text-lg text-slate-600">/mês</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Para quem quer crescer</p>
+                  <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-slate-100 text-slate-700 border-slate-300 hover:text-slate-900 hover:bg-slate-200 transition-colors cursor-default">
+                    Sem fidelidade. Sem multas.
+                  </Badge>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col pt-0">
+                  <div className="flex-1 space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Site Multi-página (Até 5 pág) ou LP Avançada</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Otimização SEO (Google)</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Blog Integrado (Opcional)</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Suporte Prioritário (WhatsApp)</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Atualizações Mensais</p>
+                    </div>
+                  </div>
+                  <div className="pt-6">
+                    <motion.a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ 
+                        scale: 1.05,
+                        boxShadow: "0 20px 25px -5px rgba(37, 99, 235, 0.4), 0 10px 10px -5px rgba(37, 99, 235, 0.2)"
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className="block w-full h-12 md:h-14 text-base md:text-lg font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 rounded-full shadow-lg shadow-blue-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
+                    >
+                      QUERO MEU SITE NO AR AGORA
+                    </motion.a>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção FAQ */}
+      <section className="relative py-20 md:py-24 overflow-hidden">
+        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
+          >
+            Perguntas Frequentes
+          </motion.h2>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-left text-lg font-semibold">
+                O site é meu?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed">
+                O domínio (www) e o conteúdo são seus. A estrutura tecnológica é alugada (como uma loja no shopping). Enquanto você assinar, sua loja está aberta e moderna.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-left text-lg font-semibold">
+                Tenho fidelidade?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed">
+                Nenhuma. Confiamos tanto no nosso serviço que você só fica se estiver tendo resultado.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-left text-lg font-semibold">
+                Vocês escrevem os textos?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed">
+                Temos modelos prontos de alta conversão para o seu nicho, basta preencher com seus dados.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-left text-lg font-semibold">
+                Em quanto tempo meu site fica pronto?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed">
+                Nosso prazo médio é de 5 a 7 dias úteis após o recebimento do seu material (logo e informações). Trabalhamos com agilidade para você não perder tempo.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5">
+              <AccordionTrigger className="text-left text-lg font-semibold">
+                Meu site vai aparecer no Google?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed">
+                Sim! Desenvolvemos toda a estrutura seguindo as melhores práticas de SEO (Otimização para Buscadores). Isso facilita que o Google leia e ranqueie seu site nas pesquisas da sua região.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
     </main>
