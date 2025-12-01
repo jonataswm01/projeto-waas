@@ -339,7 +339,7 @@ export default function MarketingPage() {
         </div>
       </section>
 
-      {/* Seção A Vitrine */}
+      {/* Seção A Vitrine - Template Showcase */}
       <section className="relative py-20 md:py-24 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.h2
@@ -358,123 +358,138 @@ export default function MarketingPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg text-slate-700 text-center mb-12 md:mb-16"
           >
-            Estruturas validadas para converter visitantes em clientes no WhatsApp.
+            Escolha o nível de complexidade ideal para o seu negócio.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {/* Demo 1: Odontologia */}
+            {/* Template 1: Corporativo Elite (TOPO - DESTAQUE - Card Largo) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="group relative overflow-hidden rounded-[2rem] cursor-pointer bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10"
+              className="group relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-white/80 to-blue-50/50 backdrop-blur-xl border-2 border-blue-400 ring-2 ring-blue-400 shadow-2xl shadow-blue-500/20 flex flex-col md:flex-row md:col-span-2 md:h-[450px]"
             >
-              <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
+              {/* Conteúdo - Lado Esquerdo */}
+              <div className="p-6 md:p-8 flex-1 flex flex-col justify-center md:w-[40%]">
+                <div className="mb-3">
+                  <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 shadow-lg">
+                    Plano Profissional
+                  </Badge>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mb-3">
+                  Corporativo Elite
+                </h3>
+                <p className="text-slate-700 mb-3 text-lg">
+                  Site Institucional Completo. Múltiplas páginas, &apos;Sobre Nós&apos; e Blog. Autoridade máxima.
+                </p>
+                <p className="text-sm text-slate-500 mb-6">
+                  Recomendado para empresas que querem parecer maiores do que são hoje.
+                </p>
+                <div className="mt-auto">
+                  <Button 
+                    size="sm"
+                    className="rounded-full text-sm px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/40"
+                  >
+                    Ver Exemplo
+                  </Button>
+                </div>
+              </div>
+
+              {/* Imagem - Lado Direito (60% da largura) */}
+              <div className="relative h-64 md:h-full md:w-[60%] overflow-hidden rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none">
                 <Image
-                  src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&q=80"
-                  alt="Clínica Odontológica Moderna"
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"
+                  alt="Modern Office Building - Corporativo Elite"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-center justify-center">
-                  <Link href="/sites/implantes-premium">
-                    <Button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-blue-600 hover:bg-slate-100">
-                      VER DEMO AO VIVO
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              <div className="p-6 rounded-b-[2rem]">
-                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Odontologia</h3>
-                <p className="text-slate-700">Focado em agendamento de consultas.</p>
               </div>
             </motion.div>
 
-            {/* Demo 2: Energia Solar */}
+            {/* Template 2: Visual Studio (EMBAIXO Esquerda) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="group relative overflow-hidden rounded-[2rem] cursor-pointer bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10"
+              className="group relative overflow-hidden rounded-[2rem] bg-white/70 backdrop-blur-xl border border-indigo-300 ring-1 ring-indigo-200 shadow-xl shadow-indigo-500/20 flex flex-col"
             >
               <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80"
-                  alt="Painéis Solares"
+                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80"
+                  alt="Spa Interior Aesthetics - Visual Studio"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-center justify-center">
-                  <Link href="/sites/solar-tech">
-                    <Button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-blue-600 hover:bg-slate-100">
-                      VER DEMO AO VIVO
-                    </Button>
-                  </Link>
-                </div>
               </div>
-              <div className="p-6 rounded-b-[2rem]">
-                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Energia Solar</h3>
-                <p className="text-slate-700">Focado em explicar economia e gerar orçamentos.</p>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="mb-3">
+                  <Badge className="bg-indigo-200 text-indigo-800 border-indigo-400 hover:bg-indigo-300 shadow-sm">
+                    Plano Profissional
+                  </Badge>
+                </div>
+                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">
+                  Visual Studio
+                </h3>
+                <p className="text-slate-700 mb-2">
+                  Landing Page de Alta Conversão. Design visual imersivo para encantar clientes.
+                </p>
+                <p className="text-sm text-slate-500 mb-4">
+                  Perfeito para negócios onde estética é parte do produto.
+                </p>
+                <div className="mt-auto pt-4">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="rounded-full text-sm px-6 border-indigo-600 text-indigo-600 hover:bg-indigo-50 w-fit"
+                  >
+                    Ver Exemplo
+                  </Button>
+                </div>
               </div>
             </motion.div>
 
-            {/* Demo 3: Advocacia */}
+            {/* Template 3: Express Service (EMBAIXO Direita) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="group relative overflow-hidden rounded-[2rem] cursor-pointer bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10"
+              className="group relative overflow-hidden rounded-[2rem] bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-indigo-500/10 flex flex-col"
             >
               <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80"
-                  alt="Escritório de Advocacia Moderno"
+                  src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80"
+                  alt="Handyman Tools - Express Service"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-center justify-center">
-                  <Link href="/sites/advocacia-civil">
-                    <Button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-blue-600 hover:bg-slate-100">
-                      VER DEMO AO VIVO
-                    </Button>
-                  </Link>
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="mb-3">
+                  <Badge className="bg-slate-100 text-slate-700 border-slate-300 hover:bg-slate-200">
+                    Plano Essencial
+                  </Badge>
                 </div>
-              </div>
-              <div className="p-6 rounded-b-[2rem]">
-                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Advocacia</h3>
-                <p className="text-slate-700">Focado em autoridade e sobriedade jurídica.</p>
-              </div>
-            </motion.div>
-
-            {/* Demo 4: Arquitetura */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="group relative overflow-hidden rounded-[2rem] cursor-pointer bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10"
-            >
-              <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
-                  alt="Casa Moderna de Concreto"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-center justify-center">
-                  <Link href="/sites/studio-arquitetura">
-                    <Button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-blue-600 hover:bg-slate-100">
-                      VER DEMO AO VIVO
-                    </Button>
-                  </Link>
+                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">
+                  Express Service
+                </h3>
+                <p className="text-slate-700 mb-2">
+                  Landing Page Express. Foco total em botão de WhatsApp. Ideal para prestadores de serviço.
+                </p>
+                <p className="text-sm text-slate-500 mb-4">
+                  Para quem precisa começar a vender ainda esta semana.
+                </p>
+                <div className="mt-auto pt-4">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="rounded-full text-sm px-6 border-blue-600 text-blue-600 hover:bg-blue-50 w-fit"
+                  >
+                    Ver Exemplo
+                  </Button>
                 </div>
-              </div>
-              <div className="p-6 rounded-b-[2rem]">
-                <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Arquitetura</h3>
-                <p className="text-slate-700">Galeria visual para valorizar seu portfólio.</p>
               </div>
             </motion.div>
           </div>
@@ -803,4 +818,5 @@ export default function MarketingPage() {
     </main>
   );
 }
+
 
