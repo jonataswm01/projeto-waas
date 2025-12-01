@@ -318,7 +318,7 @@ export default function MarketingPage() {
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-700">Zero entrada, apenas R$ 99,90/mês</p>
+                    <p className="text-slate-700">Zero entrada, apenas R$ 79,90/mês</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
@@ -397,14 +397,20 @@ export default function MarketingPage() {
               </div>
 
               {/* Imagem - Lado Direito (60% da largura) */}
-              <div className="relative h-64 md:h-full md:w-[60%] overflow-hidden rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none">
-                <Image
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"
-                  alt="Modern Office Building - Corporativo Elite"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              <div
+                className="relative w-full md:w-[60%] min-h-[400px] md:min-h-0 md:h-full bg-[url('/corporativo-nexus-full.png')] bg-cover bg-no-repeat bg-top rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none overflow-hidden transition-all duration-[12000ms] ease-in-out"
+                style={{
+                  backgroundPosition: "center top",
+                  transition: "background-position 12s ease-in-out",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundPosition = "center bottom";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundPosition = "center top";
+                }}
+                aria-label="Scroll automático do site Corporativo Elite"
+              />
             </motion.div>
 
             {/* Template 2: Visual Studio (EMBAIXO Esquerda) */}
@@ -415,14 +421,20 @@ export default function MarketingPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="group relative overflow-hidden rounded-[2rem] bg-white/70 backdrop-blur-xl border border-indigo-300 ring-1 ring-indigo-200 shadow-xl shadow-indigo-500/20 flex flex-col"
             >
-              <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80"
-                  alt="Spa Interior Aesthetics - Visual Studio"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              <div 
+                className="h-64 md:h-80 bg-[url('/dentista-full.png')] bg-cover bg-top bg-no-repeat rounded-t-2xl group-hover:bg-bottom transition-all duration-[12000ms] ease-in-out"
+                style={{
+                  backgroundPosition: 'center top',
+                  transition: 'background-position 12s ease-in-out'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundPosition = 'center bottom';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundPosition = 'center top';
+                }}
+                aria-label="Visual Studio - Site do Dentista"
+              />
               <div className="p-6 flex-1 flex flex-col">
                 <div className="mb-3">
                   <Badge className="bg-indigo-200 text-indigo-800 border-indigo-400 hover:bg-indigo-300 shadow-sm">
@@ -635,19 +647,19 @@ export default function MarketingPage() {
                 <CardHeader className="text-center pb-4">
                   <CardTitle className="text-2xl md:text-3xl mb-4 text-slate-900 tracking-tight">ESSENCIAL</CardTitle>
                   <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 99,90</span>
+                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 79,90</span>
                     <span className="text-lg text-slate-600">/mês</span>
                   </div>
-                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Para quem quer apenas uma página simples</p>
-                  <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-slate-100 text-slate-700 border-slate-300 hover:text-slate-900 hover:bg-slate-200 transition-colors cursor-default">
-                    Sem fidelidade. Sem multas.
+                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Landing Page simples para começar a vender</p>
+                  <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-green-100 text-green-700 border-green-300 hover:bg-green-200 transition-colors cursor-default">
+                    Instalação Grátis (Tempo Limitado)
                   </Badge>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col pt-0">
                   <div className="flex-1 space-y-3">
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Landing Page (Página Única)</p>
+                      <p className="text-slate-700">Landing Page Simples (Página Única)</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
@@ -700,19 +712,19 @@ export default function MarketingPage() {
                 <CardHeader className="text-center pb-4 pt-6">
                   <CardTitle className="text-2xl md:text-3xl mb-4 text-slate-900 tracking-tight">PROFISSIONAL</CardTitle>
                   <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 139,90</span>
+                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 129,90</span>
                     <span className="text-lg text-slate-600">/mês</span>
                   </div>
-                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Para quem quer crescer</p>
-                  <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-slate-100 text-slate-700 border-slate-300 hover:text-slate-900 hover:bg-slate-200 transition-colors cursor-default">
-                    Sem fidelidade. Sem multas.
+                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Site completo multi-página para empresas</p>
+                  <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-green-100 text-green-700 border-green-300 hover:bg-green-200 transition-colors cursor-default">
+                    Setup e Configuração Zero
                   </Badge>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col pt-0">
                   <div className="flex-1 space-y-3">
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Site Multi-página (Até 5 pág) ou LP Avançada</p>
+                      <p className="text-slate-700">Site Multi-página Completo (Até 5 páginas)</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />

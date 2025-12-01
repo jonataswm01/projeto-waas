@@ -1,42 +1,55 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export function DemoBar() {
-  const whatsappLink = "https://wa.me/5516997330113?text=Olá, quero saber mais sobre a assinatura de sites.";
+  const whatsappLink =
+    "https://wa.me/5516997330113?text=Olá, quero saber mais sobre a assinatura de sites.";
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md bg-black/80 text-white border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-sm text-center sm:text-left">
-            Este é um site de demonstração criado pela <span className="font-semibold">Lumina</span>.
+    <div className="fixed bottom-8 left-0 right-0 z-50 flex justify-center pointer-events-none">
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="w-auto max-w-xl bg-white/70 backdrop-blur-xl border border-white/50 shadow-xl shadow-blue-900/10 rounded-full px-6 py-3 pointer-events-auto"
+      >
+        <div className="flex items-center gap-2 sm:gap-6 text-[11px] sm:text-sm whitespace-nowrap">
+          {/* Texto à esquerda */}
+          <p className="font-medium text-slate-700">
+            Demo Lumina
           </p>
-          <div className="flex items-center gap-3">
+
+          {/* Botões à direita */}
+          <div className="flex items-center gap-1.5 sm:gap-3">
             <Link href="/">
               <Button
-                variant="outline"
+                variant="ghost"
                 size="sm"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10"
+                className="rounded-full text-slate-600 hover:text-slate-900 hover:bg-white/50 px-2.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm"
               >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Voltar ao Site
+                <ArrowLeft className="h-4 w-4 mr-1.5 sm:mr-2" />
+                Voltar
               </Button>
             </Link>
-            <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            <Link
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 size="sm"
-                className="bg-blue-600 hover:bg-blue-700"
+                className="rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/30 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm"
               >
-                <MessageCircle className="mr-2 h-4 w-4" />
                 Quero um site assim
               </Button>
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
