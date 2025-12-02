@@ -277,29 +277,29 @@ export default function MarketingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="h-full rounded-[2rem] bg-slate-900/80 backdrop-blur-md border border-white/10 shadow-xl shadow-slate-900/40">
+              <Card className="h-full rounded-[2rem] bg-gradient-to-br from-slate-900/95 to-black/95 backdrop-blur-xl border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
-                    <XCircle className="h-6 w-6 text-red-400" />
-                    <CardTitle className="text-gray-100 text-2xl tracking-tight">O Velho Jeito (Agências)</CardTitle>
+                    <XCircle className="h-6 w-6 text-red-500/80" />
+                    <CardTitle className="text-slate-200 text-2xl tracking-tight">O Velho Jeito (Agências)</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <XCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-gray-200">Paga caro na entrada (R$ 3.000+)</p>
+                    <XCircle className="h-5 w-5 text-red-500/80 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-300">Paga caro na entrada (R$ 3.000+)</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <XCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-gray-200">Site fica lento em 6 meses</p>
+                    <XCircle className="h-5 w-5 text-red-500/80 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-300">Site fica lento em 6 meses</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <XCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-gray-200">Suporte cobra por hora</p>
+                    <XCircle className="h-5 w-5 text-red-500/80 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-300">Suporte cobra por hora</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <XCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-gray-200">Tecnologia desatualizada</p>
+                    <XCircle className="h-5 w-5 text-red-500/80 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-300">Tecnologia desatualizada</p>
                   </div>
                 </CardContent>
               </Card>
@@ -313,7 +313,7 @@ export default function MarketingPage() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <Card className="h-full rounded-[2rem] bg-white/70 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/20">
+              <Card className="h-full rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-2xl shadow-emerald-500/10 transition-colors hover:bg-white/80">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
                     <CheckCircle2 className="h-6 w-6 text-green-600" />
