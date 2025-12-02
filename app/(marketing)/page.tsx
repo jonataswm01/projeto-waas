@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -20,18 +21,17 @@ import {
   Star
 } from "lucide-react";
 import Link from "next/link";
-
-const heroWhatsappLink =
-  "https://wa.me/5516997330113?text=Olá! Quero tirar minha empresa da sombra e criar meu site com a Lumina.";
-const planoEssencialLink =
-  "https://wa.me/5516997330113?text=Olá! Tenho interesse no Plano Essencial de R$ 79,90.";
-const planoProfissionalLink =
-  "https://wa.me/5516997330113?text=Olá! Quero contratar o Plano Profissional (Site Completo) da Lumina.";
+import { OnboardingModal } from "@/components/marketing/OnboardingModal";
 
 export default function MarketingPage() {
+  const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
+
+  const openOnboarding = () => setIsOnboardingOpen(true);
+  const closeOnboarding = () => setIsOnboardingOpen(false);
 
   return (
-    <main className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-pink-50 overflow-hidden pt-20">
+    <>
+      <main className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-pink-50 overflow-hidden pt-20">
       {/* Aurora Orbs */}
       <div className="pointer-events-none absolute -top-40 -left-32 h-80 w-80 rounded-full bg-indigo-300/40 blur-3xl" />
       <div className="pointer-events-none absolute top-40 -right-40 h-96 w-96 rounded-full bg-sky-300/40 blur-3xl" />
@@ -99,10 +99,9 @@ export default function MarketingPage() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex justify-center md:justify-start"
               >
-                <motion.a
-                  href={heroWhatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.button
+                  type="button"
+                  onClick={openOnboarding}
                   whileHover={{
                     scale: 1.05,
                     boxShadow:
@@ -114,7 +113,7 @@ export default function MarketingPage() {
                 >
                   QUERO VENDER MAIS PELO GOOGLE
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </motion.a>
+                </motion.button>
               </motion.div>
             </motion.div>
 
@@ -694,20 +693,19 @@ export default function MarketingPage() {
                     </div>
                   </div>
                   <div className="pt-6">
-                    <motion.a
-                      href={planoEssencialLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <motion.button
+                      type="button"
+                      onClick={openOnboarding}
                       whileHover={{ 
                         scale: 1.02,
                         boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
                       }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      className="block w-full h-12 md:h-14 text-base md:text-lg font-semibold bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
+                      className="w-full h-12 md:h-14 text-base md:text-lg font-semibold bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
                     >
                       Começar com o Básico
-                    </motion.a>
+                    </motion.button>
                   </div>
                 </CardContent>
               </Card>
@@ -763,20 +761,19 @@ export default function MarketingPage() {
                     </div>
                   </div>
                   <div className="pt-6">
-                    <motion.a
-                      href={planoProfissionalLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <motion.button
+                      type="button"
+                      onClick={openOnboarding}
                       whileHover={{ 
                         scale: 1.05,
                         boxShadow: "0 20px 25px -5px rgba(37, 99, 235, 0.4), 0 10px 10px -5px rgba(37, 99, 235, 0.2)"
                       }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      className="block w-full h-12 md:h-14 text-base md:text-lg font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 rounded-full shadow-lg shadow-blue-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
+                      className="w-full h-12 md:h-14 text-base md:text-lg font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 rounded-full shadow-lg shadow-blue-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
                     >
                       <strong>QUERO O SITE COMPLETO</strong>
-                    </motion.a>
+                    </motion.button>
                   </div>
                 </CardContent>
               </Card>
@@ -846,7 +843,9 @@ export default function MarketingPage() {
           </Accordion>
         </div>
       </section>
-    </main>
+      </main>
+      <OnboardingModal isOpen={isOnboardingOpen} onClose={closeOnboarding} />
+    </>
   );
 }
 
