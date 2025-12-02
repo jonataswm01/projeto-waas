@@ -26,10 +26,6 @@ O projeto utiliza **Route Groups** para isolar o layout da Landing Page (Marketi
 │   │   ├── layout.tsx          # Navbar específica (Branco/Azul)
 │   │   └── page.tsx
 │   │
-│   ├── solar-tech/             # Demo 2: Energia Solar (Tech/Verde/Laranja)
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   │
 │   ├── advocacia-civil/        # Demo 3: Advogado (Sóbrio/Azul Marinho/Serifa)
 │   │   ├── layout.tsx
 │   │   └── page.tsx

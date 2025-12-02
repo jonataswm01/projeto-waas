@@ -7,7 +7,7 @@ import { Outfit } from "next/font/google";
 const outfit = Outfit({ subsets: ["latin"] });
 
 export function Footer() {
-  const whatsappLink = "https://wa.me/5516997330113?text=Olá, quero saber mais sobre a assinatura de sites.";
+  const whatsappLink = "https://wa.me/5516997330113?text=Olá! Quero tirar minha empresa da sombra e criar meu site com a Lumina.";
 
   return (
     <footer className="bg-slate-900 text-white border-t border-slate-800">
@@ -29,7 +29,7 @@ export function Footer() {
             className="inline-flex items-center justify-center text-base px-8 py-6 font-medium bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
           >
             <MessageCircle className="mr-2 h-5 w-5" />
-            Falar com Consultor no WhatsApp
+            Tirar Dúvidas no WhatsApp
           </motion.a>
           <div className="pt-8 border-t border-slate-800 w-full">
             <div className="flex items-center justify-center gap-2 mb-2">

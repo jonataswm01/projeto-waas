@@ -8,7 +8,7 @@ import { Outfit } from "next/font/google";
 const outfit = Outfit({ subsets: ["latin"] });
 
 export function Navbar() {
-  const whatsappLink = "https://wa.me/5516997330113?text=Olá, quero saber mais sobre a assinatura de sites.";
+  const whatsappLink = "https://wa.me/5516997330113?text=Olá! Quero tirar minha empresa da sombra e criar meu site com a Lumina.";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-lg border-b border-white/20">

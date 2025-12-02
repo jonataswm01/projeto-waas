@@ -20,10 +20,15 @@ import {
   Star
 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+
+const heroWhatsappLink =
+  "https://wa.me/5516997330113?text=Olá! Quero tirar minha empresa da sombra e criar meu site com a Lumina.";
+const planoEssencialLink =
+  "https://wa.me/5516997330113?text=Olá! Tenho interesse no Plano Essencial de R$ 79,90.";
+const planoProfissionalLink =
+  "https://wa.me/5516997330113?text=Olá! Quero contratar o Plano Profissional (Site Completo) da Lumina.";
 
 export default function MarketingPage() {
-  const whatsappLink = "https://wa.me/5516997330113?text=Olá, quero saber mais sobre a assinatura de sites.";
 
   return (
     <main className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-pink-50 overflow-hidden pt-20">
@@ -95,7 +100,7 @@ export default function MarketingPage() {
                 className="flex justify-center md:justify-start"
               >
                 <motion.a
-                  href={whatsappLink}
+                  href={heroWhatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{
@@ -107,7 +112,7 @@ export default function MarketingPage() {
                   transition={{ type: "spring", stiffness: 400, damping: 18 }}
                   className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors group"
                 >
-                  QUERO PARAR DE PERDER DINHEIRO
+                  QUERO VENDER MAIS PELO GOOGLE
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </motion.a>
               </motion.div>
@@ -368,17 +373,17 @@ export default function MarketingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="group relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-white/80 to-blue-50/50 backdrop-blur-xl border-2 border-blue-400 ring-2 ring-blue-400 shadow-2xl shadow-blue-500/20 flex flex-col md:flex-row md:col-span-2 md:h-[450px]"
+              className="group relative overflow-hidden rounded-[2rem] bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/50 shadow-xl shadow-blue-500/5 hover:bg-white/80 transition-colors duration-300 flex flex-col md:flex-row md:col-span-2 md:h-[450px]"
             >
               {/* Conteúdo - Lado Esquerdo */}
               <div className="p-6 md:p-8 flex-1 flex flex-col justify-center md:w-[40%]">
                 <div className="mb-3">
-                  <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 shadow-lg">
+                  <Badge className="bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-900 border-0 shadow-md shadow-amber-500/30">
                     Plano Profissional
                   </Badge>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mb-3">
-                  Corporativo Elite
+                  Institucional Corporate
                 </h3>
                 <p className="text-slate-700 mb-3 text-lg">
                   Site Institucional Completo. Múltiplas páginas, &apos;Sobre Nós&apos; e Blog. Autoridade máxima.
@@ -387,11 +392,14 @@ export default function MarketingPage() {
                   Recomendado para empresas que querem parecer maiores do que são hoje.
                 </p>
                 <div className="mt-auto">
-                  <Button 
+                  <Button
+                    asChild
                     size="sm"
-                    className="rounded-full text-sm px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/40"
+                    className="rounded-full text-sm px-6 font-semibold bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-900 hover:from-amber-400 hover:to-yellow-300 shadow-lg shadow-amber-500/30 transition-colors"
                   >
-                    Ver Exemplo
+                    <Link href="/sites/corporativo-nexus" target="_blank" rel="noopener noreferrer">
+                      Ver Demo Ao Vivo
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -413,13 +421,13 @@ export default function MarketingPage() {
               />
             </motion.div>
 
-            {/* Template 2: Visual Studio (EMBAIXO Esquerda) */}
+            {/* Template 2: LP Authority (EMBAIXO Esquerda) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="group relative overflow-hidden rounded-[2rem] bg-white/70 backdrop-blur-xl border border-indigo-300 ring-1 ring-indigo-200 shadow-xl shadow-indigo-500/20 flex flex-col"
+              className="group relative overflow-hidden rounded-[2rem] bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/50 shadow-xl shadow-blue-500/5 hover:bg-white/80 transition-colors duration-300 flex flex-col"
             >
               <div 
                 className="h-64 md:h-80 bg-[url('/dentista-full.png')] bg-cover bg-top bg-no-repeat rounded-t-2xl group-hover:bg-bottom transition-all duration-[12000ms] ease-in-out"
@@ -433,73 +441,84 @@ export default function MarketingPage() {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundPosition = 'center top';
                 }}
-                aria-label="Visual Studio - Site do Dentista"
+                aria-label="LP Authority - Site do Dentista"
               />
               <div className="p-6 flex-1 flex flex-col">
                 <div className="mb-3">
-                  <Badge className="bg-indigo-200 text-indigo-800 border-indigo-400 hover:bg-indigo-300 shadow-sm">
+                  <Badge className="bg-cyan-100 text-cyan-700 border-cyan-200 hover:bg-cyan-200 shadow-sm">
                     Plano Profissional
                   </Badge>
                 </div>
                 <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">
-                  Visual Studio
+                  LP Authority
                 </h3>
                 <p className="text-slate-700 mb-2">
-                  Landing Page de Alta Conversão. Design visual imersivo para encantar clientes.
+                  Landing Page de Alta Conversão. Focada em transformar visitantes em pacientes ou clientes qualificados.
                 </p>
                 <p className="text-sm text-slate-500 mb-4">
                   Perfeito para negócios onde estética é parte do produto.
                 </p>
                 <div className="mt-auto pt-4">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    asChild
                     size="sm"
-                    className="rounded-full text-sm px-6 border-indigo-600 text-indigo-600 hover:bg-indigo-50 w-fit"
+                    className="rounded-full text-sm px-6 bg-cyan-600 text-white hover:bg-cyan-700 shadow-lg shadow-cyan-500/30 transition-colors w-fit"
                   >
-                    Ver Exemplo
+                    <Link href="/sites/implantes-premium" target="_blank" rel="noopener noreferrer">
+                      Ver Demo Ao Vivo
+                    </Link>
                   </Button>
                 </div>
               </div>
             </motion.div>
 
-            {/* Template 3: Express Service (EMBAIXO Direita) */}
+            {/* Template 3: LP Essencial (EMBAIXO Direita) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="group relative overflow-hidden rounded-[2rem] bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-indigo-500/10 flex flex-col"
+              className="group relative overflow-hidden rounded-[2rem] bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/50 shadow-xl shadow-blue-500/5 hover:bg-white/80 transition-colors duration-300 flex flex-col"
             >
-              <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80"
-                  alt="Handyman Tools - Express Service"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              <div
+                className="h-64 md:h-80 rounded-t-2xl bg-[url('/vet-full.jpg')] bg-cover bg-top bg-no-repeat transition-[background-position] duration-[12000ms] ease-in-out"
+                style={{
+                  backgroundPosition: "center top",
+                  transition: "background-position 12s ease-in-out",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundPosition = "center bottom";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundPosition = "center top";
+                }}
+                aria-label="LP Essencial - Vetcare Aurora"
+              />
               <div className="p-6 flex-1 flex flex-col">
                 <div className="mb-3">
-                  <Badge className="bg-slate-100 text-slate-700 border-slate-300 hover:bg-slate-200">
+                  <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-200">
                     Plano Essencial
                   </Badge>
                 </div>
                 <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">
-                  Express Service
+                  LP Essencial
                 </h3>
                 <p className="text-slate-700 mb-2">
-                  Landing Page Express. Foco total em botão de WhatsApp. Ideal para prestadores de serviço.
+                  Landing Page enxuta com foco total em WhatsApp e chamadas diretas. Preparada para converter visitas em agendamentos imediatos.
                 </p>
                 <p className="text-sm text-slate-500 mb-4">
-                  Para quem precisa começar a vender ainda esta semana.
+                  Ideal para clínicas, pet shops e serviços locais.
                 </p>
                 <div className="mt-auto pt-4">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    asChild
+                    variant="outline"
                     size="sm"
-                    className="rounded-full text-sm px-6 border-blue-600 text-blue-600 hover:bg-blue-50 w-fit"
+                    className="rounded-full text-sm px-6 border-emerald-600 text-emerald-600 hover:bg-emerald-50 w-fit"
                   >
-                    Ver Exemplo
+                    <Link href="/sites/vetcare-aurora" target="_blank" rel="noopener noreferrer">
+                      Ver Demo Ao Vivo
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -676,7 +695,7 @@ export default function MarketingPage() {
                   </div>
                   <div className="pt-6">
                     <motion.a
-                      href={whatsappLink}
+                      href={planoEssencialLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ 
@@ -687,7 +706,7 @@ export default function MarketingPage() {
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                       className="block w-full h-12 md:h-14 text-base md:text-lg font-semibold bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
                     >
-                      ESCOLHER ESSENCIAL
+                      Começar com o Básico
                     </motion.a>
                   </div>
                 </CardContent>
@@ -745,7 +764,7 @@ export default function MarketingPage() {
                   </div>
                   <div className="pt-6">
                     <motion.a
-                      href={whatsappLink}
+                      href={planoProfissionalLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ 
@@ -756,7 +775,7 @@ export default function MarketingPage() {
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                       className="block w-full h-12 md:h-14 text-base md:text-lg font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 rounded-full shadow-lg shadow-blue-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
                     >
-                      QUERO MEU SITE NO AR AGORA
+                      <strong>QUERO O SITE COMPLETO</strong>
                     </motion.a>
                   </div>
                 </CardContent>

@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 
 export function DemoBar() {
   const whatsappLink =
-    "https://wa.me/5516997330113?text=Olá, quero saber mais sobre a assinatura de sites.";
+    "https://wa.me/5516997330113?text=Olá! Vi um site de demonstração da Lumina e gostei do modelo.";
 
   return (
     <div className="fixed bottom-8 left-0 right-0 z-50 flex justify-center pointer-events-none">

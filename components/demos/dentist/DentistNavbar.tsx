@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Smile } from "lucide-react";
 
 export function DentistNavbar() {
+  const whatsappUrl =
+    "https://wa.me/5516997330113?text=Olá! Gostei muito do *Layout de Dentista/Clínica* e quero um site igual para o meu negócio.";
+
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -67,8 +70,10 @@ export function DentistNavbar() {
         </div>
 
         {/* CTA (Direita) */}
-        <Button className="rounded-full bg-cyan-500 hover:bg-cyan-600 text-white px-6 shadow-lg shadow-cyan-500/30">
-          Agendar Consulta
+        <Button asChild className="rounded-full bg-cyan-500 hover:bg-cyan-600 text-white px-6 shadow-lg shadow-cyan-500/30">
+          <a href={whatsappUrl} target="_blank" rel="noreferrer">
+            Agendar Consulta
+          </a>
         </Button>
       </div>
     </nav>
