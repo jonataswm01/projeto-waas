@@ -2,9 +2,11 @@
 
 import {
   useEffect,
+  useId,
   useMemo,
   useRef,
   useState,
+  useTransition,
   type MouseEvent as ReactMouseEvent,
 } from "react"
 import { AnimatePresence, motion } from "framer-motion"
@@ -14,6 +16,7 @@ import {
   ArrowRight,
   Check,
   ChevronDown,
+  Loader2,
   Moon,
   Sun,
   X,
@@ -22,6 +25,7 @@ import {
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { checkDomainAvailability } from "@/app/actions/checkDomain"
 
 interface OnboardingModalProps {
   isOpen: boolean
@@ -83,6 +87,15 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
     niche: "",
     domain: "",
   })
+  const [domainStatus, setDomainStatus] = useState<
+    "idle" | "checking" | "available" | "unavailable"
+  >("idle")
+  const [checkedDomain, setCheckedDomain] = useState("")
+  const [domainMessage, setDomainMessage] = useState("")
+  const [skipDomainCheck, setSkipDomainCheck] = useState(false)
+  const [isCheckingDomain, startDomainCheck] = useTransition()
+  const domainInputId = useId()
+  const skipDomainCheckboxId = useId()
   const [isNicheMenuOpen, setIsNicheMenuOpen] = useState(false)
   const [isClient, setIsClient] = useState(false)
   const [nicheMenuPosition, setNicheMenuPosition] = useState<{
@@ -98,6 +111,8 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
     () => ((step + 1) / totalSteps) * 100,
     [step]
   )
+
+  const isVerifyingDomain = domainStatus === "checking" || isCheckingDomain
 
   const stepMotion = {
     initial: { x: 60, opacity: 0 },
@@ -115,6 +130,57 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
   ) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
+
+  const handleDomainInputChange = (value: string) => {
+    handleInputChange("domain", value)
+    setDomainStatus("idle")
+    setDomainMessage("")
+    setCheckedDomain("")
+    setSkipDomainCheck(false)
+  }
+
+  const handleDomainCheck = () => {
+    if (!formData.domain.trim()) {
+      setDomainMessage("Digite um domínio para verificar.")
+      setDomainStatus("idle")
+      return
+    }
+
+    setSkipDomainCheck(false)
+    setDomainMessage("")
+    setDomainStatus("checking")
+
+    startDomainCheck(async () => {
+      try {
+        const result = await checkDomainAvailability(formData.domain)
+        setCheckedDomain(result.domain)
+        setDomainStatus(result.available ? "available" : "unavailable")
+      } catch (error) {
+        setDomainStatus("idle")
+        setDomainMessage(
+          error instanceof Error
+            ? error.message
+            : "Não conseguimos verificar agora. Tente de novo."
+        )
+      }
+    })
+  }
+
+  const handleSkipDomainToggle = (checked: boolean) => {
+    setSkipDomainCheck(checked)
+    if (checked) {
+      setDomainStatus("idle")
+      setDomainMessage("")
+      setCheckedDomain("")
+    }
+  }
+
+  const isNextDisabled = useMemo(() => {
+    if (step !== 2) return false
+    if (skipDomainCheck) return false
+    if (!formData.domain.trim()) return true
+    return domainStatus !== "available"
+  }, [domainStatus, formData.domain, skipDomainCheck, step])
 
   useEffect(() => {
     setIsClient(true)
@@ -179,7 +245,9 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
       `Empresa: ${formData.company || "Não informado"}`,
       `Estilo: ${styleLabel}`,
       `Nicho: ${formData.niche || "Não definido"}`,
-      `Domínio: ${formData.domain || "Não definido"}`,
+      `Domínio: ${
+        skipDomainCheck ? "Em definição" : formData.domain || "Não definido"
+      }`,
       "",
       "Quero finalizar o projeto pelo WhatsApp.",
     ].join("\n")
@@ -313,7 +381,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
               </p>
             </div>
             <div className="rounded-[2.25rem] border border-white/70 bg-white/50 p-6 shadow-xl shadow-slate-200/60">
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-6">
                 <label className="space-y-3 text-slate-600">
                   <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
                     Nicho
@@ -342,21 +410,76 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                     </button>
                   </div>
                 </label>
-                <label className="space-y-3 text-slate-600">
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                <div className="space-y-3 text-slate-600">
+                  <label
+                    htmlFor={domainInputId}
+                    className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400"
+                  >
                     Domínio
-                  </span>
-                  <div className="flex h-12 w-full items-center rounded-[1.8rem] border-2 border-white/70 bg-white/70 px-6 text-base text-slate-900 shadow-lg shadow-slate-200/60 transition focus-within:border-transparent focus-within:ring-2 focus-within:ring-sky-400/50 md:h-14 md:text-lg">
-                    <input
-                      value={formData.domain}
-                      onChange={(event) =>
-                        handleInputChange("domain", event.target.value)
-                      }
-                      placeholder="ex: minhaloja.com.br"
-                      className="h-full w-full bg-transparent text-base text-slate-900 outline-none placeholder:text-sm placeholder:text-slate-400 md:placeholder:text-base"
-                    />
+                  </label>
+                  <div className="space-y-3">
+                    <div className="flex flex-col gap-3 md:flex-row">
+                      <div className="flex h-12 w-full items-center rounded-[1.8rem] border-2 border-white/70 bg-white/70 px-6 text-base text-slate-900 shadow-lg shadow-slate-200/60 transition focus-within:border-transparent focus-within:ring-2 focus-within:ring-sky-400/50 md:h-14 md:flex-1 md:text-lg">
+                        <input
+                          id={domainInputId}
+                          value={formData.domain}
+                          onChange={(event) =>
+                            handleDomainInputChange(event.target.value)
+                          }
+                          placeholder="ex: minhaloja.com.br"
+                          className="h-full w-full bg-transparent text-base text-slate-900 outline-none placeholder:text-sm placeholder:text-slate-400 md:placeholder:text-base"
+                        />
+                      </div>
+                      <Button
+                        type="button"
+                        onClick={handleDomainCheck}
+                        disabled={
+                          isVerifyingDomain || !formData.domain.trim().length
+                        }
+                        className="h-12 w-full rounded-2xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 px-6 text-base font-semibold text-white shadow-lg shadow-blue-500/40 transition hover:scale-[1.01] hover:shadow-blue-500/60 disabled:cursor-not-allowed disabled:opacity-60 md:h-14 md:w-auto"
+                      >
+                        {isVerifyingDomain ? (
+                          <span className="flex items-center gap-2">
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            Verificando
+                          </span>
+                        ) : (
+                          "Verificar"
+                        )}
+                      </Button>
+                    </div>
+                    {domainStatus === "available" && (
+                      <p className="text-sm font-semibold text-emerald-600">
+                        Oba! {checkedDomain || formData.domain} está livre. Vamos
+                        registrar para você.
+                      </p>
+                    )}
+                    {domainStatus === "unavailable" && (
+                      <p className="text-sm font-semibold text-amber-600">
+                        Poxa, {checkedDomain || formData.domain} já tem dono.
+                        Tente outro nome.
+                      </p>
+                    )}
+                    {domainMessage && (
+                      <p className="text-sm text-rose-500">{domainMessage}</p>
+                    )}
+                    <label
+                      htmlFor={skipDomainCheckboxId}
+                      className="flex items-center gap-3 text-sm font-medium text-slate-600"
+                    >
+                      <input
+                        type="checkbox"
+                        id={skipDomainCheckboxId}
+                        className="h-4 w-4 rounded border-slate-300 text-sky-500 focus:ring-sky-500"
+                        checked={skipDomainCheck}
+                        onChange={(event) =>
+                          handleSkipDomainToggle(event.target.checked)
+                        }
+                      />
+                      <span>Ainda não tenho nome definido</span>
+                    </label>
                   </div>
-                </label>
+                </div>
               </div>
             </div>
           </div>
@@ -393,7 +516,9 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                 },
                 {
                   label: "Domínio",
-                  value: formData.domain || "minhapagina.com.br",
+                  value: skipDomainCheck
+                    ? "Vamos definir juntos"
+                    : formData.domain || "minhapagina.com.br",
                 },
               ]
               return (
@@ -488,8 +613,9 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                   </Button>
                   {step < totalSteps - 1 ? (
                     <Button
-                      className="order-1 md:order-2 rounded-2xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/40 transition hover:scale-[1.01] hover:shadow-blue-500/60 md:px-8 md:py-6"
+                      className="order-1 md:order-2 rounded-2xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/40 transition hover:scale-[1.01] hover:shadow-blue-500/60 disabled:cursor-not-allowed disabled:opacity-60 md:px-8 md:py-6"
                       onClick={handleNext}
+                      disabled={isNextDisabled}
                     >
                       Próximo passo
                       <ArrowRight className="h-4 w-4" />
