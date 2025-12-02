@@ -72,6 +72,8 @@ const stepLabels = [
   "Revisão",
 ]
 
+const whatsappNumber = "5516997330113"
+
 export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
   const [step, setStep] = useState(0)
   const [formData, setFormData] = useState({
@@ -128,8 +130,8 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
       if (!nicheButtonRef.current) return
       const rect = nicheButtonRef.current.getBoundingClientRect()
       setNicheMenuPosition({
-        top: rect.bottom + 6 + window.scrollY,
-        left: rect.left + window.scrollX,
+        top: rect.bottom + 6,
+        left: rect.left,
         width: rect.width,
       })
     }
@@ -165,6 +167,30 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
     if (event.target === event.currentTarget) {
       onClose()
     }
+  }
+
+  const handleFinish = () => {
+    const styleLabel =
+      styleOptions.find((option) => option.id === formData.style)?.label ??
+      "Clean"
+    const message = [
+      "Olá! Acabei de preencher o onboarding da Lumina 🚀",
+      `Nome: ${formData.name || "Não informado"}`,
+      `Empresa: ${formData.company || "Não informado"}`,
+      `Estilo: ${styleLabel}`,
+      `Nicho: ${formData.niche || "Não definido"}`,
+      `Domínio: ${formData.domain || "Não definido"}`,
+      "",
+      "Quero finalizar o projeto pelo WhatsApp.",
+    ].join("\n")
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      message
+    )}`
+    if (typeof window !== "undefined") {
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer")
+    }
+    onClose()
   }
 
   const renderStepContent = () => {
@@ -470,7 +496,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                     </Button>
                   ) : (
                     <button
-                      onClick={onClose}
+                      onClick={handleFinish}
                       className="order-1 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-400 via-blue-500 to-violet-500 px-8 py-4 text-base font-semibold text-white shadow-xl shadow-emerald-500/40 transition hover:scale-[1.02] hover:shadow-emerald-500/60 md:px-10 md:py-5"
                     >
                       Finalizar no WhatsApp 🚀
