@@ -102,7 +102,7 @@ const scrollAnimation = {
 };
 
 const whatsappUrl =
-  "https://wa.me/5516997330113?text=Olá! Gostei muito do *Layout de Dentista/Clínica* e quero um site igual para o meu negócio.";
+  "https://wa.me/5516997330113?text=Olá!%20Naveguei%20pelo%20demo%20Dentista%20e%20tenho%20interesse%20no%20*Plano%20Profissional%20(LP%20Avançada)*.";
 
 export default function ImplantesPremiumPage() {
   return (
@@ -146,10 +146,13 @@ export default function ImplantesPremiumPage() {
                       </a>
                     </Button>
                     <Button
+                      asChild
                       variant="ghost"
                       className="rounded-full border border-white/70 bg-white/60 px-8 py-4 text-base font-semibold text-cyan-800 shadow-inner shadow-white/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/80"
                     >
-                      Ver Estrutura
+                      <a href={whatsappUrl} target="_blank" rel="noreferrer">
+                        Ver Estrutura
+                      </a>
                     </Button>
                   </div>
                 </motion.div>

@@ -7,13 +7,8 @@ import {
   TrendingUp, 
   Scale, 
   Briefcase, 
-  Linkedin, 
-  Twitter, 
-  Instagram,
-  Mail,
   ArrowRight,
   Calendar,
-  Globe,
   ShieldCheck,
   Hexagon,
   Triangle,
@@ -510,191 +505,24 @@ export default function CorporativoNexusPage() {
                 transition={{ ...scrollAnimation.transition, delay: 0.2 }}
               >
                 <Button 
+                  asChild
                   size="lg"
                   className="bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-900 hover:from-amber-400 hover:to-yellow-400 rounded-md w-full md:w-auto px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold shadow-xl shadow-amber-500/30 transition-all flex items-center justify-center gap-2"
                 >
-                  Agendar Reunião de Board
-                  <ArrowRight className="h-5 w-5" />
+                  <a 
+                    href="https://wa.me/5516997330113?text=Olá!%20Naveguei%20pelo%20demo%20Nexus%20e%20tenho%20interesse%20no%20*Plano%20Corporativo%20(Institucional)*." 
+                    target="_blank" 
+                    rel="noreferrer"
+                  >
+                    Agendar Reunião de Board
+                    <ArrowRight className="h-5 w-5" />
+                  </a>
                 </Button>
               </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
-
-      {/* Separador de Seção */}
-      <div className="relative z-10 border-t border-slate-800/50">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800/30 to-transparent h-px" />
-      </div>
-
-      {/* Footer Corporativo - Fat Footer */}
-      <footer className="relative bg-black border-t border-slate-900 z-10">
-        <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-            {/* Logo e Descrição */}
-            <div className="lg:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <Globe className="h-7 w-7 text-amber-500" strokeWidth={2} />
-                </div>
-                <span className="text-xl font-bold tracking-wider text-slate-50 uppercase">
-                  NEXUS
-                </span>
-              </div>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-md">
-                Consultoria estratégica de classe mundial. Transformando visões em resultados excepcionais.
-              </p>
-            </div>
-
-            {/* Institucional */}
-            <div>
-              <h4 className="text-slate-50 font-semibold mb-4 uppercase text-sm tracking-wider">
-                Institucional
-              </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#empresa" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    A Empresa
-                  </a>
-                </li>
-                <li>
-                  <a href="#lideranca" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    Liderança
-                  </a>
-                </li>
-                <li>
-                  <a href="#carreiras" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    Carreiras
-                  </a>
-                </li>
-                <li>
-                  <a href="#contato" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    Contato
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Legal */}
-            <div>
-              <h4 className="text-slate-50 font-semibold mb-4 uppercase text-sm tracking-wider">
-                Legal
-              </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#privacidade" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    Privacidade
-                  </a>
-                </li>
-                <li>
-                  <a href="#termos" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    Termos de Uso
-                  </a>
-                </li>
-                <li>
-                  <a href="#compliance" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    Compliance
-                  </a>
-                </li>
-                <li>
-                  <a href="#cookies" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    Política de Cookies
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Suporte */}
-            <div>
-              <h4 className="text-slate-50 font-semibold mb-4 uppercase text-sm tracking-wider">
-                Suporte
-              </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#faq" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    FAQ
-                  </a>
-                </li>
-                <li>
-                  <a href="#suporte" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    Central de Ajuda
-                  </a>
-                </li>
-                <li>
-                  <a href="#contato" className="text-slate-400 hover:text-amber-500 transition-colors text-sm">
-                    Fale Conosco
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Newsletter e Social */}
-          <div className="border-t border-slate-900 pt-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Newsletter */}
-              <div>
-                <h4 className="text-slate-50 font-semibold mb-4 uppercase text-sm tracking-wider">
-                  Newsletter
-                </h4>
-                <p className="text-slate-400 text-sm mb-4">
-                  Receba insights exclusivos sobre mercado e estratégia.
-                </p>
-                <form className="flex gap-3">
-                  <input
-                    type="email"
-                    placeholder="Seu e-mail"
-                    className="flex-1 bg-slate-900 border border-slate-800 rounded-md px-4 py-3 text-slate-50 placeholder:text-slate-500 focus:outline-none focus:border-amber-500/50 transition-colors"
-                  />
-                  <Button
-                    type="submit"
-                    className="bg-amber-500 hover:bg-amber-600 text-slate-900 rounded-md px-6 font-semibold"
-                  >
-                    <Mail className="h-4 w-4" />
-                  </Button>
-                </form>
-              </div>
-
-              {/* Social */}
-              <div>
-                <h4 className="text-slate-50 font-semibold mb-4 uppercase text-sm tracking-wider">
-                  Social
-                </h4>
-                <p className="text-slate-400 text-sm mb-4">
-                  Conecte-se conosco nas redes sociais.
-                </p>
-                <div className="flex gap-4">
-                  <a
-                    href="#linkedin"
-                    className="w-10 h-10 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-amber-500 hover:border-amber-500/30 transition-all"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="#twitter"
-                    className="w-10 h-10 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-amber-500 hover:border-amber-500/30 transition-all"
-                  >
-                    <Twitter className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="#instagram"
-                    className="w-10 h-10 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-amber-500 hover:border-amber-500/30 transition-all"
-                  >
-                    <Instagram className="h-5 w-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Copyright */}
-            <div className="border-t border-slate-900 mt-12 pt-8 text-center">
-              <p className="text-slate-500 text-sm">
-                © 2024 Nexus Consultoria. Todos os direitos reservados.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

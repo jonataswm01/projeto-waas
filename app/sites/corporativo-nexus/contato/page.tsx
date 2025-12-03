@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 
+const whatsappUrl =
+  "https://wa.me/5516997330113?text=Olá!%20Naveguei%20pelo%20demo%20Nexus%20e%20tenho%20interesse%20no%20*Plano%20Corporativo%20(Institucional)*.";
+
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
@@ -42,7 +45,7 @@ export default function CorporativoContatoPage() {
               Nossos consultores sênior estão prontos para analisar seu cenário.
             </p>
 
-            <form className="space-y-5">
+            <div className="space-y-5">
               <div>
                 <label className="text-sm text-slate-300 block mb-2">
                   Nome Completo
@@ -96,13 +99,15 @@ export default function CorporativoContatoPage() {
                   placeholder="Compartilhe o contexto do desafio ou projeto."
                 />
               </div>
-              <button
-                type="submit"
-                className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-lg py-4 rounded-xl transition-colors shadow-xl shadow-amber-500/30"
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-lg py-4 rounded-xl transition-colors shadow-xl shadow-amber-500/30 text-center"
               >
                 Solicitar Contato Executivo
-              </button>
-            </form>
+              </a>
+            </div>
           </motion.div>
 
           {/* Info + Mapa */}

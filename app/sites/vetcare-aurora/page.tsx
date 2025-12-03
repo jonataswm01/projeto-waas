@@ -7,7 +7,7 @@ import { HeartHandshake, PawPrint, Stethoscope, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const whatsappUrl =
-  "https://wa.me/5516997330113?text=Olá! Quero levar a identidade *Aurora Pet* para a minha clínica veterinária.";
+  "https://wa.me/5516997330113?text=Olá!%20Naveguei%20pelo%20demo%20Vet%20e%20tenho%20interesse%20no%20*Plano%20Essencial%20(LP%20Simples)*.";
 
 const services = [
   {
@@ -104,10 +104,13 @@ export default function VetcareAuroraPage() {
                 </a>
               </Button>
               <Button
+                asChild
                 variant="ghost"
                 className="rounded-full border border-emerald-200 bg-white/60 px-8 py-6 text-base text-emerald-700 shadow-sm shadow-emerald-500/10 backdrop-blur-md hover:bg-white"
               >
-                Conhecer estrutura
+                <a href={whatsappUrl} target="_blank" rel="noreferrer">
+                  Conhecer estrutura
+                </a>
               </Button>
             </div>
             <div className="mt-10 flex items-center gap-4 rounded-2xl bg-white/70 p-4 backdrop-blur-xl shadow-lg shadow-emerald-500/10">

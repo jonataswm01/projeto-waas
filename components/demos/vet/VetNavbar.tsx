@@ -14,7 +14,7 @@ const navLinks = [
 ];
 
 const whatsappUrl =
-  "https://wa.me/5516997330113?text=Olá! Gostei muito do layout *Vetcare Aurora* e quero um site assim para minha clínica.";
+  "https://wa.me/5516997330113?text=Olá!%20Naveguei%20pelo%20demo%20Vet%20e%20tenho%20interesse%20no%20*Plano%20Essencial%20(LP%20Simples)*.";
 
 export function VetNavbar() {
   const handleAnchorClick = useCallback((event: MouseEvent<HTMLAnchorElement>, href: string) => {

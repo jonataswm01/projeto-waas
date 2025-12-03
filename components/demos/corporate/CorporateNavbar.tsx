@@ -16,8 +16,8 @@ export function CorporateNavbar() {
   const mobileLinks = [
     { label: "A Empresa", href: "/sites/corporativo-nexus/sobre" },
     { label: "Soluções", href: "/sites/corporativo-nexus/solucoes" },
-    { label: "Insights", href: "#" },
-    { label: "Carreiras", href: "#" },
+    { label: "Insights", href: "/sites/corporativo-nexus/insights" },
+    { label: "Carreiras", href: "/sites/corporativo-nexus/sobre" },
   ];
 
   return (
@@ -50,13 +50,13 @@ export function CorporateNavbar() {
           </Link>
 
           <Link
-            href="#"
+            href="/sites/corporativo-nexus/insights"
             className="text-sm font-medium text-slate-300 hover:text-slate-50 transition-colors"
           >
             Insights
           </Link>
           <Link
-            href="#"
+            href="/sites/corporativo-nexus/sobre"
             className="text-sm font-medium text-slate-300 hover:text-slate-50 transition-colors"
           >
             Carreiras
@@ -65,11 +65,11 @@ export function CorporateNavbar() {
 
         <div className="flex items-center gap-4">
           {/* CTA (Desktop) */}
-          <Link href="/sites/corporativo-nexus/contato">
-            <Button className="hidden md:inline-flex bg-white text-slate-900 hover:bg-slate-100 rounded-md px-6 font-medium shadow-lg">
+          <Button asChild className="hidden md:inline-flex bg-white text-slate-900 hover:bg-slate-100 rounded-md px-6 font-medium shadow-lg">
+            <Link href="/sites/corporativo-nexus/contato">
               Falar com Consultor
-            </Button>
-          </Link>
+            </Link>
+          </Button>
 
           {/* Mobile Toggle */}
           <button
@@ -104,11 +104,11 @@ export function CorporateNavbar() {
                 </Link>
               ))}
               <div className="p-4">
-                <Link href="/sites/corporativo-nexus/contato" onClick={handleMobileLinkClick}>
-                  <Button className="w-full bg-white text-slate-900 hover:bg-slate-100 rounded-md py-3 font-semibold">
+                <Button asChild className="w-full bg-white text-slate-900 hover:bg-slate-100 rounded-md py-3 font-semibold">
+                  <Link href="/sites/corporativo-nexus/contato" onClick={handleMobileLinkClick}>
                     Falar com Consultor
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </motion.div>

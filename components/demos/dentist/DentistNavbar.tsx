@@ -6,7 +6,7 @@ import { Smile } from "lucide-react";
 
 export function DentistNavbar() {
   const whatsappUrl =
-    "https://wa.me/5516997330113?text=Olá! Gostei muito do *Layout de Dentista/Clínica* e quero um site igual para o meu negócio.";
+    "https://wa.me/5516997330113?text=Olá!%20Naveguei%20pelo%20demo%20Dentista%20e%20tenho%20interesse%20no%20*Plano%20Profissional%20(LP%20Avançada)*.";
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
