@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  nome      String
+  whatsapp  String
+  email     String
+  empresa   String
+  nicho     String
+  dominio   String
+  template  String
+  status    String   @default("PENDING") // PENDING, PAID, CANCELED
+  cnpj      String?
+
+  @@map("leads")
+}

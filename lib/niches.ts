@@ -1,0 +1,30 @@
+export const niches = [
+  { value: "advocacia", label: "Advocacia / Jurídico" },
+  { value: "arquitetura", label: "Arquitetura e Urbanismo" },
+  { value: "barbearia", label: "Barbearia" },
+  { value: "clinica-medica", label: "Clínica Médica" },
+  { value: "contabilidade", label: "Contabilidade" },
+  { value: "consultoria-empresarial", label: "Consultoria Empresarial" },
+  { value: "dentista", label: "Dentista / Odontologia" },
+  { value: "energia-solar", label: "Energia Solar" },
+  { value: "engenharia-civil", label: "Engenharia Civil" },
+  { value: "estetica-beleza", label: "Estética e Beleza" },
+  { value: "fisioterapia", label: "Fisioterapia" },
+  { value: "imobiliaria", label: "Imobiliária / Corretor" },
+  { value: "nutricao", label: "Nutrição" },
+  { value: "personal-trainer", label: "Personal Trainer" },
+  { value: "pet-shop", label: "Pet Shop / Veterinária" },
+  { value: "psicologia", label: "Psicologia" },
+  { value: "restaurante", label: "Restaurante / Delivery" },
+  { value: "salao-beleza", label: "Salão de Beleza" },
+  { value: "tecnologia", label: "Tecnologia / TI" },
+  { value: "academia", label: "Academia / Fitness" },
+  { value: "automotivo", label: "Automotivo / Mecânica" },
+  { value: "fotografia", label: "Fotografia / Vídeo" },
+  { value: "eventos", label: "Eventos / Festas" },
+  { value: "coaching", label: "Coaching / Mentoria" },
+  { value: "educacao", label: "Educação / Treinamentos" },
+] as const
+
+export type NicheValue = (typeof niches)[number]["value"]
+export type NicheLabel = (typeof niches)[number]["label"]
