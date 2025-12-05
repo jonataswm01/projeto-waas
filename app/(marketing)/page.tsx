@@ -209,42 +209,42 @@ export default function MarketingPage() {
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {/* Card Modelo Velho */}
+            {/* Card Modelo Velho - Pain */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="h-full rounded-[2rem] bg-gradient-to-br from-slate-900/95 to-black/95 backdrop-blur-xl border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+              <Card className="h-full rounded-[2rem] bg-red-50/50 backdrop-blur-md border border-red-200 shadow-lg shadow-slate-200/50">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
-                    <XCircle className="h-6 w-6 text-red-500/80" />
-                    <CardTitle className="text-slate-200 text-2xl tracking-tight">O Velho Jeito (Agências)</CardTitle>
+                    <XCircle className="h-6 w-6 text-red-500" />
+                    <CardTitle className="text-slate-900 text-2xl tracking-tight">O Velho Jeito (Agências)</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <XCircle className="h-5 w-5 text-red-500/80 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-300">Paga caro na entrada (R$ 3.000+)</p>
+                    <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-600">Paga caro na entrada (R$ 3.000+)</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <XCircle className="h-5 w-5 text-red-500/80 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-300">Site fica lento em 6 meses</p>
+                    <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-600">Site fica lento em 6 meses</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <XCircle className="h-5 w-5 text-red-500/80 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-300">Suporte cobra por hora</p>
+                    <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-600">Suporte cobra por hora</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <XCircle className="h-5 w-5 text-red-500/80 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-300">Tecnologia desatualizada</p>
+                    <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <p className="text-slate-600">Tecnologia desatualizada</p>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
 
-            {/* Card Modelo Lumina */}
+            {/* Card Modelo Lumina - Gain (Destaque Premium) */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -252,32 +252,42 @@ export default function MarketingPage() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <Card className="h-full rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-2xl shadow-emerald-500/10 transition-colors hover:bg-white/80">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <CheckCircle2 className="h-6 w-6 text-green-600" />
-                    <CardTitle className="text-2xl tracking-tight">O Jeito Lumina</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-700">Zero entrada, apenas R$ 79,90/mês</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-700">Tecnologia sempre atualizada (Tecnologia Moderna)</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-700">Suporte incluso na mensalidade</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-700">Site rápido e otimizado para sempre</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <Card className="h-full rounded-[2rem] bg-white/80 backdrop-blur-md border border-emerald-100 shadow-xl shadow-emerald-500/10 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/20">
+                  <CardHeader>
+                    <div className="mb-3">
+                      <Badge className="bg-emerald-500/10 text-emerald-700 border-emerald-200 hover:bg-emerald-500/20 text-xs font-semibold">
+                        Recomendado
+                      </Badge>
+                    </div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <CheckCircle2 className="h-6 w-6 text-emerald-500" />
+                      <CardTitle className="text-2xl tracking-tight text-slate-900">O Jeito Lumina</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Zero entrada, apenas R$ 79,90/mês</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Tecnologia sempre atualizada (Tecnologia Moderna)</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Suporte incluso na mensalidade</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <p className="text-slate-700">Site rápido e otimizado para sempre</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </motion.div>
           </div>
         </div>
