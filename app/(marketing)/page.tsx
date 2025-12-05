@@ -20,6 +20,7 @@ import {
 import Link from "next/link";
 import { PricingSection } from "@/components/marketing/pricing-section";
 import { ScrollProgress } from "@/components/marketing/scroll-progress";
+import { PainPointsSection } from "@/components/marketing/pain-points-section";
 
 // Componente para Aurora Orbs com Parallax
 function ParallaxOrb({ className, speed = 0.5 }: { className: string; speed?: number }) {
@@ -96,7 +97,7 @@ export default function MarketingPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-lg sm:text-xl md:text-2xl text-slate-700 mb-6 max-w-3xl mx-auto md:mx-0 leading-relaxed"
               >
-                Sua empresa é invisível? O Instagram é importante, mas não é suficiente. Tenha um Site Profissional, Otimizado e Seguro no ar em 7 dias.
+                Tenha um Site Profissional, Otimizado e Seguro no ar em até 7 dias
               </motion.p>
 
               {/* Micro-copy */}
@@ -182,88 +183,8 @@ export default function MarketingPage() {
         </div>
       </section>
 
-      {/* Seção O Diagnóstico */}
-      <section className="relative py-20 md:py-24 overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
-          >
-            3 Motivos para ter um site profissional agora
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Card 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <Card className="h-full rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center mb-4">
-                    <Instagram className="h-6 w-6 text-red-600" />
-                  </div>
-                  <CardTitle className="tracking-tight">O Instagram não é sua propriedade.</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base text-slate-600">
-                    Você construiu seu negócio em um terreno alugado. Se sua conta cair amanhã, sua empresa deixa de existir. Um site é sua <strong>Propriedade Digital</strong>.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Card className="h-full rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center mb-4">
-                    <UserX className="h-6 w-6 text-orange-600" />
-                  </div>
-                  <CardTitle className="tracking-tight">Sem site, você pode parecer amador.</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base text-slate-600">
-                    Ter um site profissional mostra que você é sério. Antes de comprar, o cliente te pesquisa no Google. Se ele não te acha, mas encontra o concorrente com um site profissional... adivinhe quem leva o dinheiro?
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <Card className="h-full rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center mb-4">
-                    <TrendingDown className="h-6 w-6 text-red-600" />
-                  </div>
-                  <CardTitle className="tracking-tight">Dinheiro na Mesa.</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base text-slate-600">
-                    Existem pessoas procurando seu serviço <strong>agora</strong> na sua cidade. Sem otimização para o Google, você é invisível para esse lucro.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Seção Pain Points - AURORA GLASS Dark Mode */}
+      <PainPointsSection />
 
       {/* Seção A Solução */}
       <section className="relative py-20 md:py-24 overflow-hidden">
