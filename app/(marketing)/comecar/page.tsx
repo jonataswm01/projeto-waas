@@ -31,6 +31,7 @@ import { cn } from "@/lib/utils"
 import { checkDomainAvailability } from "@/app/actions/checkDomain"
 import { createLead, type CreateLeadData } from "@/app/actions/createLead"
 import { niches } from "@/lib/niches"
+import { LegalModal } from "@/components/checkout/legal-modal"
 
 const templates = [
   {
@@ -100,6 +101,8 @@ export default function ComecarPage() {
   const [showSuccessAnimation, setShowSuccessAnimation] = useState(false)
   const [domainOwnership, setDomainOwnership] = useState<"new" | "existing">("new")
   const [existingDomainValidated, setExistingDomainValidated] = useState(false)
+  const [acceptedTerms, setAcceptedTerms] = useState(false)
+  const [modalOpen, setModalOpen] = useState<"termos" | "contrato" | null>(null)
 
   const isVerifyingDomain = domainStatus === "checking" || isCheckingDomain
 
@@ -281,6 +284,67 @@ export default function ComecarPage() {
 
   const selectedTemplate = templates.find((t) => t.id === formData.template)
   const selectedNiche = niches.find((n) => n.value === formData.nicho)
+
+  // Conteúdo placeholder dos termos jurídicos
+  const termosDeUsoContent = `
+    <h2 class="text-xl font-bold text-slate-900 mb-3">Termos de Uso</h2>
+    <p class="mb-3 text-slate-700 text-sm">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <p class="mb-3 text-slate-700 text-sm">
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <h3 class="text-lg font-semibold text-slate-900 mb-2 mt-4">1. Aceitação dos Termos</h3>
+    <p class="mb-3 text-slate-700 text-sm">
+      Ao utilizar nossos serviços, você concorda em cumprir e estar vinculado a estes Termos de Uso. 
+      Se você não concordar com qualquer parte destes termos, não deve utilizar nossos serviços.
+    </p>
+    <h3 class="text-lg font-semibold text-slate-900 mb-2 mt-4">2. Uso do Serviço</h3>
+    <p class="mb-3 text-slate-700 text-sm">
+      Você concorda em usar o serviço apenas para fins legais e de acordo com estes Termos de Uso. 
+      Você não deve usar o serviço de qualquer forma que possa danificar, desabilitar, sobrecarregar ou comprometer nossos servidores ou redes.
+    </p>
+    <h3 class="text-lg font-semibold text-slate-900 mb-2 mt-4">3. Propriedade Intelectual</h3>
+    <p class="mb-3 text-slate-700 text-sm">
+      Todo o conteúdo disponível através do serviço, incluindo designs, textos, gráficos, logotipos, ícones, imagens, 
+      clipes de áudio, downloads digitais e compilações de dados, é propriedade da empresa ou de seus fornecedores de conteúdo.
+    </p>
+  `
+
+  const contratoPrestacaoContent = `
+    <h2 class="text-xl font-bold text-slate-900 mb-3">Contrato de Prestação de Serviços</h2>
+    <p class="mb-3 text-slate-700 text-sm">
+      Este Contrato de Prestação de Serviços ("Contrato") é celebrado entre você ("Cliente") e nossa empresa ("Prestador"), 
+      estabelecendo os termos e condições para a prestação de serviços de desenvolvimento e hospedagem de websites.
+    </p>
+    <h3 class="text-lg font-semibold text-slate-900 mb-2 mt-4">1. Objeto do Contrato</h3>
+    <p class="mb-3 text-slate-700 text-sm">
+      O Prestador se compromete a desenvolver, hospedar e manter um website profissional para o Cliente, 
+      de acordo com as especificações acordadas e mediante o pagamento das mensalidades estabelecidas.
+    </p>
+    <h3 class="text-lg font-semibold text-slate-900 mb-2 mt-4">2. Prazo e Pagamento</h3>
+    <p class="mb-3 text-slate-700 text-sm">
+      O presente contrato tem vigência mensal, renovando-se automaticamente, salvo rescisão por qualquer das partes. 
+      O pagamento será efetuado mensalmente, no valor acordado, através de boleto bancário ou cartão de crédito.
+    </p>
+    <h3 class="text-lg font-semibold text-slate-900 mb-2 mt-4">3. Obrigações do Prestador</h3>
+    <p class="mb-3 text-slate-700 text-sm">
+      O Prestador se compromete a: (a) desenvolver o website conforme especificações; (b) manter o website hospedado e funcionando; 
+      (c) fornecer suporte técnico durante o período de vigência do contrato; (d) realizar atualizações de segurança e manutenção preventiva.
+    </p>
+    <h3 class="text-lg font-semibold text-slate-900 mb-2 mt-4">4. Obrigações do Cliente</h3>
+    <p class="mb-3 text-slate-700 text-sm">
+      O Cliente se compromete a: (a) fornecer todas as informações e materiais necessários para o desenvolvimento do website; 
+      (b) efetuar o pagamento das mensalidades em dia; (c) utilizar o serviço de forma adequada e legal.
+    </p>
+    <h3 class="text-lg font-semibold text-slate-900 mb-2 mt-4">5. Rescisão</h3>
+    <p class="mb-3 text-slate-700 text-sm">
+      Qualquer das partes pode rescindir este contrato a qualquer momento, mediante aviso prévio de 30 dias. 
+      Em caso de rescisão, o Cliente permanece responsável pelo pagamento das mensalidades até a data de encerramento efetivo do serviço.
+    </p>
+  `
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 pt-24 md:pt-32 pb-12 px-4 sm:px-6 lg:px-8">
@@ -879,21 +943,62 @@ export default function ComecarPage() {
                     </Card>
 
                     <div className="text-center space-y-4">
-                      <Button
-                        asChild
-                        size="lg"
-                        className="w-full sm:w-auto bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 hover:from-blue-600 hover:via-indigo-600 hover:to-purple-600 text-white font-semibold px-8 py-6 text-lg shadow-lg"
-                      >
-                        <a
-                          href={getPaymentLink(formData.template)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2"
+                      {/* Checkbox de Aceite */}
+                      <label className="flex items-start justify-center gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={acceptedTerms}
+                          onChange={(e) => setAcceptedTerms(e.target.checked)}
+                          className="mt-1 h-4 w-4 rounded border-slate-300 accent-blue-600 focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                          style={{ accentColor: '#2563eb' }}
+                        />
+                        <span className="text-sm text-slate-700 leading-relaxed">
+                          Declaro que li e concordo com os{" "}
+                          <button
+                            type="button"
+                            onClick={() => setModalOpen("termos")}
+                            className="text-blue-600 hover:text-blue-700 underline font-medium"
+                          >
+                            Termos de Uso
+                          </button>
+                          {" "}e o{" "}
+                          <button
+                            type="button"
+                            onClick={() => setModalOpen("contrato")}
+                            className="text-blue-600 hover:text-blue-700 underline font-medium"
+                          >
+                            Contrato de Prestação de Serviços
+                          </button>
+                          .
+                        </span>
+                      </label>
+
+                      {acceptedTerms ? (
+                        <Button
+                          asChild
+                          size="lg"
+                          className="w-full sm:w-auto bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 hover:from-blue-600 hover:via-indigo-600 hover:to-purple-600 text-white font-semibold px-8 py-6 text-lg shadow-lg"
                         >
-                          <Lock className="h-5 w-5" />
+                          <a
+                            href={getPaymentLink(formData.template)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2"
+                          >
+                            <Lock className="h-5 w-5" />
+                            Finalizar e Ativar Site 🔒
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button
+                          size="lg"
+                          disabled
+                          className="w-full sm:w-auto bg-slate-300 text-slate-500 cursor-not-allowed font-semibold px-8 py-6 text-lg shadow-lg"
+                        >
+                          <Lock className="h-5 w-5 mr-2" />
                           Finalizar e Ativar Site 🔒
-                        </a>
-                      </Button>
+                        </Button>
+                      )}
                       {leadId && (
                         <p className="text-sm text-slate-500">
                           Pedido salvo com sucesso. ID: {leadId}
@@ -941,6 +1046,25 @@ export default function ComecarPage() {
         </Card>
       </div>
 
+      {/* Modais de Termos */}
+      <LegalModal
+        isOpen={modalOpen === "termos"}
+        onClose={() => setModalOpen(null)}
+        onAccept={() => {
+          setAcceptedTerms(true)
+        }}
+        title="Termos de Uso"
+        content={termosDeUsoContent}
+      />
+      <LegalModal
+        isOpen={modalOpen === "contrato"}
+        onClose={() => setModalOpen(null)}
+        onAccept={() => {
+          setAcceptedTerms(true)
+        }}
+        title="Contrato de Prestação de Serviços"
+        content={contratoPrestacaoContent}
+      />
     </div>
   )
 }
