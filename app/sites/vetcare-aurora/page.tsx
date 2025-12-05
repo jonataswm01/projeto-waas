@@ -7,7 +7,7 @@ import { HeartHandshake, PawPrint, Stethoscope, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const whatsappUrl =
-  "https://wa.me/5516997330113?text=Olá!%20Naveguei%20pelo%20demo%20Vet%20e%20tenho%20interesse%20no%20*Plano%20Essencial%20(LP%20Simples)*.";
+  "https://wa.me/5516997330113?text=Olá!%20Vi%20o%20modelo%20Essencial%20(Vet)%20e%20gostei.%20Quero%20saber%20mais%20sobre%20o%20plano%20de%20R$%2079,90.";
 
 const services = [
   {

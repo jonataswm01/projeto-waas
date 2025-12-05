@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,26 +15,44 @@ import {
   Zap, 
   Smartphone, 
   ShieldCheck, 
-  MessageCircle,
-  Check,
-  Star
+  MessageCircle
 } from "lucide-react";
 import Link from "next/link";
-import { OnboardingModal } from "@/components/marketing/OnboardingModal";
+import { PricingSection } from "@/components/marketing/pricing-section";
+import { ScrollProgress } from "@/components/marketing/scroll-progress";
+
+// Componente para Aurora Orbs com Parallax
+function ParallaxOrb({ className, speed = 0.5 }: { className: string; speed?: number }) {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 1000 * speed]);
+
+  return (
+    <motion.div
+      className={`pointer-events-none ${className}`}
+      style={{ y }}
+    />
+  );
+}
 
 export default function MarketingPage() {
-  const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
-
-  const openOnboarding = () => setIsOnboardingOpen(true);
-  const closeOnboarding = () => setIsOnboardingOpen(false);
 
   return (
     <>
+      <ScrollProgress />
       <main className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-pink-50 overflow-hidden pt-20">
-      {/* Aurora Orbs */}
-      <div className="pointer-events-none absolute -top-40 -left-32 h-80 w-80 rounded-full bg-indigo-300/40 blur-3xl" />
-      <div className="pointer-events-none absolute top-40 -right-40 h-96 w-96 rounded-full bg-sky-300/40 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-[-6rem] left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-pink-300/40 blur-3xl" />
+      {/* Aurora Orbs com Parallax Sutil */}
+      <ParallaxOrb 
+        className="absolute -top-40 -left-32 h-80 w-80 rounded-full bg-indigo-300/40 blur-3xl"
+        speed={0.3}
+      />
+      <ParallaxOrb 
+        className="absolute top-40 -right-40 h-96 w-96 rounded-full bg-sky-300/40 blur-3xl"
+        speed={0.5}
+      />
+      <ParallaxOrb 
+        className="absolute bottom-[-6rem] left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-pink-300/40 blur-3xl"
+        speed={0.4}
+      />
 
       {/* Hero Section */}
       <section className="relative flex items-center justify-center pt-8 pb-16 sm:pb-24 md:pt-16">
@@ -99,9 +116,7 @@ export default function MarketingPage() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex justify-center md:justify-start"
               >
-                <motion.button
-                  type="button"
-                  onClick={openOnboarding}
+                <motion.div
                   whileHover={{
                     scale: 1.05,
                     boxShadow:
@@ -109,11 +124,15 @@ export default function MarketingPage() {
                   }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                  className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors group"
                 >
-                  QUERO VENDER MAIS PELO GOOGLE
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
+                  <Link
+                    href="/comecar"
+                    className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors group"
+                  >
+                    QUERO VENDER MAIS PELO GOOGLE
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </motion.div>
               </motion.div>
             </motion.div>
 
@@ -640,147 +659,7 @@ export default function MarketingPage() {
       </section>
 
       {/* Seção A Oferta */}
-      <section className="relative py-20 md:py-24 overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
-          >
-            Quanto vale dobrar sua visibilidade na região?
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {/* Plano Essencial */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="order-2 md:order-1"
-            >
-              <Card className="h-full flex flex-col bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-indigo-500/10 rounded-[2rem]">
-                <CardHeader className="text-center pb-4">
-                  <CardTitle className="text-2xl md:text-3xl mb-4 text-slate-900 tracking-tight">ESSENCIAL</CardTitle>
-                  <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 79,90</span>
-                    <span className="text-lg text-slate-600">/mês</span>
-                  </div>
-                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Página Única simples para começar a vender</p>
-                  <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-green-100 text-green-700 border-green-300 hover:bg-green-200 transition-colors cursor-default">
-                    Instalação Grátis (Tempo Limitado)
-                  </Badge>
-                </CardHeader>
-                <CardContent className="flex-1 flex flex-col pt-0">
-                  <div className="flex-1 space-y-3">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Página Única Simples</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Hospedagem Inclusa</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Botão WhatsApp</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Suporte Básico (E-mail)</p>
-                    </div>
-                  </div>
-                  <div className="pt-6">
-                    <motion.button
-                      type="button"
-                      onClick={openOnboarding}
-                      whileHover={{ 
-                        scale: 1.02,
-                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
-                      }}
-                      whileTap={{ scale: 0.98 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      className="w-full h-12 md:h-14 text-base md:text-lg font-semibold bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
-                    >
-                      Começar com o Básico
-                    </motion.button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Plano Profissional - Destaque */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative order-1 md:order-2"
-            >
-              <Card className="h-full flex flex-col bg-white/70 backdrop-blur-xl border-2 border-blue-400 shadow-2xl shadow-blue-500/20 rounded-[2rem] scale-105 md:scale-100">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 shadow-lg px-4 py-1 flex items-center gap-1.5">
-                    <Star className="h-4 w-4 fill-white" />
-                    MAIS POPULAR
-                  </Badge>
-                </div>
-                <CardHeader className="text-center pb-4 pt-6">
-                  <CardTitle className="text-2xl md:text-3xl mb-4 text-slate-900 tracking-tight">PROFISSIONAL</CardTitle>
-                  <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 129,90</span>
-                    <span className="text-lg text-slate-600">/mês</span>
-                  </div>
-                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Site completo multi-página para empresas</p>
-                  <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-green-100 text-green-700 border-green-300 hover:bg-green-200 transition-colors cursor-default">
-                    Instalação Grátis
-                  </Badge>
-                </CardHeader>
-                <CardContent className="flex-1 flex flex-col pt-0">
-                  <div className="flex-1 space-y-3">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Site Multi-página Completo (Até 5 páginas)</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Otimização para aparecer no Google</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Seção de Notícias (Opcional)</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Suporte Prioritário (WhatsApp)</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Atualizações Mensais</p>
-                    </div>
-                  </div>
-                  <div className="pt-6">
-                    <motion.button
-                      type="button"
-                      onClick={openOnboarding}
-                      whileHover={{ 
-                        scale: 1.05,
-                        boxShadow: "0 20px 25px -5px rgba(37, 99, 235, 0.4), 0 10px 10px -5px rgba(37, 99, 235, 0.2)"
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      className="w-full h-12 md:h-14 text-base md:text-lg font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 rounded-full shadow-lg shadow-blue-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
-                    >
-                      <strong>QUERO O SITE COMPLETO</strong>
-                    </motion.button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PricingSection />
 
       {/* Seção FAQ */}
       <section className="relative py-20 md:py-24 overflow-hidden">
@@ -844,7 +723,6 @@ export default function MarketingPage() {
         </div>
       </section>
       </main>
-      <OnboardingModal isOpen={isOnboardingOpen} onClose={closeOnboarding} />
     </>
   );
 }

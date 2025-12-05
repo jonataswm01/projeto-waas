@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const whatsappUrl =
-  "https://wa.me/5516997330113?text=Olá!%20Naveguei%20pelo%20demo%20Nexus%20e%20tenho%20interesse%20no%20*Plano%20Corporativo%20(Institucional)*.";
+  "https://wa.me/5516997330113?text=Olá!%20Vi%20o%20modelo%20Corporativo%20e%20gostei.%20Quero%20saber%20mais%20sobre%20o%20plano%20de%20R$%20199,90.";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },

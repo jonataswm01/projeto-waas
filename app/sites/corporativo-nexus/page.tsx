@@ -510,7 +510,7 @@ export default function CorporativoNexusPage() {
                   className="bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-900 hover:from-amber-400 hover:to-yellow-400 rounded-md w-full md:w-auto px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold shadow-xl shadow-amber-500/30 transition-all flex items-center justify-center gap-2"
                 >
                   <a 
-                    href="https://wa.me/5516997330113?text=Olá!%20Naveguei%20pelo%20demo%20Nexus%20e%20tenho%20interesse%20no%20*Plano%20Corporativo%20(Institucional)*." 
+                    href="https://wa.me/5516997330113?text=Olá!%20Vi%20o%20modelo%20Corporativo%20e%20gostei.%20Quero%20saber%20mais%20sobre%20o%20plano%20de%20R$%20199,90." 
                     target="_blank" 
                     rel="noreferrer"
                   >

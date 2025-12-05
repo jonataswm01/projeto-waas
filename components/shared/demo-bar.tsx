@@ -1,13 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 
 export function DemoBar() {
-  const whatsappLink =
-    "https://wa.me/5516997330113?text=Olá! Vi um site de demonstração da Lumina e gostei do modelo.";
+  const pathname = usePathname();
+  
+  // Detectar qual site está sendo visualizado e gerar mensagem apropriada
+  const getWhatsAppMessage = () => {
+    if (pathname?.includes("vetcare-aurora")) {
+      return "Olá! Vi o modelo Essencial (Vet) e gostei. Quero saber mais sobre o plano de R$ 79,90.";
+    }
+    if (pathname?.includes("implantes-premium")) {
+      return "Olá! Vi o modelo Profissional (Dentista) e gostei. Quero saber mais sobre o plano de R$ 129,90.";
+    }
+    if (pathname?.includes("corporativo-nexus")) {
+      return "Olá! Vi o modelo Corporativo e gostei. Quero saber mais sobre o plano de R$ 199,90.";
+    }
+    // Fallback genérico
+    return "Olá! Vi um modelo da Lumina e gostei. Quero saber mais.";
+  };
+
+  const whatsappLink = `https://wa.me/5516997330113?text=${encodeURIComponent(getWhatsAppMessage())}`;
 
   return (
     <div className="fixed bottom-8 left-0 right-0 z-50 flex justify-center pointer-events-none">
@@ -25,14 +42,14 @@ export function DemoBar() {
 
           {/* Botões à direita */}
           <div className="flex items-center gap-1.5 sm:gap-3">
-            <Link href="/">
+            <Link href="/comecar">
               <Button
                 variant="ghost"
                 size="sm"
                 className="rounded-full text-slate-600 hover:text-slate-900 hover:bg-white/50 px-2.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm"
               >
                 <ArrowLeft className="h-4 w-4 mr-1.5 sm:mr-2" />
-                Voltar
+                Ver Outros Modelos
               </Button>
             </Link>
             <Link
@@ -44,7 +61,7 @@ export function DemoBar() {
                 size="sm"
                 className="rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/30 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm"
               >
-                Quero um site assim
+                Quero Este Site 🚀
               </Button>
             </Link>
           </div>
