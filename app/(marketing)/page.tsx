@@ -15,7 +15,8 @@ import {
   Zap, 
   Smartphone, 
   ShieldCheck, 
-  MessageCircle
+  MessageCircle,
+  Hand
 } from "lucide-react";
 import Link from "next/link";
 import { PricingSection } from "@/components/marketing/pricing-section";
@@ -367,7 +368,14 @@ export default function MarketingPage() {
                   e.currentTarget.style.backgroundPosition = "center top";
                 }}
                 aria-label="Scroll automático do site Corporativo Elite"
-              />
+              >
+                {/* Ícone de toque - apenas mobile */}
+                <div className="absolute bottom-4 right-4 md:hidden z-10">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg">
+                    <Hand className="h-4 w-4 text-slate-600" />
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Template 2: LP Authority (EMBAIXO Esquerda) */}
@@ -379,7 +387,7 @@ export default function MarketingPage() {
               className="group relative overflow-hidden rounded-[2rem] bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/50 shadow-xl shadow-blue-500/5 hover:bg-white/80 transition-colors duration-300 flex flex-col"
             >
               <div 
-                className="h-64 md:h-80 bg-[url('/dentista-full.png')] bg-cover bg-top bg-no-repeat rounded-t-2xl group-hover:bg-bottom transition-all duration-[12000ms] ease-in-out"
+                className="relative h-64 md:h-80 bg-[url('/dentista-full.png')] bg-cover bg-top bg-no-repeat rounded-t-2xl group-hover:bg-bottom transition-all duration-[12000ms] ease-in-out"
                 style={{
                   backgroundPosition: 'center top',
                   transition: 'background-position 12s ease-in-out'
@@ -391,7 +399,14 @@ export default function MarketingPage() {
                   e.currentTarget.style.backgroundPosition = 'center top';
                 }}
                 aria-label="Página Profissional - Site do Dentista"
-              />
+              >
+                {/* Ícone de toque - apenas mobile */}
+                <div className="absolute bottom-4 right-4 md:hidden z-10">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg">
+                    <Hand className="h-4 w-4 text-slate-600" />
+                  </div>
+                </div>
+              </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="mb-3">
                   <Badge className="bg-cyan-100 text-cyan-700 border-cyan-200 hover:bg-cyan-200 shadow-sm">
@@ -430,7 +445,7 @@ export default function MarketingPage() {
               className="group relative overflow-hidden rounded-[2rem] bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/50 shadow-xl shadow-blue-500/5 hover:bg-white/80 transition-colors duration-300 flex flex-col"
             >
               <div
-                className="h-64 md:h-80 rounded-t-2xl bg-[url('/vet-full.jpg')] bg-cover bg-top bg-no-repeat transition-[background-position] duration-[12000ms] ease-in-out"
+                className="relative h-64 md:h-80 rounded-t-2xl bg-[url('/vet-full.jpg')] bg-cover bg-top bg-no-repeat transition-[background-position] duration-[12000ms] ease-in-out"
                 style={{
                   backgroundPosition: "center top",
                   transition: "background-position 12s ease-in-out",
@@ -442,7 +457,14 @@ export default function MarketingPage() {
                   e.currentTarget.style.backgroundPosition = "center top";
                 }}
                 aria-label="Página Essencial - Vetcare Aurora"
-              />
+              >
+                {/* Ícone de toque - apenas mobile */}
+                <div className="absolute bottom-4 right-4 md:hidden z-10">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg">
+                    <Hand className="h-4 w-4 text-slate-600" />
+                  </div>
+                </div>
+              </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="mb-3">
                   <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-200">
