@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { Check, Star, HelpCircle, Sparkles } from "lucide-react";
+import { Check, Star, HelpCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -50,7 +49,7 @@ const plans: Plan[] = [
   {
     id: "profissional",
     name: "PROFISSIONAL",
-    monthlyPrice: 129.90,
+    monthlyPrice: 139.90,
     description: "Site completo multi-página para empresas",
     features: [
       {
@@ -70,14 +69,14 @@ const plans: Plan[] = [
         description: "Acesso a um painel administrativo para gerenciar conteúdo, visualizar estatísticas e fazer atualizações."
       }
     ],
-    isPopular: false,
+    isPopular: true,
     buttonText: "Quero o Site Completo"
   },
   {
     id: "corporativo",
     name: "CORPORATIVO",
-    monthlyPrice: 199.90,
-    description: "Site completo ilimitado para grandes empresas",
+    monthlyPrice: 0, // "Sob Consulta"
+    description: "Site completo personalizado para grandes empresas",
     features: [
       {
         name: "Site Completo Ilimitado",
@@ -96,8 +95,8 @@ const plans: Plan[] = [
         description: "Integração com ferramentas de CRM, analytics, marketing automation e outras plataformas empresariais."
       }
     ],
-    isPopular: true,
-    buttonText: "Quero o Plano Corporativo"
+    isPopular: false,
+    buttonText: "Falar com Especialista"
   }
 ];
 
@@ -146,17 +145,6 @@ function FeatureItem({ feature, isMobile = false }: { feature: Feature; isMobile
 }
 
 export function PricingSection() {
-  const [isAnnual, setIsAnnual] = useState(true);
-  const discount = 0.17; // 17% de desconto (equivalente a 2 meses grátis)
-
-  const calculatePrice = (monthlyPrice: number) => {
-    if (isAnnual) {
-      // Retorna o valor mensal com desconto (valor anual / 12)
-      return (monthlyPrice * 12 * (1 - discount)) / 12;
-    }
-    return monthlyPrice;
-  };
-
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -173,64 +161,35 @@ export function PricingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-8 md:mb-12"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-4 md:mb-6"
         >
           Quanto vale dobrar sua visibilidade na região?
         </motion.h2>
-
-        {/* Botões Mensal/Anual */}
-        <motion.div
+        
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-col items-center justify-center gap-4 mb-8 md:mb-12"
+          className="text-lg text-slate-600 text-center mb-8 md:mb-12"
         >
-          <div className="flex items-center gap-2 bg-slate-100 rounded-full p-1">
-            <button
-              type="button"
-              onClick={() => setIsAnnual(true)}
-              className={`rounded-full px-4 sm:px-6 py-2 text-sm font-medium transition-all duration-200 ${
-                isAnnual
-                  ? "bg-white text-slate-900 shadow-sm"
-                  : "text-slate-600 bg-transparent hover:text-slate-900 active:bg-slate-200"
-              }`}
-            >
-              Anual
-            </button>
-            <button
-              type="button"
-              onClick={() => setIsAnnual(false)}
-              className={`rounded-full px-4 sm:px-6 py-2 text-sm font-medium transition-all duration-200 ${
-                !isAnnual
-                  ? "bg-white text-slate-900 shadow-sm"
-                  : "text-slate-600 bg-transparent hover:text-slate-900 active:bg-slate-200"
-              }`}
-            >
-              Mensal
-            </button>
-          </div>
-          <AnimatePresence mode="wait">
-            {isAnnual && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: -10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Badge className="bg-green-100 text-green-700 border-green-300 hover:bg-green-200 transition-colors px-4 py-1.5 text-sm font-semibold flex items-center gap-1.5">
-                  <Sparkles className="h-4 w-4" />
-                  Economize 2 meses
-                </Badge>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+          Site completo + Hospedagem + Manutenção
+        </motion.p>
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-sm text-slate-500 text-center mb-8 md:mb-12"
+        >
+          Cobrado mensalmente. Cancele quando quiser.
+        </motion.p>
 
         {/* Grid de Planos */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => {
-            const annualPrice = calculatePrice(plan.monthlyPrice);
+            const isCustomPrice = plan.monthlyPrice === 0;
 
             return (
               <motion.div
@@ -251,10 +210,10 @@ export function PricingSection() {
                 )}
 
                 <Card
-                  className={`h-full flex flex-col bg-white/70 backdrop-blur-xl border shadow-xl rounded-[2rem] transition-all duration-300 ${
+                  className={`h-full flex flex-col bg-white/80 backdrop-blur-md border shadow-xl rounded-[2rem] transition-all duration-300 ${
                     plan.isPopular
                       ? "border-2 border-blue-400 shadow-2xl shadow-blue-500/20"
-                      : "border border-white/60 shadow-indigo-500/10"
+                      : "border border-slate-100 shadow-slate-200/50"
                   }`}
                 >
                   <CardHeader className="text-center pb-4 pt-6">
@@ -264,45 +223,21 @@ export function PricingSection() {
 
                     {/* Preço */}
                     <div className="flex flex-col items-center gap-2 mb-4">
-                      <AnimatePresence mode="wait">
-                        {isAnnual ? (
-                          <motion.div
-                            key="annual"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            transition={{ duration: 0.3 }}
-                            className="flex flex-col items-center gap-1"
-                          >
-                            <div className="flex flex-col sm:flex-row items-center gap-2">
-                              <span className="text-base sm:text-lg text-slate-500 line-through">
-                                {formatPrice(plan.monthlyPrice)}
-                              </span>
-                              <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
-                                {formatPrice(annualPrice)}
-                              </span>
-                            </div>
-                            <span className="text-sm sm:text-base text-slate-600">/mês</span>
-                            <span className="text-xs text-green-600 font-semibold text-center px-2">
-                              Economia de {formatPrice(plan.monthlyPrice - annualPrice)}/mês
-                            </span>
-                          </motion.div>
-                        ) : (
-                          <motion.div
-                            key="monthly"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            transition={{ duration: 0.3 }}
-                            className="flex items-baseline gap-2"
-                          >
-                            <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
-                              {formatPrice(plan.monthlyPrice)}
-                            </span>
-                            <span className="text-base sm:text-lg text-slate-600">/mês</span>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      {isCustomPrice ? (
+                        <div className="flex flex-col items-center gap-1">
+                          <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
+                            Sob Consulta
+                          </span>
+                          <span className="text-sm text-slate-500">Plano personalizado</span>
+                        </div>
+                      ) : (
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
+                            {formatPrice(plan.monthlyPrice)}
+                          </span>
+                          <span className="text-base sm:text-lg text-slate-600">/mês</span>
+                        </div>
+                      )}
                     </div>
 
                     <p className="text-sm text-slate-600">{plan.description}</p>
