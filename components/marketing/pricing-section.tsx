@@ -70,7 +70,7 @@ const plans: Plan[] = [
         description: "Acesso a um painel administrativo para gerenciar conteúdo, visualizar estatísticas e fazer atualizações."
       }
     ],
-    isPopular: false,
+    isPopular: true,
     buttonText: "Quero o Site Completo"
   },
   {
@@ -96,7 +96,7 @@ const plans: Plan[] = [
         description: "Integração com ferramentas de CRM, analytics, marketing automation e outras plataformas empresariais."
       }
     ],
-    isPopular: true,
+    isPopular: false,
     buttonText: "Quero o Plano Corporativo"
   }
 ];
