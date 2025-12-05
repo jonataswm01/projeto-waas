@@ -53,8 +53,8 @@ const templates = [
     isPopular: false,
   },
   {
-    id: "business",
-    name: "Business - Para Empresas",
+    id: "empresarial",
+    name: "Empresarial - Para Empresas",
     style: "Moderno e Completo",
     image: "/corporativo-nexus-full.png",
     price: "R$ 349,90",
@@ -69,7 +69,7 @@ const getPaymentLink = (templateId: string): string => {
   const links: Record<string, string> = {
     essencial: "", // TODO: Link Asaas para Essencial (R$ 189,90/mês)
     profissional: "", // TODO: Link Asaas para Profissional (R$ 229,90/mês)
-    business: "", // TODO: Link Asaas para Business (R$ 349,90/mês)
+    empresarial: "", // TODO: Link Asaas para Empresarial (R$ 349,90/mês)
   }
   return links[templateId] || "#"
 }

@@ -44,6 +44,10 @@ const plans: Plan[] = [
       {
         name: "Hospedagem Inclusa",
         description: "Servidor de alta velocidade garantido pela Lumina, sem custo extra. Seu site sempre no ar e rápido."
+      },
+      {
+        name: "Entrega Rápida (7 dias)",
+        description: "Seu site profissional pronto e no ar em até 7 dias úteis após a aprovação do conteúdo."
       }
     ],
     isPopular: false,
@@ -65,20 +69,20 @@ const plans: Plan[] = [
         description: "Configuração técnica para seu site aparecer nas pesquisas da sua região. Estrutura otimizada para busca orgânica."
       },
       {
-        name: "Formulário de Contato",
-        description: "Formulário profissional integrado para capturar leads e informações de contato dos visitantes."
+        name: "Botão de Agendamento",
+        description: "Sistema de agendamento integrado para que seus clientes marquem consultas ou serviços diretamente pelo site."
       },
       {
-        name: "Painel de Controle",
-        description: "Acesso a um painel administrativo para gerenciar conteúdo, visualizar estatísticas e fazer atualizações."
+        name: "Galeria de Fotos e Projetos",
+        description: "Galeria profissional para exibir seus trabalhos, projetos e portfólio de forma organizada e atraente."
       }
     ],
     isPopular: true,
     buttonText: "Quero o Site Completo"
   },
   {
-    id: "business",
-    name: "BUSINESS",
+    id: "empresarial",
+    name: "EMPRESARIAL",
     monthlyPrice: 349.90,
     annualPrice: 199.90,
     description: "Site completo ilimitado para grandes empresas",
@@ -92,8 +96,8 @@ const plans: Plan[] = [
         description: "Sistema completo de blog integrado para publicar artigos, notícias e conteúdo relevante para seu público."
       },
       {
-        name: "Área do Cliente",
-        description: "Área restrita para clientes acessarem informações exclusivas, documentos e serviços personalizados."
+        name: "Páginas de Serviços Individuais",
+        description: "Páginas dedicadas para cada serviço ou produto, permitindo apresentação detalhada e otimizada para conversão."
       },
       {
         name: "Integrações Avançadas",
@@ -101,51 +105,61 @@ const plans: Plan[] = [
       }
     ],
     isPopular: false,
-    buttonText: "Quero o Plano Business"
+    buttonText: "Quero o Plano Empresarial"
   }
 ];
 
-function FeatureItem({ feature, isMobile = false }: { feature: Feature; isMobile?: boolean }) {
-  if (isMobile) {
-    return (
-      <div className="flex items-center justify-center gap-2 flex-wrap">
+function BenefitItem({ feature }: { feature: Feature }) {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  return (
+    <>
+      {/* Desktop: Hover Card com delay suave */}
+      <div className="hidden md:flex items-center justify-center gap-3">
         <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
-        <span className="text-slate-700 text-center">{feature.name}</span>
-        <Popover>
+        <HoverCard openDelay={300} closeDelay={150}>
+          <HoverCardTrigger asChild>
+            <button
+              type="button"
+              className="text-slate-700 underline decoration-dotted decoration-slate-300 underline-offset-4 hover:decoration-slate-500 transition-colors cursor-help"
+            >
+              {feature.name}
+            </button>
+          </HoverCardTrigger>
+          <HoverCardContent 
+            className="w-80 bg-white border border-slate-100 shadow-xl z-50"
+            side="top"
+            align="center"
+            sideOffset={8}
+          >
+            <p className="text-sm text-slate-700 leading-relaxed">{feature.description}</p>
+          </HoverCardContent>
+        </HoverCard>
+      </div>
+
+      {/* Mobile: Popover com clique/toque */}
+      <div className="md:hidden flex items-center justify-center gap-2 flex-wrap">
+        <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+        <Popover open={isMobileOpen} onOpenChange={setIsMobileOpen}>
           <PopoverTrigger asChild>
             <button
               type="button"
-              className="flex-shrink-0 text-slate-400 hover:text-slate-600 transition-colors"
-              aria-label={`Saiba mais sobre ${feature.name}`}
+              className="text-slate-700 underline decoration-dotted decoration-slate-300 underline-offset-4 active:decoration-slate-500 transition-colors"
             >
-              <HelpCircle className="h-4 w-4" />
+              {feature.name}
             </button>
           </PopoverTrigger>
-          <PopoverContent className="w-72 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl">
+          <PopoverContent 
+            className="w-72 bg-white border border-slate-100 shadow-xl z-50"
+            align="center"
+            side="top"
+            sideOffset={8}
+          >
             <p className="text-sm text-slate-700 leading-relaxed">{feature.description}</p>
           </PopoverContent>
         </Popover>
       </div>
-    );
-  }
-
-  return (
-    <div className="flex items-center justify-center gap-3">
-      <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
-      <HoverCard>
-        <HoverCardTrigger asChild>
-          <button
-            type="button"
-            className="text-slate-700 underline decoration-dotted decoration-slate-300 underline-offset-4 hover:decoration-slate-500 transition-colors cursor-help"
-          >
-            {feature.name}
-          </button>
-        </HoverCardTrigger>
-        <HoverCardContent className="w-80 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl">
-          <p className="text-sm text-slate-700 leading-relaxed">{feature.description}</p>
-        </HoverCardContent>
-      </HoverCard>
-    </div>
+    </>
   );
 }
 
@@ -268,10 +282,7 @@ export function PricingSection() {
                             transition={{ duration: 0.3 }}
                             className="flex flex-col items-center gap-1"
                           >
-                            <div className="flex flex-col sm:flex-row items-center gap-2">
-                              <span className="text-base sm:text-lg text-slate-500 line-through">
-                                {formatPrice(plan.monthlyPrice)}
-                              </span>
+                            <div className="flex items-center">
                               <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
                                 {formatPrice(displayPrice)}
                               </span>
@@ -304,19 +315,9 @@ export function PricingSection() {
 
                   <CardContent className="flex-1 flex flex-col pt-0 px-4 sm:px-6">
                     <div className="flex-1 space-y-3 mb-6">
-                      {/* Desktop: Tooltips com hover */}
-                      <div className="hidden md:block space-y-3">
-                        {plan.features.map((feature, idx) => (
-                          <FeatureItem key={idx} feature={feature} isMobile={false} />
-                        ))}
-                      </div>
-
-                      {/* Mobile: Tooltips com popover */}
-                      <div className="md:hidden space-y-3">
-                        {plan.features.map((feature, idx) => (
-                          <FeatureItem key={idx} feature={feature} isMobile={true} />
-                        ))}
-                      </div>
+                      {plan.features.map((feature, idx) => (
+                        <BenefitItem key={idx} feature={feature} />
+                      ))}
                     </div>
 
                     {/* Botão CTA */}

@@ -18,7 +18,7 @@ export function DemoBar() {
       return "Olá! Vi o modelo Profissional (Dentista) e gostei. Quero saber mais sobre o plano de R$ 229,90/mês (ou R$ 129,90/mês no anual).";
     }
     if (pathname?.includes("corporativo-nexus")) {
-      return "Olá! Vi o modelo Business e gostei. Quero saber mais sobre o plano de R$ 349,90/mês (ou R$ 199,90/mês no anual).";
+      return "Olá! Vi o modelo Empresarial e gostei. Quero saber mais sobre o plano de R$ 349,90/mês (ou R$ 199,90/mês no anual).";
     }
     // Fallback genérico
     return "Olá! Vi um modelo da Lumina e gostei. Quero saber mais.";
