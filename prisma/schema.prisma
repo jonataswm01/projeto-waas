@@ -20,8 +20,11 @@ model Lead {
   nicho     String
   dominio   String
   template  String
+  plano     String?
+  preco     String?
   status    String   @default("PENDING") // PENDING, PAID, CANCELED
   cnpj      String?
+  tipoDocumento String? @map("tipo_documento")
 
   @@map("leads")
 }

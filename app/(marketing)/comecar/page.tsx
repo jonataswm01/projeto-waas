@@ -32,6 +32,7 @@ import { checkDomainAvailability } from "@/app/actions/checkDomain"
 import { createLead, type CreateLeadData } from "@/app/actions/createLead"
 import { niches } from "@/lib/niches"
 import { LegalModal } from "@/components/checkout/legal-modal"
+import { DocumentInput, validateCPF, validateCNPJ } from "@/components/checkout/document-input"
 
 const templates = [
   {
@@ -87,7 +88,12 @@ export default function ComecarPage() {
     whatsapp: "",
     email: "",
     cnpj: "",
+    documento: "",
+    tipoDocumento: "cnpj",
+    plano: "",
+    preco: "",
   })
+  const [documentError, setDocumentError] = useState<string>("")
   const [domainStatus, setDomainStatus] = useState<
     "idle" | "checking" | "available" | "unavailable"
   >("idle")
@@ -192,13 +198,51 @@ export default function ComecarPage() {
   }
 
   const handleTemplateSelect = (templateId: string) => {
+    const selectedTemplate = templates.find((t) => t.id === templateId)
     handleInputChange("template", templateId)
+    if (selectedTemplate) {
+      setFormData((prev) => ({
+        ...prev,
+        template: templateId,
+        plano: selectedTemplate.name,
+        preco: selectedTemplate.price,
+      }))
+    }
     setDirection(1)
     setTimeout(() => setStep(1), 300)
   }
 
   const handleNext = () => {
     if (step === 1) {
+      // Validação do documento
+      if (!formData.documento) {
+        setDocumentError("Por favor, informe seu CPF ou CNPJ.")
+        return
+      }
+      
+      const cleanDoc = formData.documento.replace(/\D/g, "")
+      const expectedLength = formData.tipoDocumento === "cpf" ? 11 : 14
+      if (cleanDoc.length !== expectedLength) {
+        setDocumentError(
+          formData.tipoDocumento === "cpf"
+            ? "CPF incompleto. Digite todos os 11 dígitos."
+            : "CNPJ incompleto. Digite todos os 14 dígitos."
+        )
+        return
+      }
+      
+      const isDocValid = formData.tipoDocumento === "cpf"
+        ? validateCPF(formData.documento)
+        : validateCNPJ(formData.documento)
+      if (!isDocValid) {
+        setDocumentError(
+          formData.tipoDocumento === "cpf"
+            ? "CPF inválido. Verifique os dígitos."
+            : "CNPJ inválido. Verifique os dígitos."
+        )
+        return
+      }
+      
       // Validação antes de avançar do passo 2 para o 3
       if (!formData.dominio.trim()) {
         setDomainMessage("Por favor, informe um domínio.")
@@ -268,10 +312,25 @@ export default function ComecarPage() {
         !formData.email ||
         !formData.empresa ||
         !formData.nicho ||
-        !formData.dominio.trim()
+        !formData.dominio.trim() ||
+        !formData.documento
       ) {
         return true
       }
+      
+      // Validação do documento
+      const cleanDoc = formData.documento.replace(/\D/g, "")
+      const expectedLength = formData.tipoDocumento === "cpf" ? 11 : 14
+      if (cleanDoc.length !== expectedLength) {
+        return true
+      }
+      const isDocValid = formData.tipoDocumento === "cpf"
+        ? validateCPF(formData.documento)
+        : validateCNPJ(formData.documento)
+      if (!isDocValid) {
+        return true
+      }
+      
       // Validação diferente para domínio novo vs existente
       if (domainOwnership === "new") {
         return domainStatus !== "available"
@@ -665,21 +724,19 @@ export default function ComecarPage() {
                               />
                             </div>
 
-                            <div className="space-y-2">
-                              <Label htmlFor="cnpj" className="text-slate-700">
-                                CNPJ (Opcional)
-                              </Label>
-                              <Input
-                                id="cnpj"
-                                type="text"
-                                value={formData.cnpj || ""}
-                                onChange={(e) =>
-                                  handleInputChange("cnpj", e.target.value)
-                                }
-                                placeholder="00.000.000/0000-00"
-                                className="w-full"
-                              />
-                            </div>
+                            <DocumentInput
+                              value={formData.documento || ""}
+                              onChange={(value, type) => {
+                                setFormData((prev) => ({
+                                  ...prev,
+                                  documento: value,
+                                  tipoDocumento: type,
+                                }))
+                                setDocumentError("")
+                              }}
+                              defaultType={formData.tipoDocumento || "cnpj"}
+                              error={documentError}
+                            />
                           </div>
                         </div>
                       </div>

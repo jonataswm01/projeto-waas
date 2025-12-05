@@ -12,8 +12,11 @@ CREATE TABLE IF NOT EXISTS public.leads (
   nicho TEXT NOT NULL,
   dominio TEXT NOT NULL,
   template TEXT NOT NULL,
+  plano TEXT,
+  preco TEXT,
   status TEXT NOT NULL DEFAULT 'PENDING',
-  cnpj TEXT
+  cnpj TEXT,
+  tipo_documento TEXT
 );
 
 -- Criar índices para melhor performance

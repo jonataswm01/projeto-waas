@@ -13,6 +13,10 @@ export type CreateLeadData = {
   whatsapp: string
   email: string
   cnpj?: string
+  documento?: string
+  tipoDocumento?: "cpf" | "cnpj"
+  plano?: string
+  preco?: string
 }
 
 export type CreateLeadResult = {
@@ -27,7 +31,7 @@ export async function createLead(
   try {
     // Validação básica
     if (!data.template || !data.empresa || !data.nicho || !data.dominio ||
-        !data.nome || !data.whatsapp || !data.email) {
+        !data.nome || !data.whatsapp || !data.email || !data.documento) {
       return {
         success: false,
         error: "Todos os campos obrigatórios devem ser preenchidos.",
@@ -43,6 +47,9 @@ export async function createLead(
       }
     }
 
+    // Limpar máscara do documento antes de salvar (remover pontos, traços, barras)
+    const documentoLimpo = data.documento ? data.documento.replace(/\D/g, "") : null
+
     // Criar o lead usando Supabase API
     const { data: lead, error } = await supabaseAdmin
       .from('leads')
@@ -55,7 +62,10 @@ export async function createLead(
         nicho: data.nicho,
         dominio: data.dominio,
         template: data.template,
-        cnpj: data.cnpj || null,
+        plano: data.plano || null,
+        preco: data.preco || null,
+        cnpj: data.cnpj || documentoLimpo || null,
+        tipo_documento: data.tipoDocumento || null,
         status: "PENDING",
         // created_at será preenchido automaticamente pelo DEFAULT now() do banco
       })
