@@ -34,46 +34,41 @@ import { niches } from "@/lib/niches"
 
 const templates = [
   {
-    id: "profissional",
-    name: "Clean Health",
-    style: "Clean/Health",
+    id: "essencial",
+    name: "Essencial - Para Começar",
+    style: "Simples e Direto",
     image: "/vet-full.jpg",
-    price: "R$ 97",
+    price: "R$ 79,90",
     demoUrl: "/sites/vetcare-aurora",
     isPopular: false,
   },
   {
-    id: "essencial",
-    name: "Premium Aesthetic",
-    style: "Dark/Luxo",
+    id: "profissional",
+    name: "Profissional - Para Crescer",
+    style: "Exclusivo e Moderno",
     image: "/dentista-full.png",
-    price: "R$ 197",
+    price: "R$ 129,90",
     demoUrl: "/sites/implantes-premium",
     isPopular: false,
   },
   {
     id: "corporativo",
-    name: "Tech Modern",
-    style: "Tech/Modern",
+    name: "Corporativo - Para Empresas",
+    style: "Moderno e Completo",
     image: "/corporativo-nexus-full.png",
-    price: "R$ 297",
+    price: "R$ 199,90",
     demoUrl: "/sites/corporativo-nexus",
     isPopular: true,
   },
 ]
 
-const templatePrices: Record<string, string> = {
-  essencial: "R$ 197",
-  profissional: "R$ 97",
-  corporativo: "R$ 297",
-}
-
 // Função para gerar link de pagamento baseado no template
 const getPaymentLink = (templateId: string): string => {
+  // TODO: Atualizar com novos links do Asaas de R$ 79,90, R$ 129,90 e R$ 199,90
   const links: Record<string, string> = {
-    essencial: "https://www.asaas.com/c/euwhgag6l2q9sx31", // Premium Aesthetic/Dentista (R$ 197,00)
-    profissional: "https://www.asaas.com/c/ym608it4mcpm55qs", // Clean Health (R$ 97,00)
-    corporativo: "https://www.asaas.com/c/w139k1zm43qs7x0h", // Plano Corporativo (R$ 247,00)
+    essencial: "", // TODO: Link Asaas para Essencial (R$ 79,90/mês)
+    profissional: "", // TODO: Link Asaas para Profissional (R$ 129,90/mês)
+    corporativo: "", // TODO: Link Asaas para Corporativo (R$ 199,90/mês)
   }
   return links[templateId] || "#"
 }
@@ -103,6 +98,8 @@ export default function ComecarPage() {
   const [leadId, setLeadId] = useState<string | null>(null)
   const [isNicheComboboxOpen, setIsNicheComboboxOpen] = useState(false)
   const [showSuccessAnimation, setShowSuccessAnimation] = useState(false)
+  const [domainOwnership, setDomainOwnership] = useState<"new" | "existing">("new")
+  const [existingDomainValidated, setExistingDomainValidated] = useState(false)
 
   const isVerifyingDomain = domainStatus === "checking" || isCheckingDomain
 
@@ -131,6 +128,38 @@ export default function ComecarPage() {
     setDomainStatus("idle")
     setDomainMessage("")
     setCheckedDomain("")
+    setExistingDomainValidated(false)
+  }
+
+  const handleDomainOwnershipChange = (ownership: "new" | "existing") => {
+    setDomainOwnership(ownership)
+    setDomainStatus("idle")
+    setDomainMessage("")
+    setCheckedDomain("")
+    setExistingDomainValidated(false)
+  }
+
+  const validateExistingDomain = (domain: string): boolean => {
+    // Validação básica: deve ter pelo menos um ponto (ex: exemplo.com.br)
+    const domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/
+    return domainRegex.test(domain.trim())
+  }
+
+  const handleExistingDomainValidation = () => {
+    if (!formData.dominio.trim()) {
+      setDomainMessage("Digite o domínio que você já possui.")
+      return
+    }
+
+    if (validateExistingDomain(formData.dominio)) {
+      setCheckedDomain(formData.dominio.trim())
+      setExistingDomainValidated(true)
+      setDomainMessage("")
+      setDomainStatus("idle")
+    } else {
+      setDomainMessage("Por favor, digite um domínio válido (ex: meusite.com.br)")
+      setExistingDomainValidated(false)
+    }
   }
 
   const handleDomainCheck = () => {
@@ -173,11 +202,22 @@ export default function ComecarPage() {
         return
       }
 
-      if (domainStatus !== "available") {
-        setDomainMessage(
-          "Por favor, verifique se o domínio está disponível antes de continuar."
-        )
-        return
+      // Validação diferente para domínio novo vs existente
+      if (domainOwnership === "new") {
+        if (domainStatus !== "available") {
+          setDomainMessage(
+            "Por favor, verifique se o domínio está disponível antes de continuar."
+          )
+          return
+        }
+      } else {
+        // Para domínio existente, precisa ter validado
+        if (!existingDomainValidated) {
+          setDomainMessage(
+            "Por favor, valide seu domínio antes de continuar."
+          )
+          return
+        }
       }
 
       // Criar o lead antes de avançar
@@ -229,10 +269,15 @@ export default function ComecarPage() {
       ) {
         return true
       }
-      return domainStatus !== "available"
+      // Validação diferente para domínio novo vs existente
+      if (domainOwnership === "new") {
+        return domainStatus !== "available"
+      } else {
+        return !existingDomainValidated
+      }
     }
     return false
-  }, [step, formData, domainStatus])
+  }, [step, formData, domainStatus, domainOwnership, existingDomainValidated])
 
   const selectedTemplate = templates.find((t) => t.id === formData.template)
   const selectedNiche = niches.find((n) => n.value === formData.nicho)
@@ -248,7 +293,7 @@ export default function ComecarPage() {
             {step === 2 && "Finalizar pedido"}
           </h1>
           <p className="mt-4 text-lg text-slate-600">
-            {step === 0 && "Selecione o template perfeito para o seu negócio"}
+            {step === 0 && "Escolha o modelo perfeito para o seu negócio"}
             {step === 1 && "Preencha suas informações para continuar"}
             {step === 2 && "Revise e confirme seu pedido"}
           </p>
@@ -261,7 +306,7 @@ export default function ComecarPage() {
             <span>
               {step === 0 && "Seleção do Design"}
               {step === 1 && "Seus Dados"}
-              {step === 2 && "Checkout"}
+              {step === 2 && "Finalizar Pedido"}
             </span>
           </div>
           <div className="h-2 w-full rounded-full bg-slate-200">
@@ -286,10 +331,10 @@ export default function ComecarPage() {
                   <div className="space-y-8">
                     <div className="text-center space-y-2 mb-8">
                       <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-                        Nossa Galeria de Templates
+                        Escolha o modelo ideal para o seu negócio
                       </h2>
                       <p className="text-slate-600">
-                        Cada design foi criado com atenção aos detalhes
+                        Todos os modelos são otimizados para converter visitantes em clientes
                       </p>
                     </div>
                     <div className="grid gap-6 md:grid-cols-3">
@@ -583,46 +628,100 @@ export default function ComecarPage() {
                           Domínio do seu site *
                         </Label>
                         <p className="text-sm text-slate-600 mt-1">
-                          Verifique se o domínio está disponível
+                          {domainOwnership === "new" 
+                            ? "Verifique se o domínio está disponível"
+                            : "Informe o domínio que você já possui"}
                         </p>
                       </div>
-                      <div className="flex gap-3">
+
+                      {/* Seletor de Tipo de Domínio */}
+                      <div className="flex gap-2 p-1 bg-slate-100 rounded-lg w-fit">
+                        <button
+                          type="button"
+                          onClick={() => handleDomainOwnershipChange("new")}
+                          className={cn(
+                            "px-4 py-2 rounded-md text-sm font-medium transition-all",
+                            domainOwnership === "new"
+                              ? "bg-white text-slate-900 shadow-sm"
+                              : "text-slate-600 hover:text-slate-900"
+                          )}
+                        >
+                          Quero registrar um novo
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleDomainOwnershipChange("existing")}
+                          className={cn(
+                            "px-4 py-2 rounded-md text-sm font-medium transition-all",
+                            domainOwnership === "existing"
+                              ? "bg-white text-slate-900 shadow-sm"
+                              : "text-slate-600 hover:text-slate-900"
+                          )}
+                        >
+                          Já tenho um domínio
+                        </button>
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row gap-3">
                         <Input
                           id="dominio"
                           type="text"
                           value={formData.dominio}
                           onChange={(e) => handleDomainInputChange(e.target.value)}
-                          placeholder="ex: minhaloja.com.br"
+                          placeholder={domainOwnership === "new" ? "ex: minhaloja.com.br" : "ex: meusite.com.br"}
                           className="flex-1 text-base h-12"
                         />
                         <Button
                           type="button"
-                          onClick={handleDomainCheck}
-                          disabled={isVerifyingDomain || !formData.dominio.trim()}
-                          className="whitespace-nowrap h-12 px-6"
+                          onClick={domainOwnership === "new" ? handleDomainCheck : handleExistingDomainValidation}
+                          disabled={
+                            domainOwnership === "new" 
+                              ? (isVerifyingDomain || !formData.dominio.trim())
+                              : !formData.dominio.trim()
+                          }
+                          className="w-full sm:w-auto whitespace-nowrap h-12 px-6"
                         >
-                          {isVerifyingDomain ? (
-                            <>
-                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                              Verificando
-                            </>
+                          {domainOwnership === "new" ? (
+                            isVerifyingDomain ? (
+                              <>
+                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                Verificando
+                              </>
+                            ) : (
+                              "Verificar"
+                            )
                           ) : (
-                            "Verificar"
+                            "Validar"
                           )}
                         </Button>
                       </div>
-                      {domainStatus === "available" && (
-                        <p className="text-sm font-semibold text-green-600 flex items-center gap-2">
+
+                      {/* Mensagens para domínio novo */}
+                      {domainOwnership === "new" && (
+                        <>
+                          {domainStatus === "available" && (
+                            <p className="text-sm font-semibold text-green-600 flex items-center gap-2">
+                              <Check className="h-4 w-4" />
+                              {checkedDomain || formData.dominio} está disponível!
+                            </p>
+                          )}
+                          {domainStatus === "unavailable" && (
+                            <p className="text-sm font-semibold text-red-600 flex items-center gap-2">
+                              <span>✗</span>
+                              {checkedDomain || formData.dominio} já está em uso. Tente outro.
+                            </p>
+                          )}
+                        </>
+                      )}
+
+                      {/* Mensagens para domínio existente */}
+                      {domainOwnership === "existing" && existingDomainValidated && (
+                        <p className="text-sm font-semibold text-blue-600 flex items-center gap-2">
                           <Check className="h-4 w-4" />
-                          {checkedDomain || formData.dominio} está disponível!
+                          Perfeito! Configuramos o apontamento DNS após o pagamento.
                         </p>
                       )}
-                      {domainStatus === "unavailable" && (
-                        <p className="text-sm font-semibold text-red-600 flex items-center gap-2">
-                          <span>✗</span>
-                          {checkedDomain || formData.dominio} já está em uso. Tente outro.
-                        </p>
-                      )}
+
                       {domainMessage && (
                         <p className="text-sm text-red-600">{domainMessage}</p>
                       )}
@@ -715,7 +814,7 @@ export default function ComecarPage() {
                               {selectedTemplate?.style}
                             </Badge>
                             <p className="text-sm text-slate-600">
-                              Template profissional completo
+                              Modelo profissional completo
                             </p>
                           </div>
                         </div>
@@ -740,7 +839,7 @@ export default function ComecarPage() {
                         <div className="space-y-3 pb-6 border-b border-slate-200">
                           <div className="flex justify-between items-center">
                             <div className="flex items-center gap-2">
-                              <span className="text-slate-600">Setup & Instalação:</span>
+                              <span className="text-slate-600">Instalação:</span>
                               <span className="text-sm text-slate-400 line-through">
                                 R$ 500,00
                               </span>
@@ -754,7 +853,7 @@ export default function ComecarPage() {
                               Assinatura Mensal:
                             </span>
                             <span className="text-xl font-bold text-blue-600">
-                              {selectedTemplate?.price || templatePrices[formData.template] || "R$ 0"}
+                              {selectedTemplate?.price || "R$ 0"}
                             </span>
                           </div>
                         </div>
@@ -765,7 +864,7 @@ export default function ComecarPage() {
                             Total a pagar:
                           </span>
                           <span className="text-3xl font-bold text-blue-600">
-                            {selectedTemplate?.price || templatePrices[formData.template] || "R$ 0"}
+                            {selectedTemplate?.price || "R$ 0"}
                             <span className="text-base font-normal text-slate-500">
                               /mês
                             </span>

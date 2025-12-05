@@ -66,9 +66,9 @@ export default function MarketingPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.25] px-2 sm:px-0"
               >
-                Enquanto você lê isso, seu concorrente acabou de fechar uma venda pelo{" "}
+                Seu concorrente está vendendo pelo Google. E você? Não perca mais tempo.{" "}
                 <span className="bg-gradient-to-r from-indigo-500 via-sky-500 to-pink-500 bg-clip-text text-transparent">
-                  Google.
+                  
                 </span>
               </motion.h1>
 
@@ -79,7 +79,7 @@ export default function MarketingPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-lg sm:text-xl md:text-2xl text-slate-700 mb-6 max-w-3xl mx-auto md:mx-0 leading-relaxed"
               >
-                Sua empresa é invisível? O Instagram não é o suficiente. Tenha um Site Profissional, Otimizado e Seguro no ar em 7 dias. Sem investir milhares de reais.
+                Sua empresa é invisível? O Instagram é importante, mas não é suficiente. Tenha um Site Profissional, Otimizado e Seguro no ar em 7 dias.
               </motion.p>
 
               {/* Micro-copy */}
@@ -154,7 +154,7 @@ export default function MarketingPage() {
                 >
                   <p className="text-xs font-medium mb-1">Site blindado & rápido</p>
                   <p className="text-sm text-indigo-100">
-                    Hospedado em infraestrutura moderna, com SSL e monitoramento contínuo.
+                    Hospedado em infraestrutura moderna, com Certificado de Segurança e monitoramento contínuo.
                   </p>
                 </motion.div>
               </div>
@@ -173,7 +173,7 @@ export default function MarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
           >
-            3 Sinais de que sua empresa está com os dias contados no digital:
+            3 Motivos para ter um site profissional agora
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -189,7 +189,7 @@ export default function MarketingPage() {
                   <div className="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center mb-4">
                     <Instagram className="h-6 w-6 text-red-600" />
                   </div>
-                  <CardTitle className="tracking-tight">O Instagram não é seu.</CardTitle>
+                  <CardTitle className="tracking-tight">O Instagram não é sua propriedade.</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base text-slate-600">
@@ -211,11 +211,11 @@ export default function MarketingPage() {
                   <div className="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center mb-4">
                     <UserX className="h-6 w-6 text-orange-600" />
                   </div>
-                  <CardTitle className="tracking-tight">Sem site = Amador.</CardTitle>
+                  <CardTitle className="tracking-tight">Sem site, você pode parecer amador.</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base text-slate-600">
-                    Antes de comprar, o cliente te pesquisa no Google. Se ele não te acha, mas encontra o concorrente com um site profissional... adivinhe quem leva o dinheiro?
+                    Ter um site profissional mostra que você é sério. Antes de comprar, o cliente te pesquisa no Google. Se ele não te acha, mas encontra o concorrente com um site profissional... adivinhe quem leva o dinheiro?
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -237,7 +237,7 @@ export default function MarketingPage() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base text-slate-600">
-                    Existem pessoas procurando seu serviço <strong>agora</strong> na sua cidade. Sem SEO (Otimização), você é invisível para esse lucro.
+                    Existem pessoas procurando seu serviço <strong>agora</strong> na sua cidade. Sem otimização para o Google, você é invisível para esse lucro.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -256,7 +256,7 @@ export default function MarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-6 md:mb-8"
           >
-            Ter um site de elite custava R$ 3.000,00. Até agora.
+            Ter um site profissional custava R$ 3.000,00. Agora você paga apenas R$ 79,90 por mês
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -326,7 +326,7 @@ export default function MarketingPage() {
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-700">Tecnologia sempre atualizada (Next.js)</p>
+                    <p className="text-slate-700">Tecnologia sempre atualizada (Tecnologia Moderna)</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
@@ -353,7 +353,7 @@ export default function MarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-4 md:mb-6"
           >
-            Não acredite em promessas. Veja resultados.
+            Veja os modelos. Escolha o ideal para você
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -362,7 +362,7 @@ export default function MarketingPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg text-slate-700 text-center mb-12 md:mb-16"
           >
-            Escolha o nível de complexidade ideal para o seu negócio.
+            Todos os modelos são otimizados para converter visitantes em clientes
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -382,13 +382,13 @@ export default function MarketingPage() {
                   </Badge>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mb-3">
-                  Institucional Corporate
+                  Institucional Empresarial
                 </h3>
                 <p className="text-slate-700 mb-3 text-lg">
-                  Site Institucional Completo. Múltiplas páginas, &apos;Sobre Nós&apos; e Blog. Autoridade máxima.
+                  Site Institucional Completo. Múltiplas páginas, &apos;Sobre Nós&apos; e Seção de Notícias. Autoridade máxima
                 </p>
                 <p className="text-sm text-slate-500 mb-6">
-                  Recomendado para empresas que querem parecer maiores do que são hoje.
+                  Recomendado para empresas que querem parecer maiores do que são hoje
                 </p>
                 <div className="mt-auto">
                   <Button
@@ -440,7 +440,7 @@ export default function MarketingPage() {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundPosition = 'center top';
                 }}
-                aria-label="LP Authority - Site do Dentista"
+                aria-label="Página Profissional - Site do Dentista"
               />
               <div className="p-6 flex-1 flex flex-col">
                 <div className="mb-3">
@@ -449,13 +449,13 @@ export default function MarketingPage() {
                   </Badge>
                 </div>
                 <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">
-                  LP Authority
+                  Página Profissional
                 </h3>
                 <p className="text-slate-700 mb-2">
-                  Landing Page de Alta Conversão. Focada em transformar visitantes em pacientes ou clientes qualificados.
+                  Página Única de Alta Conversão. Focada em transformar visitantes em pacientes ou clientes qualificados
                 </p>
                 <p className="text-sm text-slate-500 mb-4">
-                  Perfeito para negócios onde estética é parte do produto.
+                  Perfeito para negócios onde estética é parte do produto
                 </p>
                 <div className="mt-auto pt-4">
                   <Button
@@ -491,7 +491,7 @@ export default function MarketingPage() {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundPosition = "center top";
                 }}
-                aria-label="LP Essencial - Vetcare Aurora"
+                aria-label="Página Essencial - Vetcare Aurora"
               />
               <div className="p-6 flex-1 flex flex-col">
                 <div className="mb-3">
@@ -500,13 +500,13 @@ export default function MarketingPage() {
                   </Badge>
                 </div>
                 <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">
-                  LP Essencial
+                  Página Essencial
                 </h3>
                 <p className="text-slate-700 mb-2">
-                  Landing Page enxuta com foco total em WhatsApp e chamadas diretas. Preparada para converter visitas em agendamentos imediatos.
+                  Página Única enxuta com foco total em WhatsApp e chamadas diretas. Preparada para converter visitas em agendamentos imediatos
                 </p>
                 <p className="text-sm text-slate-500 mb-4">
-                  Ideal para clínicas, pet shops e serviços locais.
+                  Ideal para clínicas, pet shops e serviços locais
                 </p>
                 <div className="mt-auto pt-4">
                   <Button
@@ -536,7 +536,7 @@ export default function MarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
           >
-            Tecnologia de Big Tech. Preço de Pequena Empresa.
+            Tecnologia das Grandes Empresas. Preço de Pequena Empresa
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -557,7 +557,7 @@ export default function MarketingPage() {
                   <div>
                     <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Velocidade</h3>
                     <p className="text-lg text-slate-600">
-                      Tecnologia Next.js. Carrega instantaneamente. O Google ama sites rápidos e coloca eles no topo.
+                      Tecnologia moderna. Carrega na hora. O Google ama sites rápidos e coloca eles no topo
                     </p>
                   </div>
                 </CardContent>
@@ -579,9 +579,9 @@ export default function MarketingPage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Mobile First</h3>
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Funciona no Celular</h3>
                     <p className="text-lg text-slate-600">
-                      Perfeito em qualquer celular. Onde 90% dos seus clientes estão.
+                      Perfeito em qualquer celular. Onde 90% dos seus clientes estão
                     </p>
                   </div>
                 </CardContent>
@@ -605,7 +605,7 @@ export default function MarketingPage() {
                   <div>
                     <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Blindado</h3>
                     <p className="text-lg text-slate-600">
-                      Segurança SSL e Proteção contra ataques inclusos. Seu site nunca sai do ar.
+                      Certificado de Segurança e Proteção contra ataques inclusos. Seu site nunca sai do ar
                     </p>
                   </div>
                 </CardContent>
@@ -629,7 +629,7 @@ export default function MarketingPage() {
                   <div>
                     <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Suporte Humanizado</h3>
                     <p className="text-lg text-slate-600">
-                      Precisa mudar uma foto ou texto? Chame no WhatsApp. Nós resolvemos.
+                      Precisa mudar uma foto ou texto? Chame no WhatsApp. Nós resolvemos
                     </p>
                   </div>
                 </CardContent>
@@ -668,7 +668,7 @@ export default function MarketingPage() {
                     <span className="text-3xl md:text-4xl font-bold text-slate-900">R$ 79,90</span>
                     <span className="text-lg text-slate-600">/mês</span>
                   </div>
-                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Landing Page simples para começar a vender</p>
+                  <p className="text-sm text-slate-600 mt-4 md:mt-2">Página Única simples para começar a vender</p>
                   <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-green-100 text-green-700 border-green-300 hover:bg-green-200 transition-colors cursor-default">
                     Instalação Grátis (Tempo Limitado)
                   </Badge>
@@ -677,7 +677,7 @@ export default function MarketingPage() {
                   <div className="flex-1 space-y-3">
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Landing Page Simples (Página Única)</p>
+                      <p className="text-slate-700">Página Única Simples</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
@@ -734,7 +734,7 @@ export default function MarketingPage() {
                   </div>
                   <p className="text-sm text-slate-600 mt-4 md:mt-2">Site completo multi-página para empresas</p>
                   <Badge className="mt-8 md:mt-4 mx-auto w-fit bg-green-100 text-green-700 border-green-300 hover:bg-green-200 transition-colors cursor-default">
-                    Setup e Configuração Zero
+                    Instalação Grátis
                   </Badge>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col pt-0">
@@ -745,11 +745,11 @@ export default function MarketingPage() {
                     </div>
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Otimização SEO (Google)</p>
+                      <p className="text-slate-700">Otimização para aparecer no Google</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Blog Integrado (Opcional)</p>
+                      <p className="text-slate-700">Seção de Notícias (Opcional)</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
@@ -837,7 +837,7 @@ export default function MarketingPage() {
                 Meu site vai aparecer no Google?
               </AccordionTrigger>
               <AccordionContent className="text-slate-600 text-base leading-relaxed">
-                Sim! Desenvolvemos toda a estrutura seguindo as melhores práticas de SEO (Otimização para Buscadores). Isso facilita que o Google leia e ranqueie seu site nas pesquisas da sua região.
+                Sim! Desenvolvemos toda a estrutura otimizada para o Google encontrar seu site. Isso facilita que você apareça nas pesquisas da sua região.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
