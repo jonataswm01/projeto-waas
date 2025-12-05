@@ -18,6 +18,7 @@ interface Plan {
   id: string;
   name: string;
   monthlyPrice: number;
+  annualPrice: number;
   description: string;
   features: Feature[];
   isPopular: boolean;
@@ -28,7 +29,8 @@ const plans: Plan[] = [
   {
     id: "essencial",
     name: "ESSENCIAL",
-    monthlyPrice: 79.90,
+    monthlyPrice: 189.90,
+    annualPrice: 99.90,
     description: "Página Única simples para começar a vender",
     features: [
       {
@@ -50,7 +52,8 @@ const plans: Plan[] = [
   {
     id: "profissional",
     name: "PROFISSIONAL",
-    monthlyPrice: 129.90,
+    monthlyPrice: 229.90,
+    annualPrice: 129.90,
     description: "Site completo multi-página para empresas",
     features: [
       {
@@ -74,9 +77,10 @@ const plans: Plan[] = [
     buttonText: "Quero o Site Completo"
   },
   {
-    id: "corporativo",
-    name: "CORPORATIVO",
-    monthlyPrice: 199.90,
+    id: "business",
+    name: "BUSINESS",
+    monthlyPrice: 349.90,
+    annualPrice: 199.90,
     description: "Site completo ilimitado para grandes empresas",
     features: [
       {
@@ -97,7 +101,7 @@ const plans: Plan[] = [
       }
     ],
     isPopular: false,
-    buttonText: "Quero o Plano Corporativo"
+    buttonText: "Quero o Plano Business"
   }
 ];
 
@@ -147,14 +151,9 @@ function FeatureItem({ feature, isMobile = false }: { feature: Feature; isMobile
 
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(true);
-  const discount = 0.17; // 17% de desconto (equivalente a 2 meses grátis)
 
-  const calculatePrice = (monthlyPrice: number) => {
-    if (isAnnual) {
-      // Retorna o valor mensal com desconto (valor anual / 12)
-      return (monthlyPrice * 12 * (1 - discount)) / 12;
-    }
-    return monthlyPrice;
+  const getPrice = (plan: Plan) => {
+    return isAnnual ? plan.annualPrice : plan.monthlyPrice;
   };
 
   const formatPrice = (price: number) => {
@@ -225,7 +224,7 @@ export function PricingSection() {
         {/* Grid de Planos */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => {
-            const annualPrice = calculatePrice(plan.monthlyPrice);
+            const displayPrice = getPrice(plan);
 
             return (
               <motion.div
@@ -274,7 +273,7 @@ export function PricingSection() {
                                 {formatPrice(plan.monthlyPrice)}
                               </span>
                               <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
-                                {formatPrice(annualPrice)}
+                                {formatPrice(displayPrice)}
                               </span>
                             </div>
                             <span className="text-sm sm:text-base text-slate-600">/mês</span>
@@ -289,7 +288,7 @@ export function PricingSection() {
                             className="flex items-baseline gap-2"
                           >
                             <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
-                              {formatPrice(plan.monthlyPrice)}
+                              {formatPrice(displayPrice)}
                             </span>
                             <span className="text-base sm:text-lg text-slate-600">/mês</span>
                           </motion.div>

@@ -39,7 +39,7 @@ const templates = [
     name: "Essencial - Para Começar",
     style: "Simples e Direto",
     image: "/vet-full.jpg",
-    price: "R$ 79,90",
+    price: "R$ 189,90",
     demoUrl: "/sites/vetcare-aurora",
     isPopular: false,
   },
@@ -48,16 +48,16 @@ const templates = [
     name: "Profissional - Para Crescer",
     style: "Exclusivo e Moderno",
     image: "/dentista-full.png",
-    price: "R$ 129,90",
+    price: "R$ 229,90",
     demoUrl: "/sites/implantes-premium",
     isPopular: false,
   },
   {
-    id: "corporativo",
-    name: "Corporativo - Para Empresas",
+    id: "business",
+    name: "Business - Para Empresas",
     style: "Moderno e Completo",
     image: "/corporativo-nexus-full.png",
-    price: "R$ 199,90",
+    price: "R$ 349,90",
     demoUrl: "/sites/corporativo-nexus",
     isPopular: true,
   },
@@ -65,11 +65,11 @@ const templates = [
 
 // Função para gerar link de pagamento baseado no template
 const getPaymentLink = (templateId: string): string => {
-  // TODO: Atualizar com novos links do Asaas de R$ 79,90, R$ 129,90 e R$ 199,90
+  // TODO: Atualizar com novos links do Asaas de R$ 189,90, R$ 229,90 e R$ 349,90
   const links: Record<string, string> = {
-    essencial: "", // TODO: Link Asaas para Essencial (R$ 79,90/mês)
-    profissional: "", // TODO: Link Asaas para Profissional (R$ 129,90/mês)
-    corporativo: "", // TODO: Link Asaas para Corporativo (R$ 199,90/mês)
+    essencial: "", // TODO: Link Asaas para Essencial (R$ 189,90/mês)
+    profissional: "", // TODO: Link Asaas para Profissional (R$ 229,90/mês)
+    business: "", // TODO: Link Asaas para Business (R$ 349,90/mês)
   }
   return links[templateId] || "#"
 }

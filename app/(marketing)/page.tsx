@@ -196,7 +196,7 @@ export default function MarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-6 md:mb-8"
           >
-            Ter um site profissional custava R$ 3.000,00. Agora você paga apenas R$ 79,90 por mês
+            Ter um site profissional custava R$ 3.000,00. Agora você paga a partir de R$ 99,90 por mês
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -271,7 +271,7 @@ export default function MarketingPage() {
                   <CardContent className="space-y-4">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Zero entrada, apenas R$ 79,90/mês</p>
+                      <p className="text-slate-700">Zero entrada, a partir de R$ 99,90/mês</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
