@@ -1,6 +1,7 @@
  "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -65,11 +66,20 @@ const offices = [
   },
 ];
 
+const gallery = [
+  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+  "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+  "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
+];
+
 export default function CorporativoSobrePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 py-20 px-6">
+    <div className="relative min-h-screen bg-slate-950 text-slate-50 py-20 px-6">
       <div
-        className="fixed inset-0 pointer-events-none opacity-[0.03]"
+        className="fixed inset-0 pointer-events-none opacity-[0.03] z-0"
         style={{
           backgroundImage:
             "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)",
@@ -77,9 +87,9 @@ export default function CorporativoSobrePage() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto relative z-10 space-y-20">
+      <div className="relative max-w-6xl mx-auto z-10 space-y-20">
         {/* Hero */}
-        <motion.section {...fadeUp} className="text-center space-y-4">
+        <section className="text-center space-y-4">
           <p className="text-sm uppercase tracking-[0.4em] text-amber-400">
             Sobre a Nexus
           </p>
@@ -90,26 +100,24 @@ export default function CorporativoSobrePage() {
             De uma pequena consultoria em SP para uma potência global impulsionada por
             dados, tecnologia e visão de longo prazo.
           </p>
-        </motion.section>
+        </section>
 
         {/* Timeline */}
         <section className="relative">
-          <motion.div {...fadeUp} className="text-center mb-12">
+          <div className="text-center mb-12">
             <p className="text-sm uppercase tracking-[0.4em] text-amber-400 mb-3">
               A Jornada
             </p>
-            <h2 className="text-3xl font-semibold">
+            <h2 className="text-3xl font-semibold text-white">
               Legado que conecta passado, presente e futuro.
             </h2>
-          </motion.div>
+          </div>
           <div className="relative max-w-3xl mx-auto">
             <div className="absolute left-1/2 -translate-x-1/2 h-full border-l border-slate-800" />
             <div className="space-y-16">
               {timeline.map((item, index) => (
-                <motion.div
+                <div
                   key={item.year}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: index * 0.1 }}
                   className={`flex flex-col md:flex-row items-center gap-6 ${
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
@@ -118,14 +126,14 @@ export default function CorporativoSobrePage() {
                     <p className="text-sm uppercase tracking-[0.5em] text-amber-400 mb-2">
                       {item.year}
                     </p>
-                    <h3 className="text-2xl font-semibold">{item.title}</h3>
+                    <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
                     <p className="text-slate-400 mt-3">{item.description}</p>
                   </div>
                   <div className="relative">
                     <span className="w-4 h-4 rounded-full bg-amber-500 block border-4 border-slate-950 shadow-[0_0_20px_rgba(251,191,36,0.6)]" />
                   </div>
                   <div className="md:w-1/2 hidden md:block" />
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -133,43 +141,39 @@ export default function CorporativoSobrePage() {
 
         {/* Valores */}
         <section>
-          <motion.div {...fadeUp} className="text-center mb-12">
+          <div className="text-center mb-12">
             <p className="text-sm uppercase tracking-[0.4em] text-amber-400 mb-3">
               Nossos Valores
             </p>
-            <h2 className="text-3xl font-semibold">O que sustenta cada decisão.</h2>
-          </motion.div>
+            <h2 className="text-3xl font-semibold text-white">O que sustenta cada decisão.</h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {values.map((value, index) => (
-              <motion.div
+              <div
                 key={value.title}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: index * 0.1 }}
                 className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-lg shadow-black/20 hover:border-amber-500/30 transition-colors"
               >
                 <h3 className="text-xl font-semibold text-white mb-3">
                   {value.title}
                 </h3>
                 <p className="text-slate-400 text-sm">{value.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* Galeria */}
+        {/* Escritórios Principais */}
         <section>
-          <motion.div {...fadeUp} className="text-center mb-10">
+          <div className="text-center mb-10">
             <p className="text-sm uppercase tracking-[0.4em] text-amber-400 mb-3">
               Presença Física
             </p>
-            <h2 className="text-3xl font-semibold">Onde as decisões acontecem.</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 className="text-3xl font-semibold text-white">Onde as decisões acontecem.</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {offices.map((office, index) => (
-              <motion.div
+              <div
                 key={office.title}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: 0.1 * index }}
                 className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-xl shadow-black/30"
               >
                 <div className="relative h-72">
@@ -187,7 +191,35 @@ export default function CorporativoSobrePage() {
                     {office.title}
                   </h3>
                 </div>
-              </motion.div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Galeria - Grid 6 Imagens */}
+        <section>
+          <div className="text-center mb-10">
+            <p className="text-sm uppercase tracking-[0.4em] text-amber-400 mb-3">
+              Nossos Escritórios
+            </p>
+            <h2 className="text-3xl font-semibold text-white">
+              Onde as decisões estratégicas acontecem
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {gallery.map((image, index) => (
+              <div
+                key={index}
+                className="group relative h-64 rounded-lg overflow-hidden border border-slate-800 hover:border-amber-500/30 transition-all duration-300"
+              >
+                <Image
+                  src={image}
+                  alt={`Escritório Nexus ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
             ))}
           </div>
         </section>

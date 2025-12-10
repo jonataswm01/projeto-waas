@@ -57,7 +57,7 @@ const templates = [
     id: "empresarial",
     name: "Empresarial - Para Empresas",
     style: "Moderno e Completo",
-    image: "/corporativo-nexus-full.png",
+    image: "/corporativo-nexus-full-site.png",
     price: "R$ 349,90",
     demoUrl: "/sites/corporativo-nexus",
     isPopular: true,
@@ -483,11 +483,11 @@ export default function ComecarPage() {
                               {/* Image Container with Fixed Height and Scroll on Hover */}
                               <div className="relative h-[450px] w-full overflow-hidden">
                                 <div
-                                  className="absolute inset-0 bg-cover bg-top bg-no-repeat transition-[background-position] duration-[12000ms] ease-in-out"
+                                  className="absolute inset-0 bg-cover bg-top bg-no-repeat transition-[background-position] duration-[6000ms] ease-in-out"
                                   style={{
                                     backgroundImage: `url(${template.image})`,
                                     backgroundPosition: "center top",
-                                    transition: "background-position 12s ease-in-out",
+                                    transition: "background-position 6s ease-in-out",
                                   }}
                                   onMouseEnter={(e) => {
                                     e.currentTarget.style.backgroundPosition = "center bottom"

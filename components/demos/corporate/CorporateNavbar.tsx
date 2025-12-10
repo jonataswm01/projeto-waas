@@ -14,10 +14,10 @@ export function CorporateNavbar() {
   };
 
   const mobileLinks = [
+    { label: "Home", href: "/sites/corporativo-nexus" },
     { label: "A Empresa", href: "/sites/corporativo-nexus/sobre" },
     { label: "Soluções", href: "/sites/corporativo-nexus/solucoes" },
     { label: "Insights", href: "/sites/corporativo-nexus/insights" },
-    { label: "Carreiras", href: "/sites/corporativo-nexus/sobre" },
   ];
 
   return (
@@ -35,6 +35,12 @@ export function CorporateNavbar() {
 
         {/* Links (Centro - Hidden no Mobile) */}
         <div className="hidden md:flex items-center gap-8">
+          <Link
+            href="/sites/corporativo-nexus"
+            className="text-sm font-medium text-slate-300 hover:text-slate-50 transition-colors"
+          >
+            Home
+          </Link>
           <Link
             href="/sites/corporativo-nexus/sobre"
             className="text-sm font-medium text-slate-300 hover:text-slate-50 transition-colors"
@@ -54,12 +60,6 @@ export function CorporateNavbar() {
             className="text-sm font-medium text-slate-300 hover:text-slate-50 transition-colors"
           >
             Insights
-          </Link>
-          <Link
-            href="/sites/corporativo-nexus/sobre"
-            className="text-sm font-medium text-slate-300 hover:text-slate-50 transition-colors"
-          >
-            Carreiras
           </Link>
         </div>
 

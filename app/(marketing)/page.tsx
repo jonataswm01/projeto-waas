@@ -269,22 +269,35 @@ export default function MarketingPage() {
                       <CardTitle className="text-2xl tracking-tight text-slate-900">O Jeito Lumina</CardTitle>
                     </div>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Zero entrada, a partir de R$ 99,90/mês</p>
+                  <CardContent className="space-y-4 flex flex-col">
+                    <div className="space-y-4 flex-1">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <p className="text-slate-700">Zero entrada, a partir de R$ 99,90/mês</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <p className="text-slate-700">Tecnologia sempre atualizada (Tecnologia Moderna)</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <p className="text-slate-700">Suporte incluso na mensalidade</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <p className="text-slate-700">Site rápido e otimizado para sempre</p>
+                      </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Tecnologia sempre atualizada (Tecnologia Moderna)</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Suporte incluso na mensalidade</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      <p className="text-slate-700">Site rápido e otimizado para sempre</p>
+                    {/* CTA no rodapé do card */}
+                    <div className="pt-6 mt-4 border-t border-emerald-100">
+                      <Link href="/comecar">
+                        <Button
+                          className="w-full rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700 shadow-lg shadow-emerald-500/30 font-semibold"
+                        >
+                          Começar Agora
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
@@ -341,7 +354,7 @@ export default function MarketingPage() {
                 <p className="text-sm text-slate-500 mb-6">
                   Recomendado para empresas que querem parecer maiores do que são hoje
                 </p>
-                <div className="mt-auto">
+                <div className="mt-auto flex flex-col sm:flex-row gap-3">
                   <Button
                     asChild
                     size="sm"
@@ -351,15 +364,29 @@ export default function MarketingPage() {
                       Ver Demo Ao Vivo
                     </Link>
                   </Button>
+                  <Button
+                    asChild
+                    size="sm"
+                    variant="outline"
+                    className="rounded-full text-sm px-6 font-semibold border-amber-500 text-amber-600 hover:bg-amber-50"
+                  >
+                    <Link 
+                      href="https://wa.me/5516997330113?text=Olá! Vi o modelo Institucional Empresarial e gostei. Quero saber mais sobre o plano de R$ 349,90/mês (ou R$ 199,90/mês no anual)." 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      Quero Este Site
+                    </Link>
+                  </Button>
                 </div>
               </div>
 
               {/* Imagem - Lado Direito (60% da largura) */}
               <div
-                className="relative w-full md:w-[60%] min-h-[400px] md:min-h-0 md:h-full bg-[url('/corporativo-nexus-full.png')] bg-cover bg-no-repeat bg-top rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none overflow-hidden transition-all duration-[12000ms] ease-in-out"
+                className="relative w-full md:w-[60%] min-h-[400px] md:min-h-0 md:h-full bg-[url('/corporativo-nexus-full-site.png')] bg-cover bg-no-repeat bg-top rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none overflow-hidden transition-all duration-[6000ms] ease-in-out"
                 style={{
                   backgroundPosition: "center top",
-                  transition: "background-position 12s ease-in-out",
+                  transition: "background-position 6s ease-in-out",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundPosition = "center bottom";
@@ -422,14 +449,28 @@ export default function MarketingPage() {
                 <p className="text-sm text-slate-500 mb-4">
                   Perfeito para negócios onde estética é parte do produto
                 </p>
-                <div className="mt-auto pt-4">
+                <div className="mt-auto pt-4 flex flex-col sm:flex-row gap-3">
                   <Button
                     asChild
                     size="sm"
-                    className="rounded-full text-sm px-6 bg-cyan-600 text-white hover:bg-cyan-700 shadow-lg shadow-cyan-500/30 transition-colors w-fit"
+                    className="rounded-full text-sm px-6 bg-cyan-600 text-white hover:bg-cyan-700 shadow-lg shadow-cyan-500/30 transition-colors"
                   >
                     <Link href="/sites/implantes-premium" target="_blank" rel="noopener noreferrer">
                       Ver Demo Ao Vivo
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="sm"
+                    variant="outline"
+                    className="rounded-full text-sm px-6 border-cyan-600 text-cyan-600 hover:bg-cyan-50"
+                  >
+                    <Link 
+                      href="https://wa.me/5516997330113?text=Olá! Vi o modelo Página Profissional (Dentista) e gostei. Quero saber mais sobre o plano de R$ 229,90/mês (ou R$ 129,90/mês no anual)." 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      Quero Este Site
                     </Link>
                   </Button>
                 </div>
@@ -480,15 +521,28 @@ export default function MarketingPage() {
                 <p className="text-sm text-slate-500 mb-4">
                   Ideal para clínicas, pet shops e serviços locais
                 </p>
-                <div className="mt-auto pt-4">
+                <div className="mt-auto pt-4 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                  <Button
+                    asChild
+                    size="sm"
+                    className="rounded-full text-sm px-6 bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-500/30 w-fit"
+                  >
+                    <Link href="/sites/essencial-pet" target="_blank" rel="noopener noreferrer">
+                      Ver Demo Ao Vivo
+                    </Link>
+                  </Button>
                   <Button
                     asChild
                     variant="outline"
                     size="sm"
                     className="rounded-full text-sm px-6 border-emerald-600 text-emerald-600 hover:bg-emerald-50 w-fit"
                   >
-                    <Link href="/sites/essencial-pet" target="_blank" rel="noopener noreferrer">
-                      Ver Demo Ao Vivo
+                    <Link 
+                      href="https://wa.me/5516997330113?text=Olá! Vi o modelo Página Essencial e gostei. Quero saber mais sobre o plano de R$ 189,90/mês (ou R$ 99,90/mês no anual)." 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      Quero Este Site
                     </Link>
                   </Button>
                 </div>
@@ -608,6 +662,32 @@ export default function MarketingPage() {
               </Card>
             </motion.div>
           </div>
+
+          {/* CTA após os Benefícios */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-12 md:mt-16 text-center"
+          >
+            <motion.div
+              whileHover={{
+                scale: 1.02,
+                boxShadow: "0 20px 40px -15px rgba(37, 99, 235, 0.6), 0 10px 20px -10px rgba(129, 140, 248, 0.5)",
+              }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 18 }}
+            >
+              <Link
+                href="/comecar"
+                className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors group"
+              >
+                Quero Tecnologia de Grande Empresa
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

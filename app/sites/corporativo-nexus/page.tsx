@@ -13,8 +13,15 @@ import {
   Hexagon,
   Triangle,
   Circle,
-  Building2
+  Building2,
+  Zap,
+  Heart,
+  Clock,
+  Check,
+  Star,
+  ChevronDown
 } from "lucide-react";
+import Link from "next/link";
 import { Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({ 
@@ -96,18 +103,65 @@ const insights = [
     category: "Mercado",
     date: "15 Jan 2024",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+    slug: "futuro-fusoes-2024",
   },
   {
     title: "Compliance digital: novas regulamentações",
     category: "Legal",
     date: "10 Jan 2024",
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
+    slug: "compliance-digital-regulamentacoes",
   },
   {
     title: "Tendências de investimento ESG",
     category: "Estratégia",
     date: "5 Jan 2024",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    slug: "tendencias-investimento-esg",
+  },
+];
+
+const differentials = [
+  {
+    title: "Atendimento Rápido",
+    description: "Resposta em até 24h para consultas estratégicas urgentes.",
+    icon: Zap,
+  },
+  {
+    title: "Tecnologia de Ponta",
+    description: "Ferramentas proprietárias de análise e modelagem avançada.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Cuidado Humanizado",
+    description: "Relacionamento próximo com boards e equipes executivas.",
+    icon: Heart,
+  },
+  {
+    title: "Horários Flexíveis",
+    description: "Atendimento global com suporte em múltiplos fusos horários.",
+    icon: Clock,
+  },
+];
+
+const testimonials = [
+  {
+    quote: "A Nexus transformou nossa estratégia de expansão. Em 6 meses, fechamos 3 aquisições que estavam travadas há anos.",
+    author: "Carlos Eduardo Santos",
+    role: "CEO, Vertex Group",
+    rating: 5,
+  },
+  {
+    quote: "O nível de profundidade da análise jurídica e financeira superou todas as expectativas. Recomendo sem hesitação.",
+    author: "Patricia Almeida",
+    role: "CFO, GlobalTech Solutions",
+    rating: 5,
+  },
+  {
+    quote: "Consultoria que realmente entrega resultados mensuráveis. ROI positivo desde o primeiro trimestre.",
+    author: "Ricardo Mendonça",
+    role: "Diretor de Estratégia, Apex Industries",
+    rating: 5,
   },
 ];
 
@@ -306,6 +360,13 @@ export default function CorporativoNexusPage() {
                     <p className="text-slate-400 leading-relaxed">
                       {solution.description}
                     </p>
+                    <Link
+                      href={`/sites/corporativo-nexus/servicos/${solution.title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "e")}`}
+                      className="mt-4 inline-flex items-center text-sm font-semibold text-amber-500 hover:text-amber-400 transition-colors group-hover:translate-x-1"
+                    >
+                      Ver detalhes completos
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </Link>
                   </div>
                 </motion.div>
               );
@@ -335,7 +396,164 @@ export default function CorporativoNexusPage() {
                     <p className="text-slate-400 leading-relaxed">
                       {solution.description}
                     </p>
+                    <Link
+                      href={`/sites/corporativo-nexus/servicos/${solution.title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "e")}`}
+                      className="mt-4 inline-flex items-center text-sm font-semibold text-amber-500 hover:text-amber-400 transition-colors group-hover:translate-x-1"
+                    >
+                      Ver detalhes completos
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </Link>
                   </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Separador de Seção */}
+      <div className="relative z-10 border-t border-slate-800/50">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800/30 to-transparent h-px" />
+      </div>
+
+      {/* Sobre - História + Missão/Visão/Valores */}
+      <section className="relative py-24 px-6 z-10 bg-slate-900/30">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            {...scrollAnimation}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
+              Sobre a Nexus
+            </h2>
+            <p className="text-slate-400 text-lg">
+              Construindo o futuro dos negócios há mais de uma década
+            </p>
+          </motion.div>
+
+          {/* Grid 2 colunas - História + Imagem */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <motion.div
+              {...scrollAnimation}
+              className="space-y-6"
+            >
+              <p className="text-sm uppercase tracking-[0.4em] text-amber-400">
+                Nossa História
+              </p>
+              <p className="text-slate-300 text-lg leading-relaxed">
+                Fundada em 2010 em São Paulo, a Nexus nasceu da visão de três sócios que acreditavam que planejamento estratégico deveria ser acessível, ágil e orientado a resultados. O que começou como uma consultoria boutique rapidamente se transformou em uma potência global.
+              </p>
+              <p className="text-slate-300 text-lg leading-relaxed">
+                Em 2015, expandimos para o Rio de Janeiro e Brasília, consolidando nossa presença nacional. O salto tecnológico veio em 2019, quando integramos IA e data science ao core da consultoria, criando o Nexus Insights, nossa suíte proprietária de modelos de previsão e mapeamento competitivo.
+              </p>
+              <p className="text-slate-300 text-lg leading-relaxed">
+                Hoje, operamos em 20 países, atuando com boards e fundos de private equity que buscam expansão acelerada com governança impecável. Nossa missão continua a mesma: transformar desafios complexos em oportunidades de crescimento sustentável.
+              </p>
+            </motion.div>
+            <motion.div
+              {...scrollAnimation}
+              transition={{ ...scrollAnimation.transition, delay: 0.2 }}
+              className="relative h-[500px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80"
+                alt="Escritório Nexus"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+            </motion.div>
+          </div>
+
+          {/* Missão, Visão e Valores - 3 Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <motion.div
+              {...scrollAnimation}
+              className="bg-slate-900 border border-slate-800 rounded-lg p-8 hover:border-amber-500/30 transition-all duration-300"
+            >
+              <p className="text-sm uppercase tracking-[0.4em] text-amber-400 mb-4">
+                Missão
+              </p>
+              <h3 className="text-2xl font-bold text-slate-50 mb-4">
+                Transformar desafios em oportunidades
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Oferecer consultoria estratégica que integra expertise jurídica, financeira e operacional para entregar resultados mensuráveis e crescimento sustentável.
+              </p>
+            </motion.div>
+            <motion.div
+              {...scrollAnimation}
+              transition={{ ...scrollAnimation.transition, delay: 0.1 }}
+              className="bg-slate-900 border border-slate-800 rounded-lg p-8 hover:border-amber-500/30 transition-all duration-300"
+            >
+              <p className="text-sm uppercase tracking-[0.4em] text-amber-400 mb-4">
+                Visão
+              </p>
+              <h3 className="text-2xl font-bold text-slate-50 mb-4">
+                Liderança global em consultoria estratégica
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Ser a consultoria de referência para empresas que buscam expansão acelerada, fusões estratégicas e governança de excelência em mercados globais.
+              </p>
+            </motion.div>
+            <motion.div
+              {...scrollAnimation}
+              transition={{ ...scrollAnimation.transition, delay: 0.2 }}
+              className="bg-slate-900 border border-slate-800 rounded-lg p-8 hover:border-amber-500/30 transition-all duration-300"
+            >
+              <p className="text-sm uppercase tracking-[0.4em] text-amber-400 mb-4">
+                Valores
+              </p>
+              <h3 className="text-2xl font-bold text-slate-50 mb-4">
+                Integridade, Excelência e Inovação
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Decisões orientadas por transparência, compliance e responsabilidade. Execução com rigor metodológico e obsessão por resultados. Tecnologia aplicada para antecipar movimentos de mercado.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Separador de Seção */}
+      <div className="relative z-10 border-t border-slate-800/50">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800/30 to-transparent h-px" />
+      </div>
+
+      {/* Diferenciais - 4 Cards */}
+      <section className="relative py-24 px-6 z-10">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            {...scrollAnimation}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
+              Por que escolher a Nexus
+            </h2>
+            <p className="text-slate-400 text-lg">
+              Diferenciais que fazem a diferença em cada projeto
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {differentials.map((differential, index) => {
+              const Icon = differential.icon;
+              return (
+                <motion.div
+                  key={differential.title}
+                  {...scrollAnimation}
+                  transition={{ ...scrollAnimation.transition, delay: index * 0.1 }}
+                  className="group bg-slate-900 border border-slate-800 rounded-lg p-8 hover:border-amber-500/50 hover:-translate-y-2 hover:scale-105 transition-all duration-300"
+                >
+                  <div className="w-14 h-14 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center mb-6 group-hover:border-amber-500/30 transition-colors">
+                    <Icon className="h-7 w-7 text-amber-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-50 mb-3">
+                    {differential.title}
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    {differential.description}
+                  </p>
                 </motion.div>
               );
             })}
@@ -401,6 +619,56 @@ export default function CorporativoNexusPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800/30 to-transparent h-px" />
       </div>
 
+      {/* Depoimentos - 3 Cards */}
+      <section className="relative py-24 px-6 z-10">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            {...scrollAnimation}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
+              O que nossos clientes dizem
+            </h2>
+            <p className="text-slate-400 text-lg">
+              Resultados reais de empresas que confiaram na Nexus
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.author}
+                {...scrollAnimation}
+                transition={{ ...scrollAnimation.transition, delay: index * 0.1 }}
+                className="group bg-slate-900 border border-slate-800 rounded-lg p-8 hover:border-amber-500/30 hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-amber-500 text-amber-500" />
+                  ))}
+                </div>
+                <p className="text-slate-300 text-lg leading-relaxed mb-6 italic">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </p>
+                <div>
+                  <p className="text-slate-50 font-semibold">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-slate-400 text-sm">
+                    {testimonial.role}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Separador de Seção */}
+      <div className="relative z-10 border-t border-slate-800/50">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800/30 to-transparent h-px" />
+      </div>
+
       {/* Insights - Blog Preview */}
       <section className="relative py-24 px-6 z-10">
         <div className="max-w-7xl mx-auto">
@@ -446,13 +714,25 @@ export default function CorporativoNexusPage() {
                   <h3 className="text-xl font-bold text-slate-50 mb-2 group-hover:text-amber-500 transition-colors">
                     {insight.title}
                   </h3>
-                  <div className="flex items-center text-amber-500/80 text-sm font-medium group-hover:text-amber-500 transition-colors">
-                    Ler mais
+                  <Link
+                    href={`/sites/corporativo-nexus/insights/${insight.slug}`}
+                    className="flex items-center text-amber-500/80 text-sm font-medium group-hover:text-amber-500 transition-colors"
+                  >
+                    Ler artigo completo
                     <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                  </Link>
                 </div>
               </motion.article>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              href="/sites/corporativo-nexus/insights"
+              className="inline-flex items-center text-amber-500 hover:text-amber-400 font-semibold transition-colors"
+            >
+              Ver todos os posts
+              <ArrowRight className="h-5 w-5 ml-2" />
+            </Link>
           </div>
         </div>
       </section>
