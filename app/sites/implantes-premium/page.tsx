@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Smile, Sparkles, AlignCenter, ShieldCheck, Sparkles as SparklesIcon, MapPin } from "lucide-react";
+import { Smile, Sparkles, AlignCenter, ShieldCheck, Sparkles as SparklesIcon, MapPin, Phone, Clock } from "lucide-react";
 
 const treatments = [
   {
@@ -211,9 +212,12 @@ export default function ImplantesPremiumPage() {
                     </div>
                     <h3 className="mb-3 text-2xl font-semibold text-slate-900">{title}</h3>
                     <p className="flex-1 text-slate-600">{description}</p>
-                    <span className="mt-4 text-sm font-semibold text-cyan-600 transition-colors group-hover:text-blue-600">
+                    <Link
+                      href="/sites/implantes-premium/servicos"
+                      className="mt-4 text-sm font-semibold text-cyan-600 transition-colors group-hover:text-blue-600 inline-flex items-center gap-1"
+                    >
                       Saiba mais
-                    </span>
+                    </Link>
                   </motion.div>
                 ))}
               </div>
@@ -418,31 +422,74 @@ export default function ImplantesPremiumPage() {
           </div>
         </section>
 
-        {/* Footer */}
+        {/* CTA Final */}
+        <section className="py-16 lg:py-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              {...scrollAnimation}
+              className="relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-white/80 px-6 py-10 shadow-[0_25px_90px_rgba(8,112,184,0.14)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-cyan-500/40 sm:px-10 lg:px-16 lg:py-16"
+            >
+              <div className="pointer-events-none absolute inset-0 opacity-50">
+                <div className="absolute -top-3 right-8 h-32 w-32 rounded-full bg-cyan-200/40 blur-3xl" />
+                <div className="absolute bottom-0 left-16 h-40 w-40 rounded-full bg-blue-200/40 blur-[120px]" />
+              </div>
+              <div className="relative flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+                <div className="space-y-3">
+                  <p className="text-sm uppercase tracking-[0.4em] text-cyan-700">Pronto para transformar seu sorriso?</p>
+                  <h2 className="text-3xl lg:text-4xl font-bold text-slate-900">Agende sua avaliação gratuita</h2>
+                  <p className="text-slate-600 max-w-xl">
+                    Fale com a gente pelo WhatsApp e vamos conversar sobre o seu caso. Retorno em até 5 minutos.
+                  </p>
+                </div>
+                <Button
+                  asChild
+                  className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-cyan-500/40 hover:shadow-cyan-500/70 hover:scale-105 transition-all duration-300"
+                >
+                  <a href={whatsappUrl} target="_blank" rel="noreferrer">
+                    Agendar agora
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Contato Preview */}
         <section className="pb-24">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.footer
+            <motion.div
               {...scrollAnimation}
-              className="rounded-[2.5rem] border border-white/60 bg-white/80 px-6 py-10 shadow-[0_25px_80px_rgba(8,112,184,0.12)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-cyan-500/40 sm:px-10 lg:px-16"
+              className="grid gap-8 lg:grid-cols-[1fr_1fr] items-center rounded-[2.5rem] border border-white/60 bg-white/80 px-6 py-10 shadow-[0_25px_80px_rgba(8,112,184,0.12)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-cyan-500/40 sm:px-10 lg:px-16"
             >
-              <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Clínica</p>
-                  <h3 className="mt-2 text-2xl font-semibold text-slate-900">Dr. André Silva</h3>
-                  <p className="mt-1 text-slate-500">CRO-SP 23456 | Implantes & Estética Avançada</p>
+              <div className="space-y-4">
+                <p className="text-sm uppercase tracking-[0.4em] text-cyan-700">Entre em Contato</p>
+                <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Fale direto, sem burocracia</h3>
+                <p className="text-slate-600">
+                  Estamos prontos para atender você. Escolha a forma de contato que preferir e vamos conversar sobre o
+                  seu caso.
+                </p>
+                <Link
+                  href="/sites/implantes-premium/contato"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-600 hover:text-cyan-700 transition-colors"
+                >
+                  Ver página de contato completa
+                </Link>
+              </div>
+              <div className="space-y-4 rounded-[2rem] border border-white/70 bg-white/60 p-6">
+                <div className="flex items-center gap-3">
+                  <Phone className="h-5 w-5 text-cyan-600" />
+                  <span className="text-slate-800">(11) 99999-9999</span>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-600">Endereço</p>
-                  <p className="text-slate-500">Av. Paulista, 1500 - Bela Vista, São Paulo</p>
-                  <p className="text-slate-500">Estacionamento e Valet no local</p>
+                <div className="flex items-center gap-3">
+                  <MapPin className="h-5 w-5 text-cyan-600" />
+                  <span className="text-slate-800">Av. Paulista, 1500 - Bela Vista</span>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-600">Horários</p>
-                  <p className="text-slate-500">Segunda a Sexta · 8h às 21h</p>
-                  <p className="text-slate-500">Sábados · 9h às 14h</p>
+                <div className="flex items-center gap-3">
+                  <Clock className="h-5 w-5 text-cyan-600" />
+                  <span className="text-slate-800">Segunda a Sexta: 8h às 21h</span>
                 </div>
               </div>
-            </motion.footer>
+            </motion.div>
           </div>
         </section>
       </div>

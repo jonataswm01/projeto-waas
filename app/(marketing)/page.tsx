@@ -445,7 +445,7 @@ export default function MarketingPage() {
               className="group relative overflow-hidden rounded-[2rem] bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/50 shadow-xl shadow-blue-500/5 hover:bg-white/80 transition-colors duration-300 flex flex-col"
             >
               <div
-                className="relative h-64 md:h-80 rounded-t-2xl bg-[url('/vet-full.jpg')] bg-cover bg-top bg-no-repeat transition-[background-position] duration-[12000ms] ease-in-out"
+                className="relative h-64 md:h-80 rounded-t-2xl bg-[url('/essencial-pet-full.png')] bg-cover bg-top bg-no-repeat transition-[background-position] duration-[12000ms] ease-in-out"
                 style={{
                   backgroundPosition: "center top",
                   transition: "background-position 12s ease-in-out",
@@ -456,7 +456,7 @@ export default function MarketingPage() {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundPosition = "center top";
                 }}
-                aria-label="Página Essencial - Vetcare Aurora"
+                aria-label="Página Essencial - Essencial Pet"
               >
                 {/* Ícone de toque - apenas mobile */}
                 <div className="absolute bottom-4 right-4 md:hidden z-10">
@@ -487,7 +487,7 @@ export default function MarketingPage() {
                     size="sm"
                     className="rounded-full text-sm px-6 border-emerald-600 text-emerald-600 hover:bg-emerald-50 w-fit"
                   >
-                    <Link href="/sites/vetcare-aurora" target="_blank" rel="noopener noreferrer">
+                    <Link href="/sites/essencial-pet" target="_blank" rel="noopener noreferrer">
                       Ver Demo Ao Vivo
                     </Link>
                   </Button>

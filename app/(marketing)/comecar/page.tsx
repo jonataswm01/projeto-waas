@@ -39,9 +39,9 @@ const templates = [
     id: "essencial",
     name: "Essencial - Para Começar",
     style: "Simples e Direto",
-    image: "/vet-full.jpg",
+    image: "/essencial-pet-full.png",
     price: "R$ 189,90",
-    demoUrl: "/sites/vetcare-aurora",
+    demoUrl: "/sites/essencial-pet",
     isPopular: false,
   },
   {
