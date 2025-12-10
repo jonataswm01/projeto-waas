@@ -370,11 +370,7 @@ export default function MarketingPage() {
                     variant="outline"
                     className="rounded-full text-sm px-6 font-semibold border-amber-500 text-amber-600 hover:bg-amber-50"
                   >
-                    <Link 
-                      href="https://wa.me/5516997330113?text=Olá! Vi o modelo Institucional Empresarial e gostei. Quero saber mais sobre o plano de R$ 349,90/mês (ou R$ 199,90/mês no anual)." 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
+                    <Link href="/comecar">
                       Quero Este Site
                     </Link>
                   </Button>
@@ -465,11 +461,7 @@ export default function MarketingPage() {
                     variant="outline"
                     className="rounded-full text-sm px-6 border-cyan-600 text-cyan-600 hover:bg-cyan-50"
                   >
-                    <Link 
-                      href="https://wa.me/5516997330113?text=Olá! Vi o modelo Página Profissional (Dentista) e gostei. Quero saber mais sobre o plano de R$ 229,90/mês (ou R$ 129,90/mês no anual)." 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
+                    <Link href="/comecar">
                       Quero Este Site
                     </Link>
                   </Button>
@@ -537,11 +529,7 @@ export default function MarketingPage() {
                     size="sm"
                     className="rounded-full text-sm px-6 border-emerald-600 text-emerald-600 hover:bg-emerald-50 w-fit"
                   >
-                    <Link 
-                      href="https://wa.me/5516997330113?text=Olá! Vi o modelo Página Essencial e gostei. Quero saber mais sobre o plano de R$ 189,90/mês (ou R$ 99,90/mês no anual)." 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
+                    <Link href="/comecar">
                       Quero Este Site
                     </Link>
                   </Button>
