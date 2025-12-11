@@ -483,7 +483,7 @@ export default function ComecarPage() {
                               {/* Image Container with Fixed Height and Scroll on Hover */}
                               <div className="relative h-[450px] w-full overflow-hidden">
                                 <div
-                                  className="absolute inset-0 bg-cover bg-top bg-no-repeat transition-[background-position] duration-[6000ms] ease-in-out"
+                                  className="absolute inset-0 bg-cover bg-top bg-no-repeat transition-[background-position] duration-\[6000ms\] ease-in-out"
                                   style={{
                                     backgroundImage: `url(${template.image})`,
                                     backgroundPosition: "center top",

@@ -374,7 +374,7 @@ export default function MarketingPage() {
 
               {/* Imagem - Lado Direito (60% da largura) */}
               <div
-                className="relative w-full md:w-[60%] min-h-[400px] md:min-h-0 md:h-full bg-[url('/corporativo-nexus-full-site.png')] bg-cover bg-no-repeat bg-top rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none overflow-hidden transition-all duration-[6000ms] ease-in-out"
+                className="relative w-full md:w-[60%] min-h-[400px] md:min-h-0 md:h-full bg-[url('/corporativo-nexus-full-site.png')] bg-cover bg-no-repeat bg-top rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none overflow-hidden transition-all duration-\[6000ms\] ease-in-out"
                 style={{
                   backgroundPosition: "center top",
                   transition: "background-position 6s ease-in-out",
@@ -405,7 +405,7 @@ export default function MarketingPage() {
               className="group relative overflow-hidden rounded-[2rem] bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/50 shadow-xl shadow-blue-500/5 hover:bg-white/80 transition-colors duration-300 flex flex-col"
             >
               <div 
-                className="relative h-64 md:h-80 bg-[url('/dentista-full.png')] bg-cover bg-top bg-no-repeat rounded-t-2xl group-hover:bg-bottom transition-all duration-[12000ms] ease-in-out"
+                className="relative h-64 md:h-80 bg-[url('/dentista-full.png')] bg-cover bg-top bg-no-repeat rounded-t-2xl group-hover:bg-bottom transition-all duration-\[12000ms\] ease-in-out"
                 style={{
                   backgroundPosition: 'center top',
                   transition: 'background-position 12s ease-in-out'
@@ -473,7 +473,7 @@ export default function MarketingPage() {
               className="group relative overflow-hidden rounded-[2rem] bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/50 shadow-xl shadow-blue-500/5 hover:bg-white/80 transition-colors duration-300 flex flex-col"
             >
               <div
-                className="relative h-64 md:h-80 rounded-t-2xl bg-[url('/essencial-pet-full.png')] bg-cover bg-top bg-no-repeat transition-[background-position] duration-[12000ms] ease-in-out"
+                className="relative h-64 md:h-80 rounded-t-2xl bg-[url('/essencial-pet-full.png')] bg-cover bg-top bg-no-repeat transition-[background-position] duration-\[12000ms\] ease-in-out"
                 style={{
                   backgroundPosition: "center top",
                   transition: "background-position 12s ease-in-out",
