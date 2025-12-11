@@ -73,7 +73,10 @@ export default function MarketingPage() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="flex justify-center md:justify-start mb-6"
               >
-                <Badge className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-1.5 text-sm font-semibold rounded-full shadow-md shadow-blue-500/30">
+                <Badge
+                  variant="outline"
+                  className="border border-blue-600 text-blue-600 bg-transparent px-4 py-1.5 text-sm font-semibold rounded-full shadow-none transition-none"
+                >
                   PARE DE PERDER VENDAS HOJE
                 </Badge>
               </motion.div>
@@ -118,21 +121,13 @@ export default function MarketingPage() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex justify-center md:justify-start"
               >
-                <motion.div
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow:
-                      "0 20px 40px -15px rgba(37, 99, 235, 0.6), 0 10px 20px -10px rgba(129, 140, 248, 0.5)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                >
+                <motion.div>
                   <Link
                     href="/comecar"
-                    className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors group"
+                    className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:shadow-xl hover:brightness-105 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                     QUERO VENDER MAIS PELO GOOGLE
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </motion.div>
               </motion.div>
@@ -358,7 +353,7 @@ export default function MarketingPage() {
                   <Button
                     asChild
                     size="sm"
-                    className="rounded-full text-sm px-6 font-semibold bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-900 hover:from-amber-400 hover:to-yellow-300 shadow-lg shadow-amber-500/30 transition-colors"
+                    className="rounded-full text-sm px-6 font-semibold bg-amber-500 text-slate-900 hover:bg-amber-600 shadow-lg shadow-amber-500/30 transition-colors"
                   >
                     <Link href="/sites/corporativo-nexus" target="_blank" rel="noopener noreferrer">
                       Ver Demo Ao Vivo
@@ -652,30 +647,15 @@ export default function MarketingPage() {
           </div>
 
           {/* CTA após os Benefícios */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 md:mt-16 text-center"
-          >
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 20px 40px -15px rgba(37, 99, 235, 0.6), 0 10px 20px -10px rgba(129, 140, 248, 0.5)",
-              }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 18 }}
+          <div className="mt-12 md:mt-16 text-center">
+            <Link
+              href="/comecar"
+              className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:shadow-xl hover:brightness-105 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
-              <Link
-                href="/comecar"
-                className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors group"
-              >
-                Quero Tecnologia de Grande Empresa
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-          </motion.div>
+              Quero Tecnologia de Grande Empresa
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </div>
         </div>
       </section>
 
