@@ -421,7 +421,7 @@ export default function MarketingPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg text-slate-600 text-center mb-12 md:mb-16 max-w-3xl mx-auto"
           >
-            Nós quebramos o modelo das agências tradicionais. Não vendemos &apos;código&apos;, vendemos sua máquina de vendas pronta.
+            Quebramos o modelo das agências com assinatura simples, site pronto rápido, manutenção e suporte incluídos. Sem entrada alta, sem burocracia.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
