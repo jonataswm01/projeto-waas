@@ -254,7 +254,7 @@ export default function MarketingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="h-full rounded-[2rem] bg-red-50/50 backdrop-blur-md border border-red-200 shadow-lg shadow-slate-200/50">
+              <Card className="h-full rounded-[1.25rem] bg-red-50/50 backdrop-blur-md border border-red-200 shadow-lg shadow-slate-200/50">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
                     <XCircle className="h-6 w-6 text-red-500" />
@@ -294,7 +294,7 @@ export default function MarketingPage() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <Card className="h-full rounded-[2rem] bg-white/80 backdrop-blur-md border border-emerald-100 shadow-xl shadow-emerald-500/10 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/20">
+                <Card className="h-full rounded-[1.25rem] bg-white/80 backdrop-blur-md border border-emerald-100 shadow-xl shadow-emerald-500/10 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/20">
                   <CardHeader>
                     <div className="mb-3">
                       <Badge className="bg-emerald-500/10 text-emerald-700 border-emerald-200 hover:bg-emerald-500/20 text-xs font-semibold">
@@ -598,7 +598,7 @@ export default function MarketingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+              <Card className="rounded-[1.25rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
                 <CardContent className="p-6 flex gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-lg bg-blue-100 flex items-center justify-center">
@@ -622,7 +622,7 @@ export default function MarketingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+              <Card className="rounded-[1.25rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
                 <CardContent className="p-6 flex gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-lg bg-green-100 flex items-center justify-center">
@@ -646,7 +646,7 @@ export default function MarketingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Card className="rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+              <Card className="rounded-[1.25rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
                 <CardContent className="p-6 flex gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-lg bg-purple-100 flex items-center justify-center">
@@ -670,7 +670,7 @@ export default function MarketingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Card className="rounded-[2rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
+              <Card className="rounded-[1.25rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
                 <CardContent className="p-6 flex gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-lg bg-orange-100 flex items-center justify-center">
