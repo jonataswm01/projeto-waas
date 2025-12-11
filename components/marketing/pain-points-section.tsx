@@ -1,34 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Lock, UserX, TrendingDown } from "lucide-react";
 
 export function PainPointsSection() {
   const painPoints = [
     {
       icon: Lock,
-      title: "O Instagram não é sua propriedade.",
-      description: "Você construiu seu negócio em um terreno alugado. Se sua conta cair amanhã, sua empresa deixa de existir. Um site é sua Propriedade Digital.",
+      title: "Seu site é sua identidade na internet.",
+      description: "É o seu domínio, a sua cara e o seu patrimônio digital — não fica refém de algoritmo ou perfil.",
       iconBg: "bg-pink-50",
       iconColor: "text-pink-500",
+      barColor: "from-pink-300/90 via-pink-200 to-pink-100",
       borderHover: "hover:border-pink-200",
       shadowHover: "hover:shadow-xl hover:shadow-pink-100/50",
     },
     {
       icon: UserX,
-      title: "Sem site, você pode parecer amador.",
-      description: "Ter um site profissional mostra que você é sério. Antes de comprar, o cliente te pesquisa no Google. Se ele não te acha, mas encontra o concorrente... adivinhe quem leva o dinheiro?",
+      title: "Sem site, passa a impressão errada.",
+      description: "Quem não encontra você no Google desconfia. Quem aparece primeiro ganha a confiança.",
       iconBg: "bg-orange-50",
       iconColor: "text-orange-500",
+      barColor: "from-orange-300/90 via-orange-200 to-orange-100",
       borderHover: "hover:border-orange-200",
       shadowHover: "hover:shadow-xl hover:shadow-orange-100/50",
     },
     {
       icon: TrendingDown,
-      title: "Dinheiro na Mesa.",
-      description: "Existem pessoas procurando seu serviço agora na sua cidade. Sem otimização para o Google, você é invisível para esse lucro recorrente.",
+      title: "Você está perdendo um canal de vendas.",
+      description: "Tem gente buscando agora. Sem site otimizado, você fica invisível e o pedido vai para outro.",
       iconBg: "bg-blue-50",
       iconColor: "text-blue-500",
+      barColor: "from-blue-300/90 via-blue-200 to-blue-100",
       borderHover: "hover:border-blue-200",
       shadowHover: "hover:shadow-xl hover:shadow-blue-100/50",
     },
@@ -81,18 +85,21 @@ export function PainPointsSection() {
                     ${point.shadowHover}
                   `}
                 >
-                  {/* Icon Container */}
-                  <motion.div
-                    className={`
-                      w-14 h-14 rounded-xl
-                      ${point.iconBg}
-                      flex items-center justify-center mb-6
-                    `}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Icon className={`h-7 w-7 ${point.iconColor}`} />
-                  </motion.div>
+                  {/* Icon + Bar */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <motion.div
+                      className={`
+                        w-14 h-14 rounded-xl
+                        ${point.iconBg}
+                        flex items-center justify-center
+                      `}
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
+                      <Icon className={`h-7 w-7 ${point.iconColor}`} />
+                    </motion.div>
+                    <div className={`h-2 w-[70%] rounded-full bg-gradient-to-r ${point.barColor}`} />
+                  </div>
 
                   {/* Title */}
                   <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 leading-tight">
@@ -108,6 +115,7 @@ export function PainPointsSection() {
             );
           })}
         </div>
+
       </div>
     </section>
   );

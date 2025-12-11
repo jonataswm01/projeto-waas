@@ -1,30 +1,95 @@
 "use client";
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { 
-  ArrowRight, 
-  Instagram, 
+import {
+  ArrowRight,
+  Clock3,
+  Hand,
+  Instagram,
+  CheckCircle2,
+  LifeBuoy,
   Linkedin,
   Mail,
-  PhoneCall,
-  UserX, 
-  TrendingDown, 
-  CheckCircle2, 
-  XCircle, 
-  Zap, 
-  Smartphone, 
-  ShieldCheck, 
   MessageCircle,
-  Hand
+  PhoneCall,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+  TrendingDown,
+  UserX,
+  XCircle,
+  Zap,
+  EyeOff,
+  FileText,
 } from "lucide-react";
 import Link from "next/link";
 import { PricingSection } from "@/components/marketing/pricing-section";
 import { ScrollProgress } from "@/components/marketing/scroll-progress";
 import { PainPointsSection } from "@/components/marketing/pain-points-section";
+
+type FaqCategory = "plano" | "implantacao" | "google" | "conteudo" | "suporte";
+
+const FAQ_CATEGORIES: { key: FaqCategory; label: string }[] = [
+  { key: "plano", label: "Planos e valor" },
+  { key: "implantacao", label: "Prazo e setup" },
+  { key: "google", label: "Google e SEO" },
+  { key: "conteudo", label: "Conteúdo e marca" },
+  { key: "suporte", label: "Suporte e evoluções" },
+];
+
+const FAQ_ITEMS: { question: string; answer: string; category: FaqCategory }[] = [
+  {
+    question: "O site é meu?",
+    answer:
+      "O domínio e o conteúdo são seus. A infraestrutura é uma assinatura para manter a performance, segurança e evolução contínua. Se cancelar, você pode apontar o domínio para outro destino a qualquer momento.",
+    category: "plano",
+  },
+  {
+    question: "Tenho fidelidade?",
+    answer:
+      "Nenhuma. Trabalhamos mês a mês. Ficamos porque entregamos resultado, não porque prendemos você em contrato.",
+    category: "plano",
+  },
+  {
+    question: "O que vem na mensalidade?",
+    answer:
+      "Hospedagem premium, certificados SSL, monitoramento, atualizações, design otimizado para conversão e suporte humano no WhatsApp. Sem taxas extras escondidas para manter o site no ar.",
+    category: "plano",
+  },
+  {
+    question: "Em quanto tempo meu site fica pronto?",
+    answer:
+      "Entrega média de 5 a 7 dias úteis após receber logo e informações-chave. Se precisar de algo especial, avisamos antes para alinhar prazos.",
+    category: "implantacao",
+  },
+  {
+    question: "Já tenho domínio. Vocês configuram para mim?",
+    answer:
+      "Sim. Ajustamos DNS, SSL e e-mails associados. Se ainda não tiver domínio, ajudamos a registrar em seu nome.",
+    category: "implantacao",
+  },
+  {
+    question: "Meu site vai aparecer no Google?",
+    answer:
+      "Estruturamos SEO técnico (velocidade, tags, sitemap, SSL) e copy focada em buscas locais. Após publicar, acompanhamos os primeiros índices para garantir que o Google encontre você.",
+    category: "google",
+  },
+  {
+    question: "Vocês escrevem os textos?",
+    answer:
+      "Sim. Usamos modelos testados de conversão e personalizamos com a voz da sua marca. Você revisa e aprova antes de subir ao ar.",
+    category: "conteudo",
+  },
+  {
+    question: "Posso pedir ajustes depois que o site for ao ar?",
+    answer:
+      "Claro. Mudou preço, foto ou oferta? Envie no WhatsApp e atualizamos. Evolução contínua faz parte da assinatura.",
+    category: "suporte",
+  },
+];
 
 // Componente para Aurora Orbs com Parallax
 function ParallaxOrb({ className, speed = 0.5 }: { className: string; speed?: number }) {
@@ -81,6 +146,8 @@ export default function MarketingPage() {
     { label: "E-mail", href: "mailto:contato@lumina.com", icon: Mail },
     { label: "Fale com a Lumina", href: "/comecar", icon: PhoneCall },
   ];
+
+  const filteredFaqs = FAQ_ITEMS;
 
   return (
     <>
@@ -224,6 +291,117 @@ export default function MarketingPage() {
       {/* Seção Pain Points - AURORA GLASS Dark Mode */}
       <PainPointsSection />
 
+      {/* Seção Caminho sem Fricção */}
+      <section className="relative py-16 md:py-20">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10 md:mb-12"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+              o que você perde sem um site
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-2">
+              Não ter site custa caro (e deixa você fora do mapa)
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+          >
+            {[
+              {
+                title: "Parece amador",
+                desc: "Fica a impressão de improviso e pouca confiança.",
+                icon: UserX,
+              },
+              {
+                title: "Invisível no Google",
+                desc: "Quem procura não encontra você quando mais precisa.",
+                icon: EyeOff,
+              },
+              {
+                title: "Dinheiro na mesa",
+                desc: "Leads e vendas indo para concorrentes que têm presença.",
+                icon: TrendingDown,
+              },
+              {
+                title: "Burocracia para ter um site",
+                desc: "A sensação de que vai ser caro, demorado e complicado.",
+                icon: FileText,
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="relative flex h-full flex-col gap-4 rounded-[28px] border border-indigo-50 bg-gradient-to-br from-white/95 via-white/90 to-indigo-50/40 shadow-[0_15px_40px_-18px_rgba(79,70,229,0.35)] px-6 py-7 md:px-8 md:py-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_45px_-18px_rgba(79,70,229,0.4)]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="h-12 w-12 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm">
+                    <item.icon className="h-5 w-5" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="h-2 w-[65%] rounded-full bg-gradient-to-r from-indigo-300/70 via-indigo-200 to-indigo-100" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-slate-900">{item.title}</h3>
+                <p className="text-base text-slate-700 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-8 md:mt-10 flex justify-center"
+          >
+            <Link
+              href="/comecar"
+              className="w-full md:w-auto inline-flex items-center justify-center px-6 md:px-10 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm md:text-base font-semibold shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50"
+            >
+              Quero ser encontrado e vender
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative mt-10 md:mt-12"
+          >
+            <div className="absolute inset-x-0 -bottom-2 md:-bottom-4 flex justify-center">
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+                className="flex items-center gap-2 text-slate-500 text-sm"
+              >
+                <span>Continue</span>
+                <svg
+                  className="h-4 w-4 text-slate-500"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Seção A Solução */}
       <section id="solucao" className="relative py-20 md:py-24 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -234,7 +412,7 @@ export default function MarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-6 md:mb-8"
           >
-            Ter um site profissional custava R$ 3.000,00. Agora você paga a partir de R$ 99,90 por mês
+          Ter um site profissional custava R$ 3.000. Agora você paga a partir de R$ 95 por mês
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -310,7 +488,7 @@ export default function MarketingPage() {
                     <div className="space-y-4 flex-1">
                       <div className="flex items-start gap-3">
                         <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <p className="text-slate-700">Zero entrada, a partir de R$ 99,90/mês</p>
+                        <p className="text-slate-700">Zero entrada, a partir de R$ 95,90/mês</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
@@ -338,7 +516,7 @@ export default function MarketingPage() {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+            </motion.div>
             </motion.div>
           </div>
         </div>
@@ -708,90 +886,187 @@ export default function MarketingPage() {
 
       {/* Seção FAQ */}
       <section id="faq" className="relative py-20 md:py-24 overflow-hidden">
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
+        <div className="absolute inset-0 bg-gradient-to-b from-indigo-50/70 via-white to-pink-50/60" />
+        <div className="absolute -left-24 top-10 h-56 w-56 rounded-full bg-indigo-200/40 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-pink-200/40 blur-3xl" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
+            className="text-center space-y-5"
           >
-            Perguntas Frequentes
-          </motion.h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
+              Perguntas frequentes
+            </h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Tire dúvidas rápido, veja o que está incluso e fale com um especialista sem sair da página.
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 pt-2">
+              {["Site no ar em até 7 dias", "Suporte humano por WhatsApp", "SEO técnico incluído"].map((pill) => (
+                <span
+                  key={pill}
+                  className="inline-flex items-center gap-2 text-sm text-slate-600"
+                >
+                  <span className="h-2 w-2 rounded-full bg-slate-400" />
+                  <span>{pill}</span>
+                </span>
+              ))}
+            </div>
+          </motion.div>
 
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-left text-lg font-semibold">
-                O site é meu?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 text-base leading-relaxed">
-                O domínio (www) e o conteúdo são seus. A estrutura tecnológica é alugada (como uma loja no shopping). Enquanto você assinar, sua loja está aberta e moderna.
-              </AccordionContent>
-            </AccordionItem>
+          <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
+            {/* Coluna esquerda: cards rápidos + CTA (desktop) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="space-y-5"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <motion.div
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="rounded-2xl border border-white/70 bg-white/80 backdrop-blur-xl p-4 shadow-md shadow-indigo-200/30 transition-all duration-200"
+                >
+                  <div className="flex items-center gap-3">
+                    <Clock3 className="h-5 w-5 text-indigo-600" />
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Tempo médio</p>
+                      <p className="text-lg font-semibold text-slate-900">Respostas em minutos</p>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-sm text-slate-600">Suporte humano com fila prioritária para clientes.</p>
+                </motion.div>
 
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-left text-lg font-semibold">
-                Tenho fidelidade?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 text-base leading-relaxed">
-                Nenhuma. Confiamos tanto no nosso serviço que você só fica se estiver tendo resultado.
-              </AccordionContent>
-            </AccordionItem>
+                <motion.div
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="rounded-2xl border border-white/70 bg-white/80 backdrop-blur-xl p-4 shadow-md shadow-indigo-200/30 transition-all duration-200"
+                >
+                  <div className="flex items-center gap-3">
+                    <ShieldCheck className="h-5 w-5 text-emerald-600" />
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Confiança</p>
+                      <p className="text-lg font-semibold text-slate-900">Infra segura & rápida</p>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-sm text-slate-600">SSL, monitoramento e updates contínuos inclusos na mensalidade.</p>
+                </motion.div>
+              </div>
 
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-left text-lg font-semibold">
-                Vocês escrevem os textos?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 text-base leading-relaxed">
-                Temos modelos prontos de alta conversão para o seu nicho, basta preencher com seus dados.
-              </AccordionContent>
-            </AccordionItem>
+              {/* CTA desktop */}
+              <motion.div
+                whileHover={{ y: -4, scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                className="hidden lg:block rounded-3xl border border-indigo-100 bg-indigo-50/70 backdrop-blur-xl p-6 sm:p-7 shadow-lg shadow-indigo-200/50 transition-all duration-200"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="rounded-2xl bg-white text-indigo-600 p-3 shadow-sm">
+                    <LifeBuoy className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-lg font-semibold text-slate-900">Não achou sua dúvida?</p>
+                    <p className="text-sm text-slate-700">
+                      Fale com um especialista Lumina agora mesmo. Respondemos rápido e sem robôs.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      <Link
+                        href="https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20especialista%20Lumina"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-400/40 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-lg w-full sm:w-auto"
+                      >
+                        Chamar especialista
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
 
-            <AccordionItem value="item-4">
-              <AccordionTrigger className="text-left text-lg font-semibold">
-                Em quanto tempo meu site fica pronto?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 text-base leading-relaxed">
-                Nosso prazo médio é de 5 a 7 dias úteis após o recebimento do seu material (logo e informações). Trabalhamos com agilidade para você não perder tempo.
-              </AccordionContent>
-            </AccordionItem>
+            {/* Accordion */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="rounded-3xl border border-white/70 bg-white/90 backdrop-blur-xl p-6 sm:p-8 shadow-2xl shadow-indigo-500/10">
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900">Resultados</p>
+                    <p className="text-sm text-slate-500">
+                      {filteredFaqs.length} {filteredFaqs.length === 1 ? "pergunta" : "perguntas"} visíveis
+                    </p>
+                  </div>
+                </div>
 
-            <AccordionItem value="item-5">
-              <AccordionTrigger className="text-left text-lg font-semibold">
-                Meu site vai aparecer no Google?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 text-base leading-relaxed">
-                Sim! Desenvolvemos toda a estrutura otimizada para o Google encontrar seu site. Isso facilita que você apareça nas pesquisas da sua região.
-              </AccordionContent>
-            </AccordionItem>
+                {filteredFaqs.length === 0 ? (
+                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50/80 p-6 text-left">
+                    <p className="font-semibold text-slate-800 mb-1">Ainda sem perguntas aqui.</p>
+                    <p className="text-sm text-slate-600">
+                      Fale com a gente pelo botão “Chamar especialista” e respondemos na hora.
+                    </p>
+                  </div>
+                ) : (
+                  <Accordion type="multiple" className="w-full space-y-2">
+                    {filteredFaqs.map((faq, index) => (
+                      <AccordionItem
+                        key={faq.question}
+                        value={`faq-${index}`}
+                        className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 backdrop-blur-sm px-4"
+                      >
+                        <AccordionTrigger className="relative group text-left text-lg font-semibold py-4 pb-5 gap-3 no-underline focus-visible:outline-none focus-visible:ring-0 after:pointer-events-none after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:rounded-full after:scale-x-0 after:origin-left after:bg-gradient-to-r after:from-blue-500 after:to-blue-600 after:opacity-0 after:transition-[transform,opacity] after:duration-250 group-hover:after:scale-x-100 group-hover:after:opacity-100 group-focus-visible:after:scale-x-100 group-focus-visible:after:opacity-100">
+                          <span className="text-slate-900 group-hover:text-slate-900">{faq.question}</span>
+                        </AccordionTrigger>
+                        <AccordionContent className="text-slate-600 text-base leading-relaxed pb-5">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                )}
+              </div>
+            </motion.div>
 
-            <AccordionItem value="item-6">
-              <AccordionTrigger className="text-left text-lg font-semibold">
-                O que vem na mensalidade?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 text-base leading-relaxed">
-                Hospedagem rápida, certificados de segurança (SSL), monitoramento, atualizações contínuas e suporte já estão incluídos. Você não paga nada à parte para manter o site no ar e atualizado.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-7">
-              <AccordionTrigger className="text-left text-lg font-semibold">
-                Posso pedir ajustes depois que o site for ao ar?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 text-base leading-relaxed">
-                Sim. Mudou preço, foto ou texto? Manda no WhatsApp e a gente atualiza. Manter o site vivo e correto faz parte da assinatura.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-8">
-              <AccordionTrigger className="text-left text-lg font-semibold">
-                Já tenho domínio. Vocês configuram para mim?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 text-base leading-relaxed">
-                Sim. Se você já tem um domínio, fazemos toda a configuração para ele apontar para o novo site. Se não tiver, ajudamos a registrar em seu nome.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+            {/* CTA móvel (após perguntas) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="lg:hidden"
+            >
+              <motion.div
+                whileHover={{ y: -4, scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                className="rounded-3xl border border-indigo-100 bg-indigo-50/70 backdrop-blur-xl p-6 sm:p-7 shadow-lg shadow-indigo-200/50 transition-all duration-200"
+              >
+                <div className="flex flex-col items-center text-center gap-3">
+                  <p className="text-lg font-semibold text-slate-900">Não achou sua dúvida?</p>
+                  <p className="text-sm text-slate-700">
+                    Fale com um especialista Lumina agora mesmo. Respondemos rápido e sem robôs.
+                  </p>
+                  <div className="mt-4 w-full flex flex-col gap-3">
+                    <Link
+                      href="https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20especialista%20Lumina"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-indigo-400/40 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-lg w-full"
+                    >
+                      Chamar especialista
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -826,17 +1101,17 @@ export default function MarketingPage() {
                 Fale com um especialista Lumina e descubra o melhor plano para colocar seu negócio na frente com velocidade, segurança e suporte humano.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-row flex-wrap items-center gap-3">
                 <Link
                   href="/comecar"
-                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 sm:px-8 py-3.5 text-[15px] sm:text-base font-semibold text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 whitespace-nowrap"
                 >
                   Começar agora
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
                 <Link
                   href="#planos"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/70 px-6 sm:px-7 py-3 text-sm sm:text-base font-semibold text-slate-700 shadow-sm shadow-indigo-200/50 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-indigo-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-full border border-slate-200 bg-white/70 px-6 sm:px-7 py-3 text-[13px] sm:text-sm md:text-base font-semibold text-slate-700 shadow-sm shadow-indigo-200/50 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-indigo-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 whitespace-nowrap"
                 >
                   Ver planos
                 </Link>
@@ -846,9 +1121,10 @@ export default function MarketingPage() {
                 {["Site no ar em até 7 dias", "Suporte humano por WhatsApp", "Segurança e performance contínuas"].map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1.5 text-sm text-slate-600 shadow-sm shadow-indigo-200/40"
+                    className="inline-flex items-center gap-2 text-sm text-slate-600 px-2 py-1"
                   >
-                    {item}
+                    <span className="h-2 w-2 rounded-full bg-slate-400" />
+                    <span>{item}</span>
                   </span>
                 ))}
               </div>
