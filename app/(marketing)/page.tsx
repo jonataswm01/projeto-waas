@@ -720,6 +720,33 @@ export default function MarketingPage() {
                 Sim! Desenvolvemos toda a estrutura otimizada para o Google encontrar seu site. Isso facilita que você apareça nas pesquisas da sua região.
               </AccordionContent>
             </AccordionItem>
+
+            <AccordionItem value="item-6">
+              <AccordionTrigger className="text-left text-lg font-semibold">
+                O que vem na mensalidade?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed">
+                Hospedagem rápida, certificados de segurança (SSL), monitoramento, atualizações contínuas e suporte já estão incluídos. Você não paga nada à parte para manter o site no ar e atualizado.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-7">
+              <AccordionTrigger className="text-left text-lg font-semibold">
+                Posso pedir ajustes depois que o site for ao ar?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed">
+                Sim. Mudou preço, foto ou texto? Manda no WhatsApp e a gente atualiza. Manter o site vivo e correto faz parte da assinatura.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-8">
+              <AccordionTrigger className="text-left text-lg font-semibold">
+                Já tenho domínio. Vocês configuram para mim?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 text-base leading-relaxed">
+                Sim. Se você já tem um domínio, fazemos toda a configuração para ele apontar para o novo site. Se não tiver, ajudamos a registrar em seu nome.
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </section>
