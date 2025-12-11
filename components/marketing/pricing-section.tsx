@@ -3,9 +3,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Check, Star } from "lucide-react";
+import { Check, Star, HelpCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+interface Feature {
+  label: string;
+  help?: string;
+}
 
 interface Plan {
   id: string;
@@ -16,7 +23,7 @@ interface Plan {
   audience: string;
   highlights: string[];
   includesFrom?: string;
-  features: string[];
+  features: Feature[];
   supportNote: string;
   isPopular?: boolean;
   badge?: string;
@@ -27,17 +34,17 @@ const plans: Plan[] = [
   {
     id: "essencial",
     name: "Essencial",
-    monthlyPrice: 99,
+    monthlyPrice: 185.9,
     annualPrice: 95.9, // valor mensal no plano anual
     subtitle: "Presença rápida para ser encontrado.",
     audience: "Para quem precisa marcar presença e ter vitrine online.",
     highlights: ["Entrega até 7 dias", "Segurança", "Tecnologia moderna"],
     features: [
-      "Site/LP básica (1 página) responsiva",
-      "Seção de serviços/produtos + portfólio enxuto",
-      "Contato e WhatsApp integrados",
-      "SEO inicial básico para ser achado",
-      "Performance otimizada e monitorada"
+      { label: "Site/LP básica (1 página) responsiva" },
+      { label: "Seção de serviços/produtos + portfólio enxuto" },
+      { label: "Contato e WhatsApp integrados" },
+      { label: "SEO inicial básico para ser achado" },
+      { label: "Performance otimizada e monitorada" }
     ],
     supportNote: "Suporte e 1 alteração/ano (planos anuais).",
     buttonText: "Começar agora"
@@ -52,11 +59,20 @@ const plans: Plan[] = [
     highlights: ["LP avançada", "Animações pro", "Mais conversão"],
     includesFrom: "Essencial",
     features: [
-      "Site multipáginas (até 3–4) ou LP avançada",
-      "CTAs fortes, provas sociais e estrutura de conversão",
-      "Animações/hover/motion pro",
-      "Organização por páginas (sobre, serviços, portfólio)",
-      "SEO on-page mais completo e performance otimizada"
+      { label: "Site multipáginas (até 3–4) ou LP avançada" },
+      {
+        label: "CTAs fortes, provas sociais e estrutura de conversão",
+        help: "Layout pensado para gerar contato/pedido com CTAs visíveis e provas sociais."
+      },
+      {
+        label: "Animações/hover/motion pro",
+        help: "Microinterações modernas sem pesar a performance."
+      },
+      { label: "Organização por páginas (sobre, serviços, portfólio)" },
+      {
+        label: "SEO on-page mais completo e performance otimizada",
+        help: "Heading/meta, URLs amigáveis e ajustes de performance para Google."
+      }
     ],
     supportNote: "Suporte e 1 alteração a cada 6 meses (anual).",
     isPopular: true,
@@ -73,17 +89,80 @@ const plans: Plan[] = [
     highlights: ["Páginas de serviços", "Blog/Notícias", "Suporte prioritário"],
     includesFrom: "Profissional",
     features: [
-      "Site multipáginas completo com serviços individuais",
-      "Blog/Notícias para autoridade e SEO contínuo",
-      "Efeitos e animações avançadas",
-      "Arquitetura pronta para crescer e mais pontos de conversão",
-      "Canal de suporte prioritário"
+      {
+        label: "Site multipáginas completo com serviços individuais",
+        help: "Cada serviço com página própria, rankeável e com CTA dedicado."
+      },
+      {
+        label: "Blog/Notícias para autoridade e SEO contínuo",
+        help: "Conteúdo para ranquear e construir autoridade."
+      },
+      { label: "Efeitos e animações avançadas" },
+      {
+        label: "Arquitetura pronta para crescer e mais pontos de conversão",
+        help: "Base preparada para adicionar páginas sem perder performance."
+      },
+      {
+        label: "Canal de suporte prioritário",
+        help: "Fila VIP e respostas mais rápidas."
+      }
     ],
     supportNote: "Suporte prioritário e 1 alteração a cada 3 meses (anual).",
     badge: "Suporte prioritário",
     buttonText: "Quero o Empresarial"
   }
 ];
+
+function FeatureItem({ feature }: { feature: Feature }) {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const hasHelp = Boolean(feature.help);
+
+  const content = (
+    <div className="flex items-start gap-2">
+      <Check className="h-4 w-4 text-emerald-600 mt-0.5" />
+      <div className="flex items-start gap-1.5 text-sm text-slate-700 leading-relaxed">
+        <span>{feature.label}</span>
+        {hasHelp && (
+          <button
+            type="button"
+            className="text-slate-500 hover:text-slate-700 transition-colors"
+            aria-label={`Saiba mais: ${feature.label}`}
+          >
+            <HelpCircle className="h-4 w-4" />
+          </button>
+        )}
+      </div>
+    </div>
+  );
+
+  if (!hasHelp) {
+    return content;
+  }
+
+  return (
+    <>
+      {/* Desktop hover */}
+      <div className="hidden md:block">
+        <HoverCard openDelay={200} closeDelay={120}>
+          <HoverCardTrigger asChild>{content}</HoverCardTrigger>
+          <HoverCardContent side="top" align="start" className="w-72 text-sm">
+            {feature.help}
+          </HoverCardContent>
+        </HoverCard>
+      </div>
+
+      {/* Mobile tap */}
+      <div className="md:hidden">
+        <Popover open={isMobileOpen} onOpenChange={setIsMobileOpen}>
+          <PopoverTrigger asChild>{content}</PopoverTrigger>
+          <PopoverContent side="top" align="start" className="w-72 text-sm">
+            {feature.help}
+          </PopoverContent>
+        </Popover>
+      </div>
+    </>
+  );
+}
 
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -119,7 +198,7 @@ export function PricingSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-lg text-slate-600 text-center mb-8 md:mb-12"
         >
-          Anual aparece primeiro (+ econômico). Mensal ao lado para quem prefere flexibilidade.
+          Pague menos no anual. Fique no mensal se precisar de flexibilidade.
         </motion.p>
         
         {/* Botões Mensal/Anual */}
@@ -283,10 +362,7 @@ export function PricingSection() {
 
                     <div className="flex-1 space-y-3">
                       {plan.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-emerald-600 mt-0.5" />
-                          <span className="text-sm text-slate-700 leading-relaxed">{feature}</span>
-                        </div>
+                        <FeatureItem key={idx} feature={feature} />
                       ))}
                     </div>
 
