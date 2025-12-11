@@ -166,7 +166,7 @@ export default function MarketingPage() {
                 <motion.div>
                   <Link
                     href="/comecar"
-                    className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:shadow-xl hover:brightness-105 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-[1rem] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:shadow-xl hover:brightness-105 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                     QUERO VENDER MAIS PELO GOOGLE
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -329,7 +329,7 @@ export default function MarketingPage() {
                     <div className="pt-6 mt-4 border-t border-emerald-100">
                       <Link href="/comecar">
                         <Button
-                          className="w-full rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700 shadow-lg shadow-emerald-500/30 font-semibold"
+                          className="w-full rounded-[1rem] bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700 shadow-lg shadow-emerald-500/30 font-semibold"
                         >
                           Começar Agora
                           <ArrowRight className="ml-2 h-4 w-4" />
@@ -395,7 +395,7 @@ export default function MarketingPage() {
                   <Button
                     asChild
                     size="sm"
-                    className="rounded-full text-sm px-6 font-semibold bg-amber-500 text-slate-900 hover:bg-amber-600 shadow-lg shadow-amber-500/30 transition-colors"
+                    className="rounded-[1rem] text-sm px-6 font-semibold bg-amber-500 text-slate-900 hover:bg-amber-600 shadow-lg shadow-amber-500/30 transition-colors"
                   >
                     <Link href="/sites/corporativo-nexus" target="_blank" rel="noopener noreferrer">
                       Ver Demo Ao Vivo
@@ -405,7 +405,7 @@ export default function MarketingPage() {
                     asChild
                     size="sm"
                     variant="outline"
-                    className="rounded-full text-sm px-6 font-semibold border-amber-500 text-amber-600 hover:bg-amber-50"
+                    className="rounded-[1rem] text-sm px-6 font-semibold border-amber-500 text-amber-600 hover:bg-amber-50"
                   >
                     <Link href="/comecar">
                       Quero Este Site
@@ -486,7 +486,7 @@ export default function MarketingPage() {
                   <Button
                     asChild
                     size="sm"
-                    className="rounded-full text-sm px-6 bg-cyan-600 text-white hover:bg-cyan-700 shadow-lg shadow-cyan-500/30 transition-colors"
+                    className="rounded-[1rem] text-sm px-6 bg-cyan-600 text-white hover:bg-cyan-700 shadow-lg shadow-cyan-500/30 transition-colors"
                   >
                     <Link href="/sites/implantes-premium" target="_blank" rel="noopener noreferrer">
                       Ver Demo Ao Vivo
@@ -496,7 +496,7 @@ export default function MarketingPage() {
                     asChild
                     size="sm"
                     variant="outline"
-                    className="rounded-full text-sm px-6 border-cyan-600 text-cyan-600 hover:bg-cyan-50"
+                    className="rounded-[1rem] text-sm px-6 border-cyan-600 text-cyan-600 hover:bg-cyan-50"
                   >
                     <Link href="/comecar">
                       Quero Este Site
@@ -554,7 +554,7 @@ export default function MarketingPage() {
                   <Button
                     asChild
                     size="sm"
-                    className="rounded-full text-sm px-6 bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-500/30 w-fit"
+                    className="rounded-[1rem] text-sm px-6 bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-500/30 w-fit"
                   >
                     <Link href="/sites/essencial-pet" target="_blank" rel="noopener noreferrer">
                       Ver Demo Ao Vivo
@@ -564,7 +564,7 @@ export default function MarketingPage() {
                     asChild
                     variant="outline"
                     size="sm"
-                    className="rounded-full text-sm px-6 border-emerald-600 text-emerald-600 hover:bg-emerald-50 w-fit"
+                    className="rounded-[1rem] text-sm px-6 border-emerald-600 text-emerald-600 hover:bg-emerald-50 w-fit"
                   >
                     <Link href="/comecar">
                       Quero Este Site
@@ -692,7 +692,7 @@ export default function MarketingPage() {
           <div className="mt-12 md:mt-16 text-center">
             <Link
               href="/comecar"
-              className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:shadow-xl hover:brightness-105 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-[1rem] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:shadow-xl hover:brightness-105 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Quero Tecnologia de Grande Empresa
               <ArrowRight className="ml-2 h-5 w-5" />
