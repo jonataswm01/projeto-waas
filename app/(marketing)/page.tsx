@@ -8,6 +8,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { 
   ArrowRight, 
   Instagram, 
+  Linkedin,
+  Mail,
+  PhoneCall,
   UserX, 
   TrendingDown, 
   CheckCircle2, 
@@ -37,6 +40,47 @@ function ParallaxOrb({ className, speed = 0.5 }: { className: string; speed?: nu
 }
 
 export default function MarketingPage() {
+  const footerSections = [
+    {
+      title: "Produto",
+      links: [
+        { label: "Por que a Lumina", href: "#solucao" },
+        { label: "Planos e preços", href: "#planos" },
+        { label: "Perguntas frequentes", href: "#faq" },
+      ],
+    },
+    {
+      title: "Recursos",
+      links: [
+        { label: "Site rápido e seguro", href: "#solucao" },
+        { label: "Suporte humanizado", href: "/comecar" },
+        { label: "Atualizações contínuas", href: "#solucao" },
+      ],
+    },
+    {
+      title: "Empresa",
+      links: [
+        { label: "Sobre a Lumina", href: "#solucao" },
+        { label: "Resultados de clientes", href: "#planos" },
+        { label: "Suporte e ajuda", href: "#faq" },
+      ],
+    },
+    {
+      title: "Contato",
+      links: [
+        { label: "Falar com especialista", href: "/comecar" },
+        { label: "WhatsApp prioritário", href: "/comecar" },
+        { label: "Central de ajuda", href: "#faq" },
+      ],
+    },
+  ];
+
+  const footerSocials = [
+    { label: "Instagram", href: "https://www.instagram.com", icon: Instagram },
+    { label: "LinkedIn", href: "https://www.linkedin.com", icon: Linkedin },
+    { label: "E-mail", href: "mailto:contato@lumina.com", icon: Mail },
+    { label: "Fale com a Lumina", href: "/comecar", icon: PhoneCall },
+  ];
 
   return (
     <>
@@ -66,19 +110,17 @@ export default function MarketingPage() {
               transition={{ duration: 0.6 }}
               className="text-center md:text-left"
             >
-              {/* Badge */}
+              {/* Badge -> linha tipográfica discreta */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="flex justify-center md:justify-start mb-6"
               >
-                <Badge
-                  variant="outline"
-                  className="border border-blue-600 text-blue-600 bg-transparent px-4 py-1.5 text-sm font-semibold rounded-full shadow-none transition-none"
-                >
-                  PARE DE PERDER VENDAS HOJE
-                </Badge>
+                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-500/70" />
+                  <span>Pare de perder vendas hoje</span>
+                </div>
               </motion.div>
 
               {/* Headline */}
@@ -183,7 +225,7 @@ export default function MarketingPage() {
       <PainPointsSection />
 
       {/* Seção A Solução */}
-      <section className="relative py-20 md:py-24 overflow-hidden">
+      <section id="solucao" className="relative py-20 md:py-24 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -660,10 +702,12 @@ export default function MarketingPage() {
       </section>
 
       {/* Seção A Oferta */}
-      <PricingSection />
+      <div id="planos" className="relative">
+        <PricingSection />
+      </div>
 
       {/* Seção FAQ */}
-      <section className="relative py-20 md:py-24 overflow-hidden">
+      <section id="faq" className="relative py-20 md:py-24 overflow-hidden">
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -750,6 +794,126 @@ export default function MarketingPage() {
           </Accordion>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="relative mt-16 md:mt-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white to-indigo-50/60" />
+        <div className="absolute inset-x-0 -top-24 h-48 bg-[radial-gradient(circle_at_top,_rgba(79,70,229,0.15),transparent_55%)]" />
+        <div className="absolute -left-32 top-10 h-56 w-56 rounded-full bg-blue-200/30 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-pink-200/30 blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+          <div className="space-y-12 lg:space-y-14">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative overflow-hidden rounded-3xl border border-white/60 bg-white/80 backdrop-blur-xl shadow-2xl shadow-indigo-500/10 p-8 sm:p-10"
+            >
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-blue-500/10" />
+              <div className="pointer-events-none absolute -right-12 -top-20 h-48 w-48 rounded-full bg-indigo-400/20 blur-3xl" />
+
+              <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                <Hand className="h-3.5 w-3.5 text-slate-400" />
+                <span>Lumina para sua marca</span>
+              </div>
+
+              <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-6 mb-4">
+                Pronto para um site que vende e evolui com você?
+              </h3>
+              <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
+                Fale com um especialista Lumina e descubra o melhor plano para colocar seu negócio na frente com velocidade, segurança e suporte humano.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="/comecar"
+                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                  Começar agora
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link
+                  href="#planos"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/70 px-6 sm:px-7 py-3 text-sm sm:text-base font-semibold text-slate-700 shadow-sm shadow-indigo-200/50 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-indigo-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                  Ver planos
+                </Link>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                {["Site no ar em até 7 dias", "Suporte humano por WhatsApp", "Segurança e performance contínuas"].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1.5 text-sm text-slate-600 shadow-sm shadow-indigo-200/40"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.05 }}
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8"
+            >
+              {footerSections.map((section, index) => (
+                <motion.div
+                  key={section.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.08 * index }}
+                  className="space-y-4"
+                >
+                  <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    {section.title}
+                  </h4>
+                  <ul className="space-y-3">
+                    {section.links.map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          href={link.href}
+                          className="relative inline-flex items-center text-sm sm:text-base text-slate-600 hover:text-slate-900 transition-all duration-200 after:absolute after:left-0 after:bottom-0 after:h-px after:w-full after:scale-x-0 after:origin-left after:bg-gradient-to-r after:from-blue-500 after:to-indigo-500 after:transition-transform after:duration-200 hover:after:scale-x-100"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-slate-200/70 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-sm text-slate-500">
+              © {new Date().getFullYear()} Lumina. Sites que vendem, evoluem e permanecem no ar.
+            </div>
+            <div className="flex items-center gap-3">
+              {footerSocials.map(({ label, href, icon: Icon }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  whileHover={{ y: -3, rotate: -2, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-600 shadow-md shadow-indigo-500/10 transition-all duration-200 hover:border-indigo-200 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                  <Icon className="h-5 w-5" />
+                  <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/0 via-indigo-500/0 to-pink-500/0 opacity-0 transition duration-200 group-hover:opacity-100" />
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
       </main>
     </>
   );
