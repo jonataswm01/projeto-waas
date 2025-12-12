@@ -8,7 +8,7 @@ export function PainPointsSection() {
   const painPoints = [
     {
       icon: Lock,
-      title: "Seu site é sua identidade na internet.",
+      title: "Seu site é sua identidade na internet",
       description: "É o seu domínio, a sua cara e o seu patrimônio digital — não fica refém de algoritmo ou perfil.",
       iconBg: "bg-pink-50",
       iconColor: "text-pink-500",
@@ -18,7 +18,7 @@ export function PainPointsSection() {
     },
     {
       icon: UserX,
-      title: "Sem site, passa a impressão errada.",
+      title: "Sem site, a confiança cai",
       description: "Quem não encontra você no Google desconfia. Quem aparece primeiro ganha a confiança.",
       iconBg: "bg-orange-50",
       iconColor: "text-orange-500",
@@ -28,8 +28,8 @@ export function PainPointsSection() {
     },
     {
       icon: TrendingDown,
-      title: "Você está perdendo um canal de vendas.",
-      description: "Tem gente buscando agora. Sem site otimizado, você fica invisível e o pedido vai para outro.",
+      title: "Invisível para quem quer comprar",
+      description: "Tem gente buscando agora. Sem site otimizado, você perde o canal de vendas e o pedido vai para outro.",
       iconBg: "bg-blue-50",
       iconColor: "text-blue-500",
       barColor: "from-blue-300/90 via-blue-200 to-blue-100",
@@ -87,17 +87,17 @@ export function PainPointsSection() {
                 >
                   {/* Icon + Bar */}
                   <div className="flex items-center gap-3 mb-6">
-                    <motion.div
-                      className={`
-                        w-14 h-14 rounded-xl
-                        ${point.iconBg}
+                  <motion.div
+                    className={`
+                      w-14 h-14 rounded-xl
+                      ${point.iconBg}
                         flex items-center justify-center
-                      `}
+                    `}
                       whileHover={{ scale: 1.08 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    >
-                      <Icon className={`h-7 w-7 ${point.iconColor}`} />
-                    </motion.div>
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
+                    <Icon className={`h-7 w-7 ${point.iconColor}`} />
+                  </motion.div>
                     <div className={`h-2 w-[70%] rounded-full bg-gradient-to-r ${point.barColor}`} />
                   </div>
 
@@ -115,6 +115,50 @@ export function PainPointsSection() {
             );
           })}
         </div>
+
+        {/* CTA reaproveitado */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mt-10 md:mt-12 flex justify-center"
+        >
+          <Link
+            href="/comecar"
+            className="w-full md:w-auto inline-flex items-center justify-center px-6 md:px-10 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm md:text-base font-semibold shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50"
+          >
+            Quero ser encontrado e vender
+          </Link>
+        </motion.div>
+
+        {/* Hint de scroll para continuar */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="relative mt-8 md:mt-10 flex justify-center"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            className="flex items-center gap-2 text-slate-500 text-sm"
+          >
+            <span>Continue</span>
+            <svg
+              className="h-4 w-4 text-slate-500"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </motion.div>
+        </motion.div>
 
       </div>
     </section>

@@ -269,8 +269,8 @@ export function PricingSection() {
                   <CardHeader className="text-center pb-3 pt-6 space-y-3">
                     <div className="space-y-1">
                       <CardTitle className="text-2xl md:text-3xl text-slate-900 tracking-tight">
-                        {plan.name}
-                      </CardTitle>
+                      {plan.name}
+                    </CardTitle>
                       <p className="text-sm text-slate-600">{plan.subtitle}</p>
                       <p className="text-xs text-slate-500">{plan.audience}</p>
                     </div>
@@ -309,7 +309,7 @@ export function PricingSection() {
                               <span className="text-sm font-semibold text-slate-500 mt-1">R$</span>
                               <span className="text-4xl md:text-5xl font-bold text-slate-900 leading-none">
                                 {formatNumber(displayPrice)}
-                              </span>
+                            </span>
                             </div>
                             <span className="text-sm sm:text-base text-slate-600">/mês</span>
                             <span className="text-[11px] text-slate-500">plano mensal</span>

@@ -18,12 +18,8 @@ import {
   ShieldCheck,
   Smartphone,
   Sparkles,
-  TrendingDown,
-  UserX,
   XCircle,
   Zap,
-  EyeOff,
-  FileText,
 } from "lucide-react";
 import Link from "next/link";
 import { PricingSection } from "@/components/marketing/pricing-section";
@@ -117,25 +113,24 @@ export default function MarketingPage() {
     {
       title: "Recursos",
       links: [
-        { label: "Site rápido e seguro", href: "#solucao" },
-        { label: "Suporte humanizado", href: "/comecar" },
-        { label: "Atualizações contínuas", href: "#solucao" },
+        { label: "Site rápido e seguro", href: "#recursos-tecnologia" },
+        { label: "Suporte humanizado", href: "#recursos-tecnologia" },
+        { label: "Atualizações contínuas", href: "#recursos-tecnologia" },
       ],
     },
     {
       title: "Empresa",
       links: [
         { label: "Sobre a Lumina", href: "#solucao" },
-        { label: "Resultados de clientes", href: "#planos" },
-        { label: "Suporte e ajuda", href: "#faq" },
+        { label: "Suporte e ajuda", href: "https://wa.me/5544920012310" },
       ],
     },
     {
       title: "Contato",
       links: [
-        { label: "Falar com especialista", href: "/comecar" },
-        { label: "WhatsApp prioritário", href: "/comecar" },
-        { label: "Central de ajuda", href: "#faq" },
+        { label: "Falar com especialista", href: "https://wa.me/5544920012310" },
+        { label: "WhatsApp prioritário", href: "https://wa.me/5544920012310" },
+        { label: "Central de ajuda", href: "https://wa.me/5544920012310" },
       ],
     },
   ];
@@ -186,7 +181,7 @@ export default function MarketingPage() {
               >
                 <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                   <span className="h-1.5 w-1.5 rounded-full bg-indigo-500/70" />
-                  <span>Pare de perder vendas hoje</span>
+                  <span>Endereço próprio online</span>
                 </div>
               </motion.div>
 
@@ -197,10 +192,7 @@ export default function MarketingPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.25] px-2 sm:px-0"
               >
-                Seu concorrente está vendendo pelo Google. E você? Não perca mais tempo.{" "}
-                <span className="bg-gradient-to-r from-indigo-500 via-sky-500 to-pink-500 bg-clip-text text-transparent">
-                  
-                </span>
+                Seu negócio precisa de um endereço próprio na internet.
               </motion.h1>
 
               {/* Subheadline */}
@@ -210,7 +202,7 @@ export default function MarketingPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-lg sm:text-xl md:text-2xl text-slate-700 mb-6 max-w-3xl mx-auto md:mx-0 leading-relaxed"
               >
-                Tenha um Site Profissional, Otimizado e Seguro no ar em até 7 dias
+                Site profissional, no ar em até 7 dias, seguro e no seu domínio.
               </motion.p>
 
               {/* Micro-copy */}
@@ -235,7 +227,7 @@ export default function MarketingPage() {
                     href="/comecar"
                     className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-[1rem] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:shadow-xl hover:brightness-105 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
-                    QUERO VENDER MAIS PELO GOOGLE
+                    Quero meu site próprio
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </motion.div>
@@ -290,117 +282,6 @@ export default function MarketingPage() {
 
       {/* Seção Pain Points - AURORA GLASS Dark Mode */}
       <PainPointsSection />
-
-      {/* Seção Caminho sem Fricção */}
-      <section className="relative py-16 md:py-20">
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10 md:mb-12"
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-              o que você perde sem um site
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-2">
-              Não ter site custa caro (e deixa você fora do mapa)
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
-          >
-            {[
-              {
-                title: "Parece amador",
-                desc: "Fica a impressão de improviso e pouca confiança.",
-                icon: UserX,
-              },
-              {
-                title: "Invisível no Google",
-                desc: "Quem procura não encontra você quando mais precisa.",
-                icon: EyeOff,
-              },
-              {
-                title: "Dinheiro na mesa",
-                desc: "Leads e vendas indo para concorrentes que têm presença.",
-                icon: TrendingDown,
-              },
-              {
-                title: "Burocracia para ter um site",
-                desc: "A sensação de que vai ser caro, demorado e complicado.",
-                icon: FileText,
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="relative flex h-full flex-col gap-4 rounded-[28px] border border-indigo-50 bg-gradient-to-br from-white/95 via-white/90 to-indigo-50/40 shadow-[0_15px_40px_-18px_rgba(79,70,229,0.35)] px-6 py-7 md:px-8 md:py-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_45px_-18px_rgba(79,70,229,0.4)]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm">
-                    <item.icon className="h-5 w-5" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="h-2 w-[65%] rounded-full bg-gradient-to-r from-indigo-300/70 via-indigo-200 to-indigo-100" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900">{item.title}</h3>
-                <p className="text-base text-slate-700 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-8 md:mt-10 flex justify-center"
-          >
-            <Link
-              href="/comecar"
-              className="w-full md:w-auto inline-flex items-center justify-center px-6 md:px-10 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm md:text-base font-semibold shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50"
-            >
-              Quero ser encontrado e vender
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative mt-10 md:mt-12"
-          >
-            <div className="absolute inset-x-0 -bottom-2 md:-bottom-4 flex justify-center">
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-                className="flex items-center gap-2 text-slate-500 text-sm"
-              >
-                <span>Continue</span>
-                <svg
-                  className="h-4 w-4 text-slate-500"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Seção A Solução */}
       <section id="solucao" className="relative py-20 md:py-24 overflow-hidden">
@@ -523,7 +404,7 @@ export default function MarketingPage() {
       </section>
 
       {/* Seção A Vitrine - Template Showcase */}
-      <section className="relative py-20 md:py-24 overflow-hidden">
+      <section id="recursos-tecnologia" className="relative py-20 md:py-24 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -732,7 +613,7 @@ export default function MarketingPage() {
                   <Button
                     asChild
                     size="sm"
-                    className="rounded-[1rem] text-sm px-6 bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-500/30 w-fit"
+                    className="w-full sm:w-auto rounded-[1rem] text-sm px-6 bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-500/30"
                   >
                     <Link href="/sites/essencial-pet" target="_blank" rel="noopener noreferrer">
                       Ver Demo Ao Vivo
@@ -742,7 +623,7 @@ export default function MarketingPage() {
                     asChild
                     variant="outline"
                     size="sm"
-                    className="rounded-[1rem] text-sm px-6 border-emerald-600 text-emerald-600 hover:bg-emerald-50 w-fit"
+                    className="w-full sm:w-auto rounded-[1rem] text-sm px-6 border-emerald-600 text-emerald-600 hover:bg-emerald-50"
                   >
                     <Link href="/comecar">
                       Quero Este Site
@@ -902,7 +783,7 @@ export default function MarketingPage() {
               Perguntas frequentes
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Tire dúvidas rápido, veja o que está incluso e fale com um especialista sem sair da página.
+              Tire dúvidas rápido, veja o que está incluso.
             </p>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 pt-2">
               {["Site no ar em até 7 dias", "Suporte humano por WhatsApp", "SEO técnico incluído"].map((pill) => (
@@ -975,7 +856,7 @@ export default function MarketingPage() {
                     </p>
                     <div className="mt-4 flex flex-wrap gap-3">
                       <Link
-                        href="https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20especialista%20Lumina"
+                        href="https://wa.me/5511973492382?text=Quero%20falar%20com%20um%20especialista%20Lumina"
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-400/40 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-lg w-full sm:w-auto"
@@ -1054,7 +935,7 @@ export default function MarketingPage() {
                   </p>
                   <div className="mt-4 w-full flex flex-col gap-3">
                     <Link
-                      href="https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20especialista%20Lumina"
+                      href="https://wa.me/5511973492382?text=Quero%20falar%20com%20um%20especialista%20Lumina"
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-indigo-400/40 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-lg w-full"
@@ -1098,7 +979,7 @@ export default function MarketingPage() {
                 Pronto para um site que vende e evolui com você?
               </h3>
               <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
-                Fale com um especialista Lumina e descubra o melhor plano para colocar seu negócio na frente com velocidade, segurança e suporte humano.
+                Fale com um especialista Lumina e descubra o melhor plano para colocar seu negócio na frente com velocidade e segurança.
               </p>
 
               <div className="flex flex-row flex-wrap items-center gap-3">
