@@ -163,7 +163,7 @@ export default function MarketingPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative flex items-center justify-center pt-8 pb-16 sm:pb-24 md:pt-16">
+      <section className="relative min-h-screen flex items-center justify-center pt-3 pb-16 sm:pb-24 md:pt-6">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-center">
             <motion.div
@@ -255,17 +255,17 @@ export default function MarketingPage() {
                 </div>
 
                 <motion.div
-                  className="hidden md:block absolute -top-20 -right-16 w-36 sm:w-40 rounded-[1.5rem] bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-sky-500/20 p-4"
+                  className="hidden md:block absolute -top-24 -right-16 w-44 sm:w-48 rounded-[1.5rem] bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-sky-500/20 p-4"
                   animate={{ y: [-6, 6, -6] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <p className="text-xs font-medium text-slate-500 mb-1">Resultado médio</p>
-                  <p className="text-lg font-semibold text-slate-900">+30% vendas</p>
-                  <p className="text-[11px] text-slate-600">em 90 dias com presença profissional.</p>
+                  <p className="text-xs font-medium text-slate-500 mb-1">Presença validada</p>
+                  <p className="text-sm sm:text-base font-semibold text-slate-900">Site confiável que passa segurança</p>
+                  <p className="text-[11px] text-slate-600">Domínio próprio, SSL e reputação melhor aos olhos do cliente.</p>
                 </motion.div>
 
                 <motion.div
-                  className="hidden md:block absolute -bottom-28 -left-16 w-44 sm:w-52 rounded-[1.75rem] bg-indigo-600/90 backdrop-blur-xl border border-white/40 shadow-xl shadow-indigo-500/40 p-4 text-white"
+                  className="hidden md:block absolute -bottom-32 -left-16 w-44 sm:w-52 rounded-[1.75rem] bg-indigo-600/90 backdrop-blur-xl border border-white/40 shadow-xl shadow-indigo-500/40 p-4 text-white"
                   animate={{ y: [10, -6, 10] }}
                   transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
                 >
