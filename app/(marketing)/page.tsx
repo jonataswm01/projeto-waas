@@ -74,6 +74,11 @@ const FAQ_ITEMS: { question: string; answer: string; category: FaqCategory }[] =
     category: "google",
   },
   {
+    question: "Posso integrar com WhatsApp, Google Meu Negócio e redes sociais?",
+    answer: "Sim. Configuramos botões, links e acompanhamos se tudo está funcionando.",
+    category: "google",
+  },
+  {
     question: "Vocês escrevem os textos?",
     answer:
       "Sim. Usamos modelos testados de conversão e personalizamos com a voz da sua marca. Você revisa e aprova antes de subir ao ar.",
@@ -82,7 +87,7 @@ const FAQ_ITEMS: { question: string; answer: string; category: FaqCategory }[] =
   {
     question: "Posso pedir ajustes depois que o site for ao ar?",
     answer:
-      "Claro. Mudou preço, foto ou oferta? Envie no WhatsApp e atualizamos. Evolução contínua faz parte da assinatura.",
+      "Sim. Cada plano inclui um número limitado de pedidos de ajuste por mês (texto, imagem ou CTA). Se precisar de algo fora da franquia, alinhamos antes de executar.",
     category: "suporte",
   },
 ];
@@ -881,9 +886,6 @@ export default function MarketingPage() {
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div>
                     <p className="text-sm font-semibold text-slate-900">Resultados</p>
-                    <p className="text-sm text-slate-500">
-                      {filteredFaqs.length} {filteredFaqs.length === 1 ? "pergunta" : "perguntas"} visíveis
-                    </p>
                   </div>
                 </div>
 
