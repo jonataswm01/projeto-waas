@@ -163,7 +163,7 @@ export default function MarketingPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-3 pb-16 sm:pb-24 md:pt-6">
+      <section className="relative min-h-[80vh] sm:min-h-screen flex items-center justify-center pt-2 pb-16 sm:pb-24 md:pt-6">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-center">
             <motion.div
