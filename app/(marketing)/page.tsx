@@ -648,7 +648,7 @@ export default function MarketingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
+            className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
           >
             Tecnologia das Grandes Empresas. Preço de Pequena Empresa
           </motion.h2>
@@ -669,7 +669,7 @@ export default function MarketingPage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Velocidade</h3>
+                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">Velocidade</h3>
                     <p className="text-base sm:text-lg text-slate-600">
                       Tecnologia que carrega em segundos e mantém seus visitantes conectados
                     </p>
@@ -693,7 +693,7 @@ export default function MarketingPage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Responsividade</h3>
+                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">Responsividade</h3>
                     <p className="text-base sm:text-lg text-slate-600">
                       Perfeito em qualquer celular. Onde 90% dos seus clientes estão
                     </p>
@@ -717,7 +717,7 @@ export default function MarketingPage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Blindado</h3>
+                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">Blindado</h3>
                     <p className="text-base sm:text-lg text-slate-600">
                       Monitoramento e atualizações mantêm o site protegido o tempo todo.
                     </p>
@@ -741,7 +741,7 @@ export default function MarketingPage() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Visibilidade no Google</h3>
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">Visibilidade no Google</h3>
                     <p className="text-base sm:text-lg text-slate-600">
                         SEO técnico, velocidade e estrutura ajudam o Google a destacar seu negócio
                       </p>
