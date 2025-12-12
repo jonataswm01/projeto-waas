@@ -441,9 +441,9 @@ export default function MarketingPage() {
               {/* Conteúdo - Lado Esquerdo */}
               <div className="p-6 md:p-8 flex-1 flex flex-col justify-center md:w-[40%]">
                 <div className="mb-3">
-                  <Badge className="bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-900 border-0 shadow-md shadow-amber-500/30">
-                    Plano Profissional
-                  </Badge>
+                <Badge className="bg-amber-100 text-amber-700 border border-amber-200 shadow-none">
+                  Plano Empresarial
+                </Badge>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mb-3">
                   Institucional Empresarial
@@ -458,7 +458,7 @@ export default function MarketingPage() {
                   <Button
                     asChild
                     size="sm"
-                    className="rounded-[1rem] text-sm px-6 font-semibold bg-amber-500 text-slate-900 hover:bg-amber-600 shadow-lg shadow-amber-500/30 transition-colors"
+                    className="rounded-[1rem] text-sm px-6 font-semibold bg-gradient-to-r from-amber-500 via-amber-500 to-amber-600 text-white hover:from-amber-500 hover:via-amber-500 hover:to-amber-600 shadow-lg shadow-amber-500/30 transition-colors"
                   >
                     <Link href="/sites/corporativo-nexus" target="_blank" rel="noopener noreferrer">
                       Ver Demo Ao Vivo
