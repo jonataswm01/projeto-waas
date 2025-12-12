@@ -669,8 +669,8 @@ export default function MarketingPage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">Velocidade</h3>
-                    <p className="text-base sm:text-lg text-slate-600">
+                    <h3 className="text-lg md:text-xl font-bold tracking-tight text-slate-900 mb-3">Velocidade</h3>
+                    <p className="text-sm md:text-base text-slate-600">
                       Tecnologia que carrega em segundos e mantém seus visitantes conectados
                     </p>
                   </div>
@@ -693,8 +693,8 @@ export default function MarketingPage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">Responsividade</h3>
-                    <p className="text-base sm:text-lg text-slate-600">
+                    <h3 className="text-lg md:text-xl font-bold tracking-tight text-slate-900 mb-3">Responsividade</h3>
+                    <p className="text-sm md:text-base text-slate-600">
                       Perfeito em qualquer celular. Onde 90% dos seus clientes estão
                     </p>
                   </div>
@@ -717,8 +717,8 @@ export default function MarketingPage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">Blindado</h3>
-                    <p className="text-base sm:text-lg text-slate-600">
+                    <h3 className="text-lg md:text-xl font-bold tracking-tight text-slate-900 mb-3">Blindado</h3>
+                    <p className="text-sm md:text-base text-slate-600">
                       Monitoramento e atualizações mantêm o site protegido o tempo todo.
                     </p>
                   </div>
@@ -741,8 +741,8 @@ export default function MarketingPage() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">Visibilidade no Google</h3>
-                    <p className="text-base sm:text-lg text-slate-600">
+                      <h3 className="text-lg md:text-xl font-bold tracking-tight text-slate-900 mb-3">Visibilidade no Google</h3>
+                    <p className="text-sm md:text-base text-slate-600">
                         SEO técnico, velocidade e estrutura ajudam o Google a destacar seu negócio
                       </p>
                     </div>
