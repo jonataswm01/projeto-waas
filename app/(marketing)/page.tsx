@@ -966,7 +966,7 @@ export default function MarketingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="relative overflow-hidden rounded-3xl border border-white/60 bg-white/80 backdrop-blur-xl shadow-2xl shadow-indigo-500/10 p-8 sm:p-10"
+              className="relative overflow-hidden rounded-3xl border border-white/60 bg-white/80 backdrop-blur-xl shadow-2xl shadow-indigo-500/10 p-8 sm:p-10 my-6"
             >
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-blue-500/10" />
               <div className="pointer-events-none absolute -right-12 -top-20 h-48 w-48 rounded-full bg-indigo-400/20 blur-3xl" />
@@ -976,10 +976,10 @@ export default function MarketingPage() {
                 <span>Lumina para sua marca</span>
               </div>
 
-              <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-6 mb-4">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-6 mb-4">
                 Pronto para um site que vende e evolui com você?
               </h3>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
                 Fale com um especialista Lumina e descubra o melhor plano para colocar seu negócio na frente com velocidade e segurança.
               </p>
 
