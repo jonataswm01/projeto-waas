@@ -6,14 +6,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
   ArrowRight,
+  CheckCircle2,
   Clock3,
   Hand,
   Instagram,
-  CheckCircle2,
   LifeBuoy,
   Linkedin,
   Mail,
-  MessageCircle,
   PhoneCall,
   ShieldCheck,
   Smartphone,
@@ -663,7 +662,7 @@ export default function MarketingPage() {
               transition={{ duration: 0.6 }}
             >
               <Card className="rounded-[1.25rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
-                <CardContent className="p-6 flex gap-6">
+                <CardContent className="p-6 flex gap-6 items-center">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-lg bg-blue-100 flex items-center justify-center">
                       <Zap className="h-8 w-8 text-blue-600" />
@@ -671,8 +670,8 @@ export default function MarketingPage() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Velocidade</h3>
-                    <p className="text-lg text-slate-600">
-                      Tecnologia moderna. Carrega na hora. O Google ama sites rápidos e coloca eles no topo
+                    <p className="text-base sm:text-lg text-slate-600">
+                      Tecnologia que carrega em segundos e mantém seus visitantes conectados
                     </p>
                   </div>
                 </CardContent>
@@ -687,15 +686,15 @@ export default function MarketingPage() {
               transition={{ duration: 0.6 }}
             >
               <Card className="rounded-[1.25rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
-                <CardContent className="p-6 flex gap-6">
+                <CardContent className="p-6 flex gap-6 items-center">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-lg bg-green-100 flex items-center justify-center">
                       <Smartphone className="h-8 w-8 text-green-600" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Funciona no Celular</h3>
-                    <p className="text-lg text-slate-600">
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Responsividade</h3>
+                    <p className="text-base sm:text-lg text-slate-600">
                       Perfeito em qualquer celular. Onde 90% dos seus clientes estão
                     </p>
                   </div>
@@ -711,7 +710,7 @@ export default function MarketingPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <Card className="rounded-[1.25rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
-                <CardContent className="p-6 flex gap-6">
+                <CardContent className="p-6 flex gap-6 items-center">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-lg bg-purple-100 flex items-center justify-center">
                       <ShieldCheck className="h-8 w-8 text-purple-600" />
@@ -719,15 +718,15 @@ export default function MarketingPage() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Blindado</h3>
-                    <p className="text-lg text-slate-600">
-                      Certificado de Segurança e Proteção contra ataques inclusos. Seu site nunca sai do ar
+                    <p className="text-base sm:text-lg text-slate-600">
+                      Monitoramento e atualizações mantêm o site protegido o tempo todo.
                     </p>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
 
-            {/* Suporte */}
+            {/* Visibilidade no Google */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -735,32 +734,32 @@ export default function MarketingPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <Card className="rounded-[1.25rem] bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-indigo-500/10">
-                <CardContent className="p-6 flex gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-lg bg-orange-100 flex items-center justify-center">
-                      <MessageCircle className="h-8 w-8 text-orange-600" />
+                  <CardContent className="p-6 flex gap-6 items-center">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 rounded-lg bg-rose-100 flex items-center justify-center">
+                        <Sparkles className="h-8 w-8 text-rose-600" />
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Suporte Humanizado</h3>
-                    <p className="text-lg text-slate-600">
-                      Precisa mudar uma foto ou texto? Chame no WhatsApp. Nós resolvemos
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+                    <div>
+                      <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3">Visibilidade no Google</h3>
+                    <p className="text-base sm:text-lg text-slate-600">
+                        SEO técnico, velocidade e estrutura ajudam o Google a destacar seu negócio
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
             </motion.div>
           </div>
 
           {/* CTA após os Benefícios */}
           <div className="mt-12 md:mt-16 text-center">
-            <Link
-              href="/comecar"
-              className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-[1rem] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:shadow-xl hover:brightness-105 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            >
-              Quero Tecnologia de Grande Empresa
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+              <Link
+                href="/comecar"
+                className="inline-flex items-center justify-center text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 font-semibold rounded-[1rem] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-600 hover:shadow-indigo-500/50 hover:shadow-xl hover:brightness-105 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                Quero ter meu site no ar agora
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
           </div>
         </div>
       </section>
