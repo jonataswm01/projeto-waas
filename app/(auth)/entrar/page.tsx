@@ -50,10 +50,10 @@ export default function SignInPage() {
     <div className="w-full max-w-md mx-auto px-4 py-8">
       <div className="flex flex-col items-center mb-6 sm:mb-8">
         <div className="h-10 w-10 rounded-full bg-orange-600/90 flex items-center justify-center text-sm font-semibold">
-          <span className="tracking-tight text-white">Lu</span>
+          <span className="tracking-tight text-white">LS</span>
         </div>
         <div className="mt-3 text-sm font-medium tracking-[0.18em] uppercase text-slate-500">
-          Lumina
+          LoveSite
         </div>
       </div>
 

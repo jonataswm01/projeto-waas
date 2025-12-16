@@ -188,7 +188,7 @@ export function PricingSection() {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-center mb-4 md:mb-6"
         >
-          Planos Lumina para cada fase do seu negócio
+          Planos LoveSite para cada fase do seu negócio
         </motion.h2>
         
         <motion.p

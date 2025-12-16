@@ -58,7 +58,7 @@ export default function OrganizationsPage() {
             <span className="tracking-tight text-white">Lu</span>
           </div>
           <p className="text-sm font-medium tracking-[0.18em] uppercase text-slate-500">
-            Lumina
+            LoveSite
           </p>
         </div>
 

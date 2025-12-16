@@ -21,7 +21,7 @@ export function DemoBar() {
       return "Olá! Vi o modelo Empresarial e gostei. Quero saber mais sobre o plano de R$ 349,90/mês (ou R$ 199,90/mês no anual).";
     }
     // Fallback genérico
-    return "Olá! Vi um modelo da Lumina e gostei. Quero saber mais.";
+    return "Olá! Vi um modelo da LoveSite e gostei. Quero saber mais.";
   };
 
   const whatsappLink = `https://wa.me/5516997330113?text=${encodeURIComponent(getWhatsAppMessage())}`;
@@ -37,7 +37,7 @@ export function DemoBar() {
         <div className="flex items-center gap-2 sm:gap-6 text-[11px] sm:text-sm whitespace-nowrap">
           {/* Texto à esquerda */}
           <p className="font-medium text-slate-700">
-            Demo Lumina
+            Demo LoveSite
           </p>
 
           {/* Botões à direita */}

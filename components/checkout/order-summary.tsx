@@ -166,7 +166,7 @@ export function OrderSummary({
         <div className={cn("flex items-start justify-between gap-3 pb-2 border-b border-slate-200", isMobile && "gap-2 pb-2")}>
           <div className="flex-1 min-w-0">
             <p className={cn("font-medium text-slate-900", isMobile ? "text-sm" : "text-sm")}>
-              Assinatura Lumina ({isAnnual ? 'Anual' : 'Mensal'})
+              Assinatura LoveSite ({isAnnual ? 'Anual' : 'Mensal'})
             </p>
             <p className={cn("text-slate-500 mt-0.5", isMobile ? "text-xs" : "text-xs")}>
               {model.name}

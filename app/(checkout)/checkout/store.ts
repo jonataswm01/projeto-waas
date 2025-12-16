@@ -133,7 +133,7 @@ export const useCheckoutStore = create<CheckoutState>()(
       },
     }),
     {
-      name: 'lumina-checkout-storage',
+      name: 'lovesite-checkout-storage',
       partialize: (state) => ({
         selectedModelId: state.selectedModelId,
         billingCycle: state.billingCycle,

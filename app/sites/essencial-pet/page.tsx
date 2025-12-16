@@ -245,12 +245,12 @@ export default function EssencialPetPage() {
             <p className="text-sm text-slate-500">
               Site desenvolvido por{" "}
               <a
-                href="https://lumina.com.br"
+                href="https://lovesite.com.br"
                 target="_blank"
                 rel="noreferrer"
                 className="font-semibold text-emerald-400 transition hover:text-emerald-300"
               >
-                Lumina
+                LoveSite
               </a>
             </p>
           </div>

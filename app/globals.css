@@ -39,7 +39,7 @@
   }
 }
 
-/* Scrollbar personalizada - Estilo Lumina */
+/* Scrollbar personalizada - Estilo LoveSite */
 /* Firefox */
 * {
   scrollbar-width: thin;
@@ -101,7 +101,7 @@
 
 @layer components {
   /* Efeito de brilho/onda para CTAs principais */
-  .lumina-cta {
+  .lovesite-cta {
     position: relative;
     isolation: isolate;
     overflow: hidden;
@@ -110,7 +110,7 @@
     transition: box-shadow 260ms ease, filter 260ms ease, background-position 520ms ease;
   }
 
-  .lumina-cta::before {
+  .lovesite-cta::before {
     content: "";
     position: absolute;
     inset: -1px;
@@ -126,7 +126,7 @@
     pointer-events: none;
   }
 
-  .lumina-cta::after {
+  .lovesite-cta::after {
     content: "";
     position: absolute;
     inset: -25%;
@@ -141,33 +141,33 @@
     z-index: -1;
   }
 
-  .lumina-cta:hover {
+  .lovesite-cta:hover {
     box-shadow: 0 22px 46px -18px rgba(37, 99, 235, 0.55);
     filter: saturate(1.02);
     background-position: 100% 50%;
   }
 
-  .lumina-cta:hover::before {
+  .lovesite-cta:hover::before {
     transform: translateX(120%);
     opacity: 1;
   }
 
-  .lumina-cta:hover::after {
+  .lovesite-cta:hover::after {
     opacity: 1;
   }
 
-  .lumina-cta:active {
+  .lovesite-cta:active {
     filter: saturate(0.98);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .lumina-cta {
+    .lovesite-cta {
       transition: box-shadow 200ms ease, filter 200ms ease;
       background-size: 100% 100%;
       background-position: 50% 50%;
     }
-    .lumina-cta::before,
-    .lumina-cta::after {
+    .lovesite-cta::before,
+    .lovesite-cta::after {
       display: none;
     }
   }

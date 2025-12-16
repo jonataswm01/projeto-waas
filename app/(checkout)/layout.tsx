@@ -39,7 +39,7 @@ export default function CheckoutLayout({
               <span
                 className={`${outfit.className} text-xl font-bold tracking-wider uppercase bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600`}
               >
-                LUMINA
+                LOVESITE
               </span>
             </Link>
 
@@ -84,7 +84,7 @@ export default function CheckoutLayout({
       <footer className="bg-white border-t border-slate-200 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-600">
-            <p>© {new Date().getFullYear()} Lumina. Todos os direitos reservados.</p>
+            <p>© {new Date().getFullYear()} LoveSite. Todos os direitos reservados.</p>
             <div className="flex items-center gap-4">
               <Link
                 href="/termos"

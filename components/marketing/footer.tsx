@@ -7,7 +7,7 @@ import { Outfit } from "next/font/google";
 const outfit = Outfit({ subsets: ["latin"] });
 
 export function Footer() {
-  const whatsappLink = "https://wa.me/5516997330113?text=Olá! Quero tirar minha empresa da sombra e criar meu site com a Lumina.";
+  const whatsappLink = "https://wa.me/5516997330113?text=Olá! Quero tirar minha empresa da sombra e criar meu site com a LoveSite.";
 
   return (
     <footer className="bg-slate-900 text-white border-t border-slate-800">
@@ -35,11 +35,11 @@ export function Footer() {
             <div className="flex items-center justify-center gap-2 mb-2">
               <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
               <span className={`${outfit.className} text-sm font-bold tracking-wider uppercase text-white`}>
-                LUMINA
+                LOVESITE
               </span>
             </div>
             <p className="text-sm text-slate-400">
-              © {new Date().getFullYear()} Lumina. Todos os direitos reservados.
+              © {new Date().getFullYear()} LoveSite. Todos os direitos reservados.
             </p>
           </div>
         </div>

@@ -6,8 +6,13 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Lumina | Sites Profissionais por Assinatura",
+  title: "LoveSite | Sites Profissionais por Assinatura",
   description: "Sites profissionais por assinatura. Tecnologia de ponta a partir de R$ 99,90/mês.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({

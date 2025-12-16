@@ -215,7 +215,7 @@ export default function OnboardingPage() {
               Lu
             </div>
             <p className="text-xs font-medium text-slate-500 uppercase tracking-[0.18em]">
-              Lumina
+              LoveSite
             </p>
           </div>
 

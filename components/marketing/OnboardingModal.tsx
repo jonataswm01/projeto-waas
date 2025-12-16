@@ -240,7 +240,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
       styleOptions.find((option) => option.id === formData.style)?.label ??
       "Clean"
     const message = [
-      "Olá! Acabei de preencher o onboarding da Lumina 🚀",
+      "Olá! Acabei de preencher o onboarding da LoveSite 🚀",
       `Nome: ${formData.name || "Não informado"}`,
       `Empresa: ${formData.company || "Não informado"}`,
       `Estilo: ${styleLabel}`,

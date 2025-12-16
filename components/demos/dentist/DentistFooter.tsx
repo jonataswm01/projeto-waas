@@ -115,12 +115,12 @@ export function DentistFooter() {
           <p className="mt-2 text-xs text-slate-400">
             Site desenvolvido por{" "}
             <a
-              href="https://lumina.com.br"
+              href="https://lovesite.com.br"
               target="_blank"
               rel="noreferrer"
               className="font-semibold text-cyan-600 transition hover:text-cyan-700"
             >
-              Lumina
+              LoveSite
             </a>
           </p>
         </div>
